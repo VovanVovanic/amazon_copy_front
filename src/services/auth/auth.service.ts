@@ -1,14 +1,16 @@
-import { saveTokenStorage, saveToStorage } from './auth.helper';
-import { getContentType } from './../api/api.helper';
+import { auth } from "@/api/api.endpoints"
+import { getContentType } from "@/api/api.helper"
+import { instance } from "@/api/api.interceptor"
+import { IEmailPassword, IAuthResponse } from "@/store/user/types"
 import axios from "axios"
 import Cookies from "js-cookie"
-import { IAuthResponse, IEmailPassword } from '@/store/user/types';
-import { instance } from '@/api/api.interceptor';
+import { saveToStorage, saveTokenStorage } from "./auth.helper"
+
 
 class AuthService{
  async auth(type: 'login' | 'register', data: IEmailPassword) {
   const res = await instance({
-   url: `/auth/${type}`,
+   url: `${auth.sign}${type}`,
    method: 'POST',
    data
   })

@@ -1,18 +1,32 @@
 import { ICategory } from "../category/types"
+import { IPagination } from "../pagination/types"
 import { IReview } from "../reviews/types"
 
-export interface IProduct{
- id: number
+export enum EnumProductsSort{
+ HIGH_PRICE = 'high-price',
+ LOW_PRICE = "low-price",
+ NEWEST = "newest",
+ OLDEST = "oldest"
+}
+export interface IProductData{
  name: string
- slug: string
  description: string
  price: string
- review: IReview[]
  images: string[]
-category:ICategory
+ categoryId:number
+}
+export interface IProduct extends IProductData{
+ id: number
+ slug: string
+ review: IReview[]
+ category:ICategory
  createdAt: string
 }
 
+export interface IProductFilters extends IPagination{
+ sort?: EnumProductsSort
+ searchTerm?:string
+}
 export interface IProductDetails{
  product:IProduct
 }

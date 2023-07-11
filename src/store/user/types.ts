@@ -11,6 +11,14 @@ export interface IUserState{
  isAdmin:boolean
 }
 
+export interface UserUpdate{
+ email?: string
+ password?: string
+ name?: string
+ avatarPath?: string
+ phone?: string
+}
+
 export interface ITokens{
  accessToken: string
  refreshToken:string
