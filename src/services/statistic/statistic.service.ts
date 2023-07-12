@@ -1,5 +1,5 @@
-import { statistic } from '@/api/api.endpoints';
-import { instance } from '@/api/api.interceptor';
+import { statistic } from '@/app/app.endpoints';
+import { instance } from '@/app/app.interceptor';
 import { IStatistic } from '@/store/statistic/statistic.types';
 class StatisticService{
  async getStatistic(userId: string) {

@@ -12,6 +12,8 @@ const api = {
  auth: {
   sign: `/${Endpoints.Auth}/`,
   refreshToken: `/${Endpoints.Auth}/login/refresh`,
+  logout: `/${Endpoints.Auth}/logout`,
+  checkAuth: `/${Endpoints.Auth}/check_auth`
  },
  category: {
   all: `/${Endpoints.Category}/`,

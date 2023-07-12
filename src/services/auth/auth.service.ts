@@ -1,6 +1,6 @@
-import { auth } from "@/api/api.endpoints"
-import { getContentType } from "@/api/api.helper"
-import { instance } from "@/api/api.interceptor"
+import { auth } from "@/app/app.endpoints"
+import { getContentType } from "@/app/app.helper"
+import { instance } from "@/app/app.interceptor"
 import { IEmailPassword, IAuthResponse } from "@/store/user/types"
 import axios from "axios"
 import Cookies from "js-cookie"
@@ -23,17 +23,16 @@ class AuthService{
   async getNewTokens() {
    const refreshToken = Cookies.get('refresh-token')
    
-   const response = await axios.post<string, { data: IAuthResponse}>(
+   const res = await axios.post<string, { data: IAuthResponse}>(
     process.env.SERVER_URL + '/auth/login/refresh', {refreshToken},{headers:getContentType()}
    )
 
-   if ((response).data.accessToken) {
-    saveTokenStorage((await response).data)
+   if ((res).data.accessToken) {
+    saveTokenStorage(( res).data)
    }
-   return response
+   return res
   }
 
 }
-const Auth = new AuthService() 
+export const Auth = new AuthService() 
 
-export default Auth

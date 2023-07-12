@@ -25,7 +25,7 @@ export interface ITokens{
 }
 
 export interface IInitialState{
- user:IUserState
+ user:IUserState | null
  isLoading:boolean
 }
 

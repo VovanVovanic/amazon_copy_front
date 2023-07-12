@@ -1,5 +1,5 @@
-import { instance } from '@/api/api.interceptor';
-import { category } from "@/api/api.endpoints"
+import { instance } from '@/app/app.interceptor';
+import { category } from "@/app/app.endpoints"
 import { ByFeature, ICategory, ICreateCategory } from "@/store/category/types"
 
 class CategoryService{

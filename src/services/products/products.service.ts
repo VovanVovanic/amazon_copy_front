@@ -1,5 +1,5 @@
-import { products } from "@/api/api.endpoints"
-import { instance } from "@/api/api.interceptor"
+import { products } from "@/app/app.endpoints"
+import { instance } from "@/app/app.interceptor"
 import { ByFeature } from "@/store/category/types"
 import { IProduct, IProductData, IProductFilters } from "@/store/product/types"
 
