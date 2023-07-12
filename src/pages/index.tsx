@@ -2,10 +2,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import { NextPageAuth } from '@/providers/authProviders/types'
 
 const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+const Home:NextPageAuth =()=> {
   return (
     <>
       <Head>
@@ -20,3 +20,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home

@@ -6,12 +6,17 @@ export const saveTokenStorage = (data: ITokens) => {
  Cookies.set('accessToken', data.accessToken)
  Cookies.set('refreshToken', data.refreshToken)
 }
-export const getUserFromStorage = async () => {
+export const getUserFromStorage = () => {
  return JSON.parse(localStorage.getItem('user') || "{}")
 }
-export const getAccessToken = async () => {
+export const getAccessToken =  () => {
  const accessToken = Cookies.get('accessToken')
  return accessToken || null
+}
+
+export const getRefreshToken =  () => {
+ const refreshToken = Cookies.get('refreshToken')
+ return refreshToken || null
 }
 export const removeFromStorage = () => {
  Cookies.remove('accessToken')
