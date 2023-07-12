@@ -1,0 +1,16 @@
+.auth {
+ @apply flex h-screen;
+
+ .form {
+  @apply rounded-lg bg-white shadow-sm p-8 m-auto w-1/4
+ }
+}
+
+.heading {
+ @apply capitalize text-center mb-4
+}
+
+.btn{
+ @apply flex justify-between
+
+}

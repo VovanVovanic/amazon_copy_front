@@ -1,7 +1,7 @@
 import { errorCatch, getContentType } from './app.helper';
-import axios from 'axios'
 import { getAccessToken, removeFromStorage } from '@/services/auth/auth.helper';
 import { Auth } from '@/services/auth/auth.service';
+import axios from 'axios';
 
 
 export const instance = axios.create({

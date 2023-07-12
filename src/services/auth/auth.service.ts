@@ -1,3 +1,4 @@
+import { IAuthVariants } from './../../store/user/types';
 import { auth } from "@/app/app.endpoints"
 import { getContentType } from "@/app/app.helper"
 import { instance } from "@/app/app.interceptor"
@@ -8,7 +9,7 @@ import { saveToStorage, saveTokenStorage } from "./auth.helper"
 
 
 class AuthService{
- async auth(type: 'login' | 'register', data: IEmailPassword) {
+ async auth(type: IAuthVariants, data: IEmailPassword) {
   const res = await instance({
    url: `${auth.sign}${type}`,
    method: 'POST',

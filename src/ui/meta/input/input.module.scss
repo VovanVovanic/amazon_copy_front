@@ -1,0 +1,14 @@
+.wrapper{
+@apply mb-8 relative
+}
+
+.input{
+ @apply px-4 py-2 w-full outline-none  border-solid border-2 border-gray focus:border-aqua transition-all duration-150 placeholder:text-gray rounded-lg;
+}
+
+.error{
+@apply border-red 
+}
+.errorText{
+ @apply text-sm text-red absolute bottom-[-24px] left-0 animate-opacity
+}

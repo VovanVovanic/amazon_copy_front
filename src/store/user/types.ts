@@ -39,3 +39,8 @@ export interface IAuthResponse extends ITokens{
   isAdmin:boolean
  }
 }
+
+export enum IAuthVariants{
+ LOGIN = 'login',
+ REGISTER='register'
+}

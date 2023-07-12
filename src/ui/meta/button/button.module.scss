@@ -1,0 +1,9 @@
+.button{
+ @apply rounded-2xl border border-primary font-medium bg-white text-primary shadow-md px-5 py-2 transition-all duration-300;
+ &:hover{
+  @apply scale-105 text-aqua border-aqua
+ }
+}
+.primary{
+ @apply bg-primary text-white
+}
