@@ -1,15 +1,16 @@
 import { users } from "@/app/app.endpoints"
 import { instance } from "@/app/app.interceptor"
-import { IUser, UserUpdate } from "@/store/user/types"
+import { IFullUser, IUser, UserUpdate } from "@/store/user/types"
 
 class UsersService {
 
  async getProfile() {
-  return instance<IUser[]>({
+  const p =  await instance<IFullUser>({
    url: `${users.profile}`,
    method: "GET"
   })
-
+  return p
+  
  }
 
  async updateProfile(data: UserUpdate) {
@@ -21,7 +22,7 @@ class UsersService {
 
  }
 
- async toggleFeatures(productId: string) {
+ async toggleFeatures(productId: number) {
   return instance<{ message: string }>({
    url: `${users.favorites}${productId}`,
    method: "PATCH"

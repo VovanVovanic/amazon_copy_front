@@ -14,7 +14,7 @@ export const getAccessToken =  () => {
  return accessToken || null
 }
 
-export const getRefreshToken =  () => {
+export const getRefreshToken = () => {
  const refreshToken = Cookies.get('refreshToken')
  return refreshToken || null
 }
@@ -25,5 +25,5 @@ export const removeFromStorage = () => {
 }
 
 export const saveToStorage = (data: IAuthResponse) => {
- localStorage.setItem('user',JSON.stringify(data))
+ localStorage.setItem('user', JSON.stringify(data.user))
 }

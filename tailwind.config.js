@@ -10,6 +10,7 @@ const colors = {
   secondary: "#161D25",
   primary: "#FF9902",
   'bg-color': "F2F2F5",
+  "tr-white": "rgba(255,255,255, 0.6)",
   aqua: "#268697",
   red:twColors.red[400]
 }

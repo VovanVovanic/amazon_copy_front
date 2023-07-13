@@ -1,0 +1,33 @@
+.catalogItem{
+ .name{
+  @apply mt-4 font-semibold;
+  &:hover{
+   @apply transition-all duration-300 underline text-primary
+  } 
+ }
+ .category{
+  @apply text-aqua text-xs mb-2;
+  &:hover{
+   @apply transition-all underline text-primary
+  } 
+ }
+ .links{
+  @apply relative bg-white rounded-xl overflow-hidden max-h-[300px] max-w-[300px];
+  .btns{
+   @apply absolute top-2 right-3 z-10 grid grid-cols-1 grid-rows-2 bg-tr-white p-1 shadow rounded-md;
+   button{
+    @apply text-2xl font-bold;
+    &:hover{
+     @apply transition-all scale-110
+    } 
+   }
+  }
+
+ }
+ .price{
+  @apply text-xl font-semibold;
+  .priceName{
+   @apply text-base font-normal
+  }
+ }
+}

@@ -20,7 +20,7 @@ class ReviewsService {
   })
   
  }
- async getAverageReview(productId: string) {
+ async getAverageReview(productId: number) {
   return instance<{avg_rating:number}>({
    url: `${reviews.average}${productId}`,
    method: "GET"
@@ -28,5 +28,4 @@ class ReviewsService {
  }
 }
 
-const Reviews = new ReviewsService()
-export default Reviews
+export const Reviews = new ReviewsService()

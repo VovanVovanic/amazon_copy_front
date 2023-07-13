@@ -13,13 +13,13 @@ export interface IProductData{
  description: string
  price: string
  images: string[]
- categoryId:number
+ categoryId: number
+ category:ICategory
 }
 export interface IProduct extends IProductData{
  id: number
  slug: string
- review: IReview[]
- category:ICategory
+ reviews: IReview[]
  createdAt: string
 }
 

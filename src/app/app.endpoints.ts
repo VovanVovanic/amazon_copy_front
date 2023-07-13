@@ -27,7 +27,7 @@ const api = {
  users: {
   profile: `/${Endpoints.Users}/profile`,
   update: `/${Endpoints.Users}/profile/update`,
-  favorites: `/${Endpoints.Users}/favorites/`
+  favorites: `/${Endpoints.Users}/profile/favorites/`
  },
  statistic: {
   all: `/${Endpoints.Statistic}/`
@@ -36,7 +36,7 @@ const api = {
   all: `/${Endpoints.Reviews}/`,
   create: `/${Endpoints.Reviews}/create/`,
   update: `/${Endpoints.Reviews}/update/`,
-  average: `/${Endpoints.Reviews}/aevrage/`
+  average: `/${Endpoints.Reviews}/average/`
  },
  products: {
   all: `/${Endpoints.Products}/`,

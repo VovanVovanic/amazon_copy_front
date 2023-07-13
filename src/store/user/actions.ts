@@ -30,7 +30,7 @@ export const logout = createAsyncThunk(auth.logout, async () => {
  removeFromStorage()
 })
 
-export const refreshToken = createAsyncThunk(auth.refreshToken, async (_, thunkApi) => {
+export const refresh = createAsyncThunk(auth.refreshToken, async (_, thunkApi) => {
  try {
   const res = await Auth.getNewTokens()
   return res.data

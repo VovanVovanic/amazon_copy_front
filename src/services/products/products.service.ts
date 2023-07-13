@@ -62,5 +62,5 @@ class ProductService{
  }
 }
 
-const Product = new ProductService()
-export default   Product
+const Products = new ProductService()
+export default  Products

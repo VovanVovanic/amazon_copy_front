@@ -13,19 +13,19 @@ const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({ Componen
 }, children }) => {
 
  const { user } = useAuth()
- const {logout, refreshToken} = useActions()
+ const {logout, refresh} = useActions()
  const { pathname } = useRouter()
  
  useEffect(() => {
-  const accessToken = getAccessToken()
-  if (accessToken) {
-   refreshToken()
+   const accessToken = getAccessToken()
+  if (!accessToken) {
+   refresh()
   }
 
  }, [])
  
  useEffect(() => {
-  const refreshToken = getRefreshToken()
+   const refreshToken = getRefreshToken()
   if (!refreshToken && user) {
    logout()
   }

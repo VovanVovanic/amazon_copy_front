@@ -1,6 +1,6 @@
 import { getLocalStorage } from '@/utils/localStorage';
 import { createSlice } from '@reduxjs/toolkit';
-import { login, logout, refreshToken, register } from './actions';
+import { login, logout, refresh, register } from './actions';
 import { IInitialState } from './types';
 
 const initialState: IInitialState = {
@@ -45,14 +45,14 @@ export const userSlice = createSlice({
     state.isLoading = false
     state.user = null
    })
-   .addCase(refreshToken.pending, (state) => {
+   .addCase(refresh.pending, (state) => {
     state.isLoading = true
    })
-   .addCase(refreshToken.fulfilled, (state, { payload }) => {
+   .addCase(refresh.fulfilled, (state, { payload }) => {
     state.isLoading = false,
      state.user = payload.user
    })
-   .addCase(refreshToken.rejected, (state) => {
+   .addCase(refresh.rejected, (state) => {
     state.isLoading = false
     state.user = null
    })

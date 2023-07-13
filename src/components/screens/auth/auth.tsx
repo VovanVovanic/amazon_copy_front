@@ -1,14 +1,14 @@
 import { useActions } from "@/hooks/useActions"
 import { useAuth, useAuthRedirect } from "@/hooks/useAuth"
 import { IAuthVariants, IEmailPassword } from "@/store/user/types"
-import Button from "@/ui/meta/button/button"
-import Heading from "@/ui/meta/heading/heading"
-import Field from "@/ui/meta/input/input"
 import { emailValidation } from "@/utils/email"
 import { useRef, useState } from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
 import cn from 'classnames'
 import classes from './auth.module.scss'
+import Button from "@/ui/buttons/button"
+import Heading from "@/ui/heading/heading"
+import Field from "@/ui/input/input"
 
 const Auth = () => {
   useAuthRedirect()
@@ -36,7 +36,7 @@ const Auth = () => {
     reset()
   }
 
-  const authType = type === IAuthVariants.LOGIN ? "Register" : "Login"
+  const authType = type === IAuthVariants.LOGIN ? "Login" : "Register"
   const authChange = type === IAuthVariants.LOGIN ? IAuthVariants.REGISTER : IAuthVariants.LOGIN
   return (
     <div className={cn(classes.auth)}>
@@ -69,7 +69,7 @@ const Auth = () => {
           <Button variant="dark">Lets Go</Button>
           <Button
             onClick={() => setType(authChange)}
-            type="button" variant="light">{`To ${authType}`}</Button>
+            type="button" variant="light">{`To ${authChange}`}</Button>
         </div>
       </form>
 
