@@ -30,3 +30,8 @@ export interface IProductFilters extends IPagination{
 export interface IProductDetails{
  product:IProduct
 }
+
+export type TypePaginationProducts = {
+ length: number
+ products:IProduct[]
+}

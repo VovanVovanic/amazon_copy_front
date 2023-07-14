@@ -18,6 +18,7 @@ const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({ Componen
  
  useEffect(() => {
    const accessToken = getAccessToken()
+   console.log(accessToken, "access")
   if (!accessToken) {
    refresh()
   }
@@ -26,6 +27,7 @@ const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({ Componen
  
  useEffect(() => {
    const refreshToken = getRefreshToken()
+   console.log(refreshToken, "refresh")
   if (!refreshToken && user) {
    logout()
   }

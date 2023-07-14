@@ -1,4 +1,5 @@
 .catalogItem{
+ @apply animate-scaleIn;
  .name{
   @apply mt-4 font-semibold;
   &:hover{

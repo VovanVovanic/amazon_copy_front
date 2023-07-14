@@ -1,7 +1,6 @@
 import { getAccessToken, removeFromStorage } from '@/services/auth/auth.helper';
 import { Auth } from '@/services/auth/auth.service';
 import axios from 'axios';
-import { config } from 'process';
 import { errorCatch, getContentType } from './app.helper';
 
 

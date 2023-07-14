@@ -1,4 +1,4 @@
 export interface IPagination{
- page?: string
- perPage?:string
+ page?: number
+ perPage?:number
 }

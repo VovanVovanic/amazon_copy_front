@@ -3,8 +3,8 @@ import Cookies from "js-cookie"
 
 
 export const saveTokenStorage = (data: ITokens) => {
- Cookies.set('accessToken', data.accessToken)
- Cookies.set('refreshToken', data.refreshToken)
+ Cookies.set('accessToken', data.accessToken, { expires: 365 })
+ Cookies.set('refreshToken', data.refreshToken, { expires: 365 })
 }
 export const getUserFromStorage = () => {
  return JSON.parse(localStorage.getItem('user') || "{}")

@@ -1,0 +1,18 @@
+.drop{
+ @apply w-40 rounded-lg shadow relative border-none bg-transparent justify-self-end
+}
+.closed{
+ @apply absolute top-4 right-4 border-x-8 border-x-transparent border-t-8 border-b-secondary;
+}
+
+.open{
+ @apply absolute top-4 right-4 border-x-8 border-x-transparent border-b-8 border-b-secondary;
+}
+
+.control{
+ @apply rounded-md
+}
+
+.menu{
+ @apply animate-scaleIn rounded-b-md
+}

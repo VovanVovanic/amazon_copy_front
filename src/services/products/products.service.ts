@@ -1,15 +1,17 @@
 import { products } from "@/app/app.endpoints"
 import { instance } from "@/app/app.interceptor"
 import { ByFeature } from "@/store/category/types"
-import { IProduct, IProductData, IProductFilters } from "@/store/product/types"
+import { IProduct, IProductData, IProductFilters, TypePaginationProducts } from "@/store/product/types"
+import test from "node:test"
 
 class ProductService{
- async getAll(data?:IProductFilters) {
-  return instance<{products:IProduct[], length:number}>({
+ async getAll(queryData?:IProductFilters) {
+ const  {data } = await instance<TypePaginationProducts>({
    url: `${products.all}`,
    method: "GET",
-   params:data
-  })
+   params:queryData
+ })
+  return data
  }
  
  async getProductByFeature(type: ByFeature, data: string) {
@@ -63,4 +65,6 @@ class ProductService{
 }
 
 const Products = new ProductService()
-export default  Products
+export default Products
+
+
