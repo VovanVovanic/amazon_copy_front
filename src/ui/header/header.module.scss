@@ -1,4 +1,24 @@
 .header{
- @apply w-full bg-secondary;
- grid-area:header
+ @apply w-full bg-secondary py-3 px-6 grid items-center;
+ grid-template-columns: 1fr 4fr 0.60fr;
+ grid-area:header;
+ .logo{
+  @apply  rounded-lg overflow-hidden px-2 h-14 w-32
+ }
+ .headerBtns{
+  @apply grid items-center justify-end gap-6;
+  grid-template-columns: 0.3fr 0.3fr 1fr;
+  .btn{
+   @apply text-primary text-3xl bg-secondary border-none
+  }
+  .shopCart{
+   @apply text-secondary font-semibold text-lg flex justify-center rounded-md;
+
+  }
+  .pandaLogo{
+  img{
+   @apply w-8
+  }
+  }
+ }
 }
