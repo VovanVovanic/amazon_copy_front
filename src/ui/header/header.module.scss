@@ -3,7 +3,10 @@
  grid-template-columns: 1fr 4fr 0.60fr;
  grid-area:header;
  .logo{
-  @apply  rounded-lg overflow-hidden px-2 h-14 w-32
+  @apply  rounded-lg overflow-hidden px-2 h-14 w-32;
+  &:hover{
+   @apply transition-all scale-105
+  }
  }
  .headerBtns{
   @apply grid items-center justify-end gap-6;
@@ -17,7 +20,10 @@
   }
   .pandaLogo{
   img{
-   @apply w-8
+   @apply w-8;
+   &:hover{
+    @apply transition-all scale-105
+   }
   }
   }
  }

@@ -10,7 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 import Products from "@/services/products/products.service";
 import Button from "@/ui/buttons/button";
 
-const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List",paginationData, children, className, ...rest }) => {
+const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List",paginationData, goods, children, className, ...rest }) => {
 
   const [sort, setSort] = useState<any>(EnumProductsSort.NEWEST)
   const [page, setPage] = useState<number>(1)
@@ -35,40 +35,44 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List",pagin
   }, [])
 
   const pagination = useMemo(() => {
-    return Array.from({ length: data.length / 4 }).map((_, i) => {
-      const pageNumber = i + 1
-      return(
-        <Button
-          key={pageNumber}
-          variant={page === pageNumber ? "dark" : "light"}
-          size={"sm"}
-          className='mr-4'
-          disabled={page === pageNumber}
-          onClick={()=>setPage(pageNumber)}
-        >
-          {pageNumber}
-        </Button>
-      )
-    })
-  },[data.length])
+    if (data) {
+      return Array.from({ length: data.length / 4 }).map((_, i) => {
+        const pageNumber = i + 1
+        return(
+          <Button
+            key={pageNumber}
+            variant={page === pageNumber ? "dark" : "light"}
+            size={"sm"}
+            className='mr-4'
+            disabled={page === pageNumber}
+            onClick={()=>setPage(pageNumber)}
+          >
+            {pageNumber}
+          </Button>
+        )
+      })
+   } else{return null}
+  },[data])
 
   const list = useMemo(() => {
-    if (data.products) {
-      return data.products.map((el) => {
+    const toRender = paginationData ? data?.products : goods
+
+      return toRender?.map((el) => {
         return (
           <li key={el.id}>
             <CatalogItem product={el} />
           </li>
         )
       })
-    } else { return null }
-  }, [data.products])
+  }, [data, goods])
+
+
   return (
     <div className={cn(classes.wrapper)}>
       <div className={classes.header}>
         <Heading>{title}</Heading>
         
-          < DropDown onSelect={setSort} items={sortItems} />
+        { paginationData && < DropDown onSelect={setSort} items={sortItems} />}
       </div>
       <ul
         {...rest}
@@ -76,9 +80,9 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List",pagin
       >
         {list}
       </ul >
-      <div className={classes.pagination}>
-          {pagination}
-      </div>
+      { paginationData && <div className={classes.pagination}>
+        {pagination}
+      </div>} 
     </div>)
 }
 

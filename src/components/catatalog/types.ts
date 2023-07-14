@@ -1,7 +1,8 @@
-import { TypePaginationProducts } from "@/store/product/types";
+import { IProduct, TypePaginationProducts } from "@/store/product/types";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 export interface ICatalog extends DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement>{
- paginationData: TypePaginationProducts
+ paginationData?: TypePaginationProducts
  title?: string
+ goods?: IProduct[]
 }
