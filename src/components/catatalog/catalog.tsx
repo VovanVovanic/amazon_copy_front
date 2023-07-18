@@ -35,8 +35,9 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List",pagin
   }, [])
 
   const pagination = useMemo(() => {
-    if (data) {
-      return Array.from({ length: data.length / 4 }).map((_, i) => {
+    const pagesData = data ? data : goods
+    if (pagesData) {
+      return Array.from({ length: pagesData.length / 4 }).map((_, i) => {
         const pageNumber = i + 1
         return(
           <Button
@@ -52,7 +53,7 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List",pagin
         )
       })
    } else{return null}
-  },[data])
+  },[data, goods, page])
 
   const list = useMemo(() => {
     const toRender = paginationData ? data?.products : goods
@@ -64,7 +65,7 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List",pagin
           </li>
         )
       })
-  }, [data, goods])
+  }, [data?.products, goods, paginationData])
 
 
   return (

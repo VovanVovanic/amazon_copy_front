@@ -1,0 +1,12 @@
+.actions{
+    @apply mt-3;
+    .buttons{
+        @apply flex items-center gap-3;
+        .input{
+        @apply w-10 bg-black text-center
+        }
+        .remove{
+            @apply ml-3 text-red
+        }
+    }
+}

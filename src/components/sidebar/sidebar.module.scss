@@ -1,4 +1,16 @@
 .sidebar{
  @apply bg-secondary min-h-screen;
  grid-area: sidebar;
+ .link{
+    @apply block text-lg my-3 px-10 text-white;
+    &:hover{
+        @apply text-primary transition-colors duration-300
+    }
+ }
+ .active{
+    @apply text-primary
+ }
+ .btn{
+    @apply text-white flex items-center ml-10 mb-10
+ }
 }

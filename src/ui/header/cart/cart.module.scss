@@ -1,1 +1,23 @@
-.cart{}
+.cart {
+	@apply relative;
+	.title {
+		@apply text-center;
+	}
+	.wrapper {
+		@apply absolute  -left-[12.5rem] top-[4.2rem] z-50 w-80 rounded-xl
+         bg-secondary px-5 py-3 text-sm text-white;
+		.title {
+			@apply mb-5 text-lg font-normal;
+		}
+		.placeOrder {
+			@apply mt-8 flex justify-between items-center pb-4;
+			.total {
+				@apply font-semibold text-primary;
+			}
+
+			.btn {
+
+			}
+		}
+	}
+}
