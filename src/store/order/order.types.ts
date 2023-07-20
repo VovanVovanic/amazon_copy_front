@@ -14,4 +14,10 @@ export interface IOrder{
  createdAt: string
  items: ICart[]
  user: IUser
+ total:number
+}
+
+export interface IPaymentOder{
+    status?: EnumOrderStatus
+    items: {price:number, quantity:number, productId:number}[]
 }

@@ -5,7 +5,6 @@ export const useCart = ()=>{
 
     const total = items.reduce((acc, el)=>{
         acc += (el.price * el.quantity)
-        console.log(acc,"acc")
         return acc
     },0)
     return{items, total}
