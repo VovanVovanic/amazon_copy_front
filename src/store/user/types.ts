@@ -16,7 +16,7 @@ export interface IFullUser extends IUser{
 }
 export interface IUserState{
  email: string
- isAdmin:boolean
+ isAdmin?:boolean
 }
 
 export interface UserUpdate{

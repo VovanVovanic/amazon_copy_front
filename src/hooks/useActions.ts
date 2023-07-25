@@ -1,12 +1,15 @@
+import { carouselSlice } from './../store/carousel/reducer';
 import { bindActionCreators } from "@reduxjs/toolkit"
 import { useMemo } from "react"
 import { useDispatch } from "react-redux"
 import * as userAction from '../store/user/actions'
-import {cartSlice} from '../store/cart/cart.reducer'
+import { cartSlice } from '../store/cart/cart.reducer'
+
 
 const allActions = {
  ...userAction,
- ...cartSlice.actions
+ ...cartSlice.actions,
+ ...carouselSlice.actions
 }
 
 
