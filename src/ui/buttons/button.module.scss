@@ -1,16 +1,18 @@
 .button{
- @apply rounded-2xl border border-primary font-medium bg-white text-primary shadow-md px-5 py-2 transition-all duration-300;
- &:hover{
-  @apply scale-105 text-aqua border-aqua
+ @apply rounded-xl px-10 py-2 font-medium shadow transition duration-300 ease-in-out  bg-white text-primary border border-primary;
+ &:not(&:disabled){
+  &:hover{
+    @apply shadow-lg scale-105 text-aqua border-aqua;
+  }
+   
  }
+ &.primary{
+   @apply bg-primary text-white;
+ }
+ &.lg{
+   @apply px-7 py-4 text-xl;
+ }
+ &.sm{
+@apply px-2 py-1 w-12
 }
-.primary{
- @apply bg-primary text-white
-}
-
-.lg{
- @apply px-7 py-4
-}
-.sm{
- @apply px-2 py-1 w-12
 }

@@ -1,5 +1,5 @@
-import { products } from "@/app/app.endpoints"
-import { instance } from "@/app/app.interceptor"
+import { products } from "@/api/api.endpoints"
+import { instance } from "@/api/api.interceptor"
 import { ByFeature } from "@/store/category/types"
 import { IProduct, IProductData, IProductFilters, TypePaginationProducts } from "@/store/product/types"
 import test from "node:test"

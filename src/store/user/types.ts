@@ -6,7 +6,8 @@ export interface IUser{
  email: string
  name: string
  avatarPath: string
- phone:string
+ phone: string
+ isAdmin?:boolean
 }
 
 export interface IFullUser extends IUser{
@@ -42,9 +43,7 @@ export interface IEmailPassword{
 }
 
 export interface IAuthResponse extends ITokens{
- user: IUser & {
-  isAdmin:boolean
- }
+ user: IUser 
 }
 
 export enum IAuthVariants{

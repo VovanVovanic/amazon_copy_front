@@ -1,5 +1,5 @@
-import { orders } from "@/app/app.endpoints"
-import { instance } from "@/app/app.interceptor"
+import { orders } from "@/api/api.endpoints"
+import { instance } from "@/api/api.interceptor"
 import { IOrder, IPaymentOder } from "@/store/order/order.types"
 
 class OrderService{

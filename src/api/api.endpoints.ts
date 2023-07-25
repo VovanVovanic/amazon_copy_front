@@ -30,7 +30,7 @@ const api = {
   favorites: `/${Endpoints.Users}/profile/favorites/`
  },
  statistic: {
-  all: `/${Endpoints.Statistic}/`
+  all: `/${Endpoints.Statistic}/admin`
  },
  reviews: {
   all: `/${Endpoints.Reviews}/`,

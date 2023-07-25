@@ -3,12 +3,15 @@ import classes from './squareB.module.scss'
 import cn from 'classnames'
 import { FC } from "react";
 import { IButtonSquare } from "./types";
+import Button from '../button';
 
 const SquareButton:FC<IButtonSquare>=({Icon, onClickHandle, number})=>{
     return(
-        <button
-        onClick={onClickHandle}
-        className={cn(classes.btn)}
+        <Button
+            onClick={onClickHandle}
+            variant='dark'
+            size="sm"
+            className={classes.btnSquare}
         >
         {!!number && (
             <span className={cn(classes.number)}>
@@ -16,7 +19,7 @@ const SquareButton:FC<IButtonSquare>=({Icon, onClickHandle, number})=>{
             </span>
         )}
         <Icon className={cn(classes.icon)}/>
-        </button>
+        </Button>
     )
 }
 

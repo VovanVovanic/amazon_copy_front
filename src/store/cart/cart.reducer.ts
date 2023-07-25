@@ -1,4 +1,4 @@
-import { products } from '@/app/app.endpoints';
+import { products } from '@/api/api.endpoints';
 import { IAddToCart, ICart, ICartInitialState, IChangeQuantityPayload } from './types';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 

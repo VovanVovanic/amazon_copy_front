@@ -1,4 +1,4 @@
-import { auth } from '@/app/app.endpoints';
+import { auth } from '@/api/api.endpoints';
 import { removeFromStorage } from '@/services/auth/auth.helper';
 import { Auth } from '@/services/auth/auth.service';
 import { createAsyncThunk } from '@reduxjs/toolkit';

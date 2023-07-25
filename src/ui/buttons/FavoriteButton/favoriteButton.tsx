@@ -1,11 +1,11 @@
-import { FC } from "react"
-import { IFavoriteButton } from "./types"
-import cn from 'classnames'
-import classes from './fav.module.scss'
-import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
-import { useProfile } from "@/hooks/useProfile"
-import { useMutation, useQueryClient } from "@tanstack/react-query"
+import { useProfile } from "@/hooks/querries/useProfile"
 import Users from "@/services/users/users.service"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
+import cn from 'classnames'
+import { FC } from "react"
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
+import classes from './fav.module.scss'
+import { IFavoriteButton } from "./types"
 
 const FavoritesButton: FC<IFavoriteButton> = ({ productId, className, ...rest }) => {
   const { profile } = useProfile()

@@ -1,5 +1,5 @@
-import { reviews } from "@/app/app.endpoints"
-import { instance } from "@/app/app.interceptor"
+import { reviews } from "@/api/api.endpoints"
+import { instance } from "@/api/api.interceptor"
 import { IReview } from "@/store/reviews/types"
 
 class ReviewsService {

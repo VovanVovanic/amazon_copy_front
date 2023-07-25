@@ -25,7 +25,11 @@ export interface IProduct extends IProductData{
 
 export interface IProductFilters extends IPagination{
  sort?: EnumProductsSort
- searchTerm?:string
+ searchTerm?: string
+ ratings: string
+ min?: string
+ max?: string
+ categoryId?: string
 }
 export interface IProductDetails{
  product:IProduct
@@ -34,4 +38,12 @@ export interface IProductDetails{
 export type TypePaginationProducts = {
  length: number
  products:IProduct[]
+}
+
+export type TypeParamSlug = {
+ slug?:string
+}
+
+export interface IPageSlugParam{
+ params:TypeParamSlug
 }

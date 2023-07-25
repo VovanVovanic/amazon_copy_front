@@ -20,7 +20,8 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List",pagin
     () => Products.getAll({
       sort,
       page,
-      perPage: 4
+      perPage: 5,
+      ratings:""
     }), {
       initialData: paginationData
     }

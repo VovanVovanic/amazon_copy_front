@@ -1,7 +1,7 @@
 import { IAuthVariants } from './../../store/user/types';
-import { auth } from "@/app/app.endpoints"
-import { getContentType } from "@/app/app.helper"
-import { instance } from "@/app/app.interceptor"
+import { auth } from "@/api/api.endpoints"
+import { getContentType } from "@/api/api.helper"
+import { instance } from "@/api/api.interceptor"
 import { IEmailPassword, IAuthResponse } from "@/store/user/types"
 import axios from "axios"
 import Cookies from "js-cookie"

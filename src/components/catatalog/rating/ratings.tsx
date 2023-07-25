@@ -8,7 +8,7 @@ import { Reviews } from "@/services/reviews/reviews.service"
 
 
 
-const Ratings: FC<PropsWithChildren<IRatings>> = ({ product, className, ...rest }) => {
+const Ratings: FC<PropsWithChildren<IRatings>> = ({ product,isText=false, className, ...rest }) => {
  const avgRating = () => {
   if (product) {
    return Math.round(product.reviews.reduce((acc, el) => {
@@ -35,7 +35,7 @@ const Ratings: FC<PropsWithChildren<IRatings>> = ({ product, className, ...rest 
    </>
   )}
 
-  <span>{product.reviews.length} reviews</span>
+  {isText && <span>{product.reviews.length} reviews</span>}
  </div>)
 }
 

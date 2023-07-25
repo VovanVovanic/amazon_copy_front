@@ -1,5 +1,6 @@
 .sidebar{
- @apply bg-secondary min-h-screen;
+ @apply bg-secondary min-h-screen relative grid gap-10;
+ grid-template-rows: (auto 1fr);
  grid-area: sidebar;
  .link{
     @apply block text-lg my-3 px-10 text-white;
@@ -11,6 +12,9 @@
     @apply text-primary
  }
  .btn{
-    @apply text-white flex items-center ml-10 mb-10
+    @apply text-primary flex items-center py-1 px-2 bg-[#4e4e4e]  border-none w-28 justify-center self-start justify-self-end mr-10;
+    svg{
+      @apply ml-4 text-xl
+    }
  }
 }

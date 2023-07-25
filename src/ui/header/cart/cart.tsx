@@ -1,7 +1,7 @@
 import classes from './cart.module.scss';
 import CartItem from './cartItem/cartItem';
 import { ICart } from './types';
-import { orders } from '@/app/app.endpoints';
+import { orders } from '@/api/api.endpoints';
 import Order from '@/services/orders/orders.service';
 import { useMutation } from '@tanstack/react-query';
 import cn from 'classnames';
@@ -55,13 +55,13 @@ const Cart: FC = () => {
 					<ul>{items.length ? list : 'Cart is Empty'}</ul>
 					<div className={cn(classes.placeOrder)}>
 						<div className={cn(classes.total)}>{`Total: $${total}`}</div>
-						<Button 
-						variant='dark'
-						 className={cn(classes.btn)}
-						 onClick={()=>mutate()}
-						 >
+						{!!items.length && <Button
+							variant='dark'
+							className={cn(classes.btn)}
+							onClick={() => mutate()}
+						>
 							Place Order
-						</Button>
+						</Button>}
 					</div>
 				</div>
 			)}

@@ -2,6 +2,9 @@
  @apply w-full bg-secondary py-3  grid items-center;
  grid-template-columns: 256px 4fr 0.60fr;
  grid-area:header;
+ .adminHeader{
+  @apply text-2xl text-white font-semibold pl-10 py-3
+ }
  .logo{
   @apply  rounded-lg overflow-hidden px-2 h-14 w-32;
   &:hover{
@@ -9,8 +12,11 @@
   }
  }
  .headerBtns{
-  @apply grid items-center justify-end gap-6;
-  grid-template-columns: 0.3fr 0.3fr 1fr;
+  @apply grid items-center justify-end pr-10;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 1fr;
+  .adminBtn{
+   @apply text-primary
+  }
   .btn{
    @apply text-primary text-3xl bg-secondary border-none
   }
@@ -20,7 +26,7 @@
   }
   .pandaLogo{
   img{
-   @apply w-8;
+   @apply w-8 ml-4;
    &:hover{
     @apply transition-all scale-105
    }

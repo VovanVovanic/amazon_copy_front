@@ -23,7 +23,8 @@ const Home: NextPageAuth<{ products: TypePaginationProducts }> = ({products}) =>
 export const getStaticProps: GetStaticProps = async () => {
   const {products } = await Products.getAll({
     page: 1,
-    perPage: 5
+    perPage: 5,
+    ratings:""
   })
   return{
     props: { products }

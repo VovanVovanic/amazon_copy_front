@@ -1,5 +1,5 @@
-import { users } from "@/app/app.endpoints"
-import { instance } from "@/app/app.interceptor"
+import { users } from "@/api/api.endpoints"
+import { instance } from "@/api/api.interceptor"
 import { IFullUser, IUser, UserUpdate } from "@/store/user/types"
 
 class UsersService {
