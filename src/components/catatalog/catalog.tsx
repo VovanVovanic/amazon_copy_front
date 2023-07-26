@@ -5,18 +5,22 @@ import cn from 'classnames'
 import CatalogItem from "./catalogItem/catalogItem";
 import Heading from "@/ui/heading/heading";
 import DropDown from "@/ui/dropdown/drop";
-import { EnumProductsSort } from "@/store/product/types";
 import { useQuery } from "@tanstack/react-query";
 import Products from "@/services/products/products.service";
-import Button from "@/ui/buttons/button";
 import { HiArrowSmLeft, HiArrowSmRight } from 'react-icons/hi'
 import ReactPaginate from "react-paginate";
+import { dropItems } from "./constants";
+import { useFilters } from "@/hooks/useFilters";
+import { ISortType } from "@/ui/dropdown/types";
+import { EnumProductsSort } from "@/store/product/types";
 
 const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", paginationData, goods, children, className, ...rest }) => {
 
-  const [sort, setSort] = useState<any>(EnumProductsSort.NEWEST)
   const [page, setPage] = useState<number>(1)
+  const{updateParams,queryParams,}=useFilters()
 
+  const { sort } = queryParams
+  
   const { data, isLoading } = useQuery(['products', sort, page],
 
     () => Products.getAll({
@@ -30,18 +34,14 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", pagi
 
   )
 
-  const sortItems = useMemo(() => {
-    return Object.values(EnumProductsSort).map((el) => ({
-      value: el,
-      label: el.charAt(0).toUpperCase() + el.slice(1).replace("-", " ")
-    }))
-  }, [])
   const pagesData = data ? data : goods
 
-
   const handlePageClick = (event: { selected: number }) => {
-    console.log(event.selected, "sel")
     setPage(event.selected + 1)
+  }
+
+  const setSort = (data:ISortType) => {
+    updateParams("sort",data.key.toString())
   }
   const list = useMemo(() => {
     const toRender = paginationData ? data?.products : goods
@@ -60,7 +60,12 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", pagi
     <div className={cn(classes.wrapper)}>
       <div className={classes.header}>
         <Heading>{title}</Heading>
-        {paginationData && < DropDown onSelect={setSort} items={sortItems} />}
+        {paginationData &&
+          < DropDown<EnumProductsSort>
+            value={dropItems.find((el)=>el.key === sort)}
+            onSelect={setSort} items={dropItems}
+            title={`Sorted By: `}
+          />}
       </div>
       <ul
         {...rest}
@@ -71,7 +76,7 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", pagi
       {pagesData?.length && <div className={classes.pagination}>
         <ReactPaginate
           className={classes.paginate}
-          pageCount={pagesData.length / 5}
+          pageCount={Math.ceil(pagesData.length / 5)}
           pageRangeDisplayed={2}
           marginPagesDisplayed={1}
           breakLabel="..."

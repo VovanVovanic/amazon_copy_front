@@ -17,10 +17,10 @@ export const filtersSlice = createSlice({
  name: "filters",
  initialState,
  reducers: {
-  updateQueryParam: (state, action:PayloadAction<IFiltersActionsPayload>) => {
+  updateQueryParam: (state, action: PayloadAction<IFiltersActionsPayload>) => {
    const { key, value } = action.payload
-   console.log(key)
-   //state.queryParams[key] = value
+   const v = value as never
+   state.queryParams[key]=v
    state.isFilterUpdated=true
   },
   resetQueryParam: (state) => {
