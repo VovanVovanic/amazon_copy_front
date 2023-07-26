@@ -24,7 +24,7 @@ export interface IProduct extends IProductData{
 }
 
 export interface IProductFilters extends IPagination{
- sort?: EnumProductsSort
+ sort?: EnumProductsSort | undefined
  searchTerm?: string
  ratings: string
  min?: string
@@ -47,3 +47,7 @@ export type TypeParamSlug = {
 export interface IPageSlugParam{
  params:TypeParamSlug
 }
+
+// export type TypeParamsFilters = {
+//  searchParams: Type
+// }

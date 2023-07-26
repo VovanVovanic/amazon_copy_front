@@ -4,12 +4,15 @@ import { useMemo } from "react"
 import { useDispatch } from "react-redux"
 import * as userAction from '../store/user/actions'
 import { cartSlice } from '../store/cart/cart.reducer'
+import { filtersSlice } from '@/store/filters/filters.reducer';
+
 
 
 const allActions = {
  ...userAction,
  ...cartSlice.actions,
- ...carouselSlice.actions
+ ...carouselSlice.actions,
+ ...filtersSlice.actions
 }
 
 

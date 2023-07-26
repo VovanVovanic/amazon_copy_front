@@ -1,5 +1,5 @@
 .catalogItem{
- @apply animate-scaleIn;
+ @apply animate-scaleIn relative w-72;
 
  .name{
   @apply mt-4 font-semibold;
@@ -14,12 +14,12 @@
   } 
  }
  .links{
-  @apply relative rounded-xl overflow-hidden max-h-[300px];
+  @apply  rounded-xl overflow-hidden max-h-[300px];
   .link{
    @apply flex justify-center w-full
   }
   .btns{
-   @apply absolute top-2 right-10 z-10 grid grid-cols-1 gap-2 p-1  h-fit;
+   @apply absolute top-2 right-2 z-10 grid grid-cols-1 gap-2 p-1  h-fit;
    button{
     @apply text-2xl font-bold;
     &:hover{

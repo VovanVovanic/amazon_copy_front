@@ -2,22 +2,30 @@ import { orders } from "@/api/api.endpoints"
 import { instance } from "@/api/api.interceptor"
 import { IOrder, IPaymentOder } from "@/store/order/order.types"
 
-class OrderService{
- async getAllOrders() {
-  return instance<IOrder[]>({
-   url: `${orders.all}`,
-   method:"GET"
-  })
-  
- }
+class OrderService {
+   async getAllOrders() {
+      return instance<IOrder[]>({
+         url: `${orders.all}`,
+         method: "GET"
+      })
 
- async createPayment(data:IPaymentOder) {
-    return instance<{confirmation:{confirmation_url:string}}>({
-     url: `${orders.all}`,
-     method:"POST",
-     data
-    })
-    
+   }
+
+   async getOrdersByUser(id: number) {
+      return instance<IOrder[]>({
+         url: `${orders.by_user}${id}`,
+         method: "GET"
+      })
+
+   }
+
+   async createPayment(data: IPaymentOder) {
+      return instance<{ confirmation: { confirmation_url: string } }>({
+         url: `${orders.all}`,
+         method: "POST",
+         data
+      })
+
    }
 }
 const Order = new OrderService()

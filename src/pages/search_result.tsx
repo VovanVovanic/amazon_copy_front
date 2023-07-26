@@ -1,25 +1,34 @@
-import Catalog from "@/components/catatalog/catalog"
+import Explorer from "@/components/screens/explorer/explorer"
+import { useTypedSelector } from "@/hooks/useTypedSelector"
 import { NextPageAuth } from "@/providers/authProviders/types"
 import Products from "@/services/products/products.service"
+import { EnumProductsSort, TypePaginationProducts } from "@/store/product/types"
 import Layout from "@/ui/layout/layout"
 import Meta from "@/ui/meta/meta"
-import { useQuery } from "@tanstack/react-query"
-import { useRouter } from "next/router"
+import { GetStaticProps } from "next"
 
-const SearchResultPage: NextPageAuth = () => {
- const { query } = useRouter()
- const { data } = useQuery(['search products', query.term],
-  () => Products.getAll({
-  searchTerm:query.term as string
- }))
+const SearchResultPage: NextPageAuth<{products:TypePaginationProducts}> = ({products}) => {
  return (
    <Meta title = "Search Result">
      <Layout >
-       <Catalog title={`Found for "${query.term || ""}"`} goods={data?.products}/>
+      <Explorer initialProducts={products}/>
      </Layout>
      </Meta>
 
  )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { products } = await Products.getAll({
+  sort: EnumProductsSort.NEWEST,
+  searchTerm: "",
+  page: 1,
+  perPage: 10,
+  ratings: ""
+  })
+  return{
+    props: { products }
+  }
 }
 
 export default SearchResultPage

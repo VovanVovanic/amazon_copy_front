@@ -9,24 +9,26 @@ import { EnumProductsSort } from "@/store/product/types";
 import { useQuery } from "@tanstack/react-query";
 import Products from "@/services/products/products.service";
 import Button from "@/ui/buttons/button";
+import { HiArrowSmLeft, HiArrowSmRight } from 'react-icons/hi'
+import ReactPaginate from "react-paginate";
 
-const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List",paginationData, goods, children, className, ...rest }) => {
+const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", paginationData, goods, children, className, ...rest }) => {
 
   const [sort, setSort] = useState<any>(EnumProductsSort.NEWEST)
   const [page, setPage] = useState<number>(1)
-  
-  const { data, isLoading } = useQuery(['products', sort,page],
-  
+
+  const { data, isLoading } = useQuery(['products', sort, page],
+
     () => Products.getAll({
       sort,
       page,
       perPage: 5,
-      ratings:""
+      ratings: ""
     }), {
-      initialData: paginationData
-    }
-  
-    )
+    initialData: paginationData
+  }
+
+  )
 
   const sortItems = useMemo(() => {
     return Object.values(EnumProductsSort).map((el) => ({
@@ -34,38 +36,23 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List",pagin
       label: el.charAt(0).toUpperCase() + el.slice(1).replace("-", " ")
     }))
   }, [])
+  const pagesData = data ? data : goods
 
-  const pagination = useMemo(() => {
-    const pagesData = data ? data : goods
-    if (pagesData) {
-      return Array.from({ length: pagesData.length / 4 }).map((_, i) => {
-        const pageNumber = i + 1
-        return(
-          <Button
-            key={pageNumber}
-            variant={page === pageNumber ? "dark" : "light"}
-            size={"sm"}
-            className='mr-4'
-            disabled={page === pageNumber}
-            onClick={()=>setPage(pageNumber)}
-          >
-            {pageNumber}
-          </Button>
-        )
-      })
-   } else{return null}
-  },[data, goods, page])
 
+  const handlePageClick = (event: { selected: number }) => {
+    console.log(event.selected, "sel")
+    setPage(event.selected + 1)
+  }
   const list = useMemo(() => {
     const toRender = paginationData ? data?.products : goods
 
-      return toRender?.map((el) => {
-        return (
-          <li key={el.id}>
-            <CatalogItem product={el} />
-          </li>
-        )
-      })
+    return toRender?.map((el) => {
+      return (
+        <li key={el.id}>
+          <CatalogItem product={el} />
+        </li>
+      )
+    })
   }, [data?.products, goods, paginationData])
 
 
@@ -73,8 +60,7 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List",pagin
     <div className={cn(classes.wrapper)}>
       <div className={classes.header}>
         <Heading>{title}</Heading>
-        
-        { paginationData && < DropDown onSelect={setSort} items={sortItems} />}
+        {paginationData && < DropDown onSelect={setSort} items={sortItems} />}
       </div>
       <ul
         {...rest}
@@ -82,9 +68,25 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List",pagin
       >
         {list}
       </ul >
-      { paginationData && <div className={classes.pagination}>
-        {pagination}
-      </div>} 
+      {pagesData?.length && <div className={classes.pagination}>
+        <ReactPaginate
+          className={classes.paginate}
+          pageCount={pagesData.length / 5}
+          pageRangeDisplayed={2}
+          marginPagesDisplayed={1}
+          breakLabel="..."
+          pageClassName={classes.page}
+          nextClassName={classes.arrow}
+          previousClassName={classes.arrow}
+          activeClassName={classes.active}
+          onPageChange={handlePageClick}
+          previousLabel={
+            <HiArrowSmLeft />}
+          nextLabel={
+            <HiArrowSmRight />
+          }
+        />
+      </div>}
     </div>)
 }
 

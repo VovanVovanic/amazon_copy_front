@@ -15,7 +15,7 @@ const Search: FC<ISearch> = () => {
 
  const onPath = () => {
   
-  router.push(`/search_result?term=${term.trim().toLowerCase()}`)
+  router.push(`/search_result?searchTerm=${term.trim().toLowerCase()}`)
  }
 
  const onKeyHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
