@@ -17,7 +17,7 @@ const CategoryPage: NextPage<{products:IProduct[],category:ICategory}> = ({produ
  return (
    <Meta title = {category.name}>
      <Layout >
-       <Catalog title={category.name} goods={products || []}/>
+       <Catalog title={category.name} products={products || []}/>
      </Layout>
      </Meta>
 

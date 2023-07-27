@@ -7,11 +7,12 @@ import Layout from "@/ui/layout/layout"
 import Meta from "@/ui/meta/meta"
 import { GetStaticProps } from "next"
 
-const SearchResultPage: NextPageAuth<{products:TypePaginationProducts}> = ({products}) => {
+const SearchResultPage: NextPageAuth<{ data: TypePaginationProducts }> = ({ data }) => {
+  console.log(data,"dddd")
  return (
    <Meta title = "Search Result">
      <Layout >
-      <Explorer initialProducts={products}/>
+      <Explorer initialProducts={data}/>
      </Layout>
      </Meta>
 
@@ -19,7 +20,7 @@ const SearchResultPage: NextPageAuth<{products:TypePaginationProducts}> = ({prod
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { products } = await Products.getAll({
+  const data = await Products.getAll({
   sort: EnumProductsSort.NEWEST,
   searchTerm: "",
   page: 1,
@@ -27,7 +28,7 @@ export const getStaticProps: GetStaticProps = async () => {
   ratings: ""
   })
   return{
-    props: { products }
+    props: { data }
   }
 }
 

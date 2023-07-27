@@ -8,11 +8,11 @@ import Products from '@/services/products/products.service'
 import Layout from '@/ui/layout/layout'
 
 const inter = Inter({ subsets: ['latin'] })
-const Home: NextPageAuth<{ products: TypePaginationProducts }> = ({products}) => {
+const Home: NextPageAuth<{ data: TypePaginationProducts }> = ({data}) => {
   return (
     <Meta title = "Main Page">
       <Layout >
-        <HomePage products={products} />
+        <HomePage initialData={data} />
       </Layout>
       </Meta>
 
@@ -20,13 +20,13 @@ const Home: NextPageAuth<{ products: TypePaginationProducts }> = ({products}) =>
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const {products } = await Products.getAll({
+  const data = await Products.getAll({
     page: 1,
     perPage: 5,
     ratings:""
   })
   return{
-    props: { products }
+    props: { data}
   }
 }
 

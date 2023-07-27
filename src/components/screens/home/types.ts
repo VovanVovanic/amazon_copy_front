@@ -1,5 +1,5 @@
-import { IProduct, TypePaginationProducts } from '@/store/product/types';
+import { TypePaginationProducts } from '@/store/product/types';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 export interface IHome extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>{
- products:TypePaginationProducts
+ initialData: TypePaginationProducts
 }
