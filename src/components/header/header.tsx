@@ -1,5 +1,4 @@
-import Button from '../buttons/button';
-import Search from '../search/search';
+
 import classes from './header.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,6 +8,8 @@ import { MdOutlineAdminPanelSettings } from 'react-icons/md';
 import Cart from './cart/cart';
 import { useIsAdmin } from '@/hooks/useIsAdmin';
 import { useAuth } from '@/hooks/useAuth';
+import Button from '@/ui/buttons/button';
+import Search from '@/ui/search/search';
 
 const Header: FC<PropsWithChildren> = ({ children }) => {
 	const { isAdminPanel } = useIsAdmin()

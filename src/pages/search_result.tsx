@@ -8,7 +8,7 @@ import Meta from "@/ui/meta/meta"
 import { GetStaticProps } from "next"
 
 const SearchResultPage: NextPageAuth<{ data: TypePaginationProducts }> = ({ data }) => {
-  console.log(data,"dddd")
+
  return (
    <Meta title = "Search Result">
      <Layout >

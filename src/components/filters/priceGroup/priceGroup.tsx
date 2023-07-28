@@ -5,7 +5,6 @@ import { FC } from "react"
 const PriceGroup: FC = () => {
  const { queryParams, updateParams } = useFilters()
  return (
-  <>
    <Ranges
     min={0}
     max={2000}
@@ -14,8 +13,7 @@ const PriceGroup: FC = () => {
     onChangeFrom={(data) => updateParams("minPrice",data)}
     onChangeTo={(data) => updateParams("maxPrice",data)}
    />
-  </>
  )
-}
+} 
 
 export default PriceGroup

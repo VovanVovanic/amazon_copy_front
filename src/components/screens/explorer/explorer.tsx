@@ -6,8 +6,8 @@ import { FC, useState } from "react";
 import classes from './explorer.module.scss'
 import cn from 'classnames'
 import Button from "@/ui/buttons/button"
-import Filters from "@/ui/filters/filters"
 import { IExplorer } from "./types"
+import Filters from "@/components/filters/filters";
 
 
 const Explorer: FC<IExplorer> = ({ initialProducts }) => {

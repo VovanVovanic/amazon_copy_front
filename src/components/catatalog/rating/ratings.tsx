@@ -3,8 +3,6 @@ import { IRatings } from "./types"
 import cn from 'classnames'
 import classes from './ratings.module.scss'
 import { Rating } from "react-simple-star-rating"
-import { useQuery } from "@tanstack/react-query"
-import { Reviews } from "@/services/reviews/reviews.service"
 
 
 

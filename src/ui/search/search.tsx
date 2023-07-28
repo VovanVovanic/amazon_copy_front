@@ -4,18 +4,19 @@ import { ChangeEvent, FC, useState } from 'react'
 import { ISearch } from './types'
 import { ImSearch } from 'react-icons/im';
 import { useRouter } from 'next/router';
+import { useFilters } from '@/hooks/useFilters';
 
 const Search: FC<ISearch> = () => {
  const [term, setTerm] = useState<string>("")
  const router = useRouter()
-
+ const { queryParams, updateParams } = useFilters()
  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
   setTerm(e.currentTarget.value)
  }
 
  const onPath = () => {
-  
   router.push(`/search_result?searchTerm=${term.trim().toLowerCase()}`)
+  updateParams("searchTerm",term)
  }
 
  const onKeyHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {

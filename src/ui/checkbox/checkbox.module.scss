@@ -1,14 +1,17 @@
 .checkbox{
-@apply flex items-center;
+@apply flex items-center ;
 span{
  &:first-child{
-  @apply h-5 w-5 rounded border border-solid border-gray bg-transparent transition-colors duration-300 ease-in-out;
+  @apply h-5 w-5 rounded border border-solid border-white bg-transparent transition-colors duration-300 ease-in-out;
   &.active{
-   @apply border-primary bg-primary
+   @apply border-primary bg-primary text-white font-bold text-lg;
+   &:hover{
+    @apply shadow-lg scale-105  border-white;
+   }
   }
  }
- &:last-child{
-  @apply ml-4
+ &:hover{
+  @apply shadow-lg scale-105  border-primary;
  }
 }
 }

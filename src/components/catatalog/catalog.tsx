@@ -52,7 +52,7 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", prod
         {...rest}
         className={cn(classes.catalog, className)}
       >
-        {list}
+        {list ? list : ""}
       </ul >
       {
         paginationLength &&

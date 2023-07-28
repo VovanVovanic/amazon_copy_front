@@ -2,8 +2,9 @@ import { FC } from "react"
 import { IFilters } from "./types"
 import classes from './filters.module.scss'
 import cn from 'classnames'
-import Ranges from "../range/ranges"
 import PriceGroup from "./priceGroup/priceGroup"
+import RatingGroup from "./ratingsGroup/ratingGroup"
+import CategoryGroup from "./categoryGroup/categoryGroup"
 
 const Filters: FC<IFilters> = ({ className, ...rest }) => {
  return (<div
@@ -11,6 +12,8 @@ const Filters: FC<IFilters> = ({ className, ...rest }) => {
   className={cn(className, classes.filters)}
  >
   <PriceGroup />
+  <CategoryGroup />
+  <RatingGroup />
  </div>)
 }
 

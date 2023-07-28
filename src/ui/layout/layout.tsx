@@ -1,7 +1,7 @@
 import Sidebar from '@/components/sidebar/sidebar'
 import { FC, PropsWithChildren } from 'react'
-import Header from '../header/header'
 import classes from './layout.module.scss'
+import Header from '@/components/header/header'
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
  return (

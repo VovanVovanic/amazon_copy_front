@@ -1,0 +1,33 @@
+.dashboard{
+ @apply grid grid-rows-4 gap-6;
+ .item{
+  @apply rounded-lg bg-white p-4 shadow flex justify-between items-center;
+  transform:translateX(-100%);
+  opacity:0;
+  animation: slide 1s forwards;
+  @for $i from 1 through 4{
+   &:nth-child(#{$i}){
+    animation-delay:0.2s*$i
+   }
+  }
+  div{
+   &:first-child{
+    @apply text-2xl font-semibold
+   }
+   &:last-child{
+    
+   }
+  }
+ }
+}
+
+@keyframes slide{
+ from{
+  transform:translateX(-100%);
+  opacity:0
+ }
+ to{
+  transform:translateX(0);
+  opacity:1
+ }
+}

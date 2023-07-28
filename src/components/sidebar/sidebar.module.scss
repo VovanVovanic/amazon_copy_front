@@ -1,5 +1,5 @@
 .sidebar{
- @apply bg-secondary min-h-screen relative grid gap-10;
+ @apply bg-secondary min-h-screen relative grid gap-10 z-50;
  grid-template-rows: (auto 1fr);
  grid-area: sidebar;
  .link{
