@@ -1,7 +1,8 @@
 export interface ICategory{
  id: number
  name: string
- slug:string
+ slug: string
+ createdAt:string
 }
 
 export type ICreateCategory = Pick<ICategory, 'name'>

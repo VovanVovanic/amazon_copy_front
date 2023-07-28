@@ -1,0 +1,9 @@
+.wrapper{
+ @apply flex items-center gap-4;
+ .btn{
+  @apply border-none bg-transparent text-xl text-primary opacity-80 outline-none transition-opacity;
+  &:hover{
+   @apply opacity-100
+  }
+ }
+}

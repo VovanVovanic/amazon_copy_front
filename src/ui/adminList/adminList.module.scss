@@ -1,0 +1,36 @@
+.wrapper{
+ .list{
+  @apply grid gap-6;
+  .item{
+   @apply rounded-lg bg-white p-4 shadow flex justify-between items-center;
+   transform:translateX(-100%);
+   opacity:0;
+   animation: slide 1s forwards;
+   @for $i from 1 through 400{
+    &:nth-child(#{$i}){
+     animation-delay:0.06s*$i
+    }
+   }
+   .info{
+    @apply px-10 text-right w-1/3;
+    &:first-child{
+     @apply text-2xl font-semibold px-0 text-left
+    }
+    &:last-child{
+     @apply bg-gray
+    }
+   }
+  }
+ }
+}
+
+@keyframes slide{
+ from{
+  transform:translateX(-100%);
+  opacity:0
+ }
+ to{
+  transform:translateX(0);
+  opacity:1
+ }
+}
