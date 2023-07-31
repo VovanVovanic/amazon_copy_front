@@ -1,0 +1,97 @@
+.image {
+	@apply rounded-md;
+	animation: slide 0.3s linear;
+}
+.blck {
+	@apply mt-5 grid gap-3;
+	grid-template-columns: 1fr 1fr 1fr;
+	.descripton {
+		@apply font-light opacity-80;
+		span {
+			@apply mb-1 block font-semibold;
+		}
+	}
+}
+
+.galery {
+	@apply mt-5 w-[500px] overflow-x-auto whitespace-nowrap;
+	.button {
+		@apply mr-5 inline-block overflow-hidden rounded-lg
+            transition-all duration-300;
+		&:hover {
+			@apply shadow-md;
+		}
+		&:last-child {
+			@apply mr-0;
+		}
+		&.active {
+			@apply border-b-2 border-solid border-primary shadow-md;
+		}
+	}
+}
+
+.info {
+	@apply relative h-max rounded-lg bg-white p-5 shadow-md;
+	.title {
+		@apply text-2xl font-semibold;
+	}
+	.link {
+		@apply mt-5;
+		a {
+			@apply ml-2 font-semibold text-aqua;
+		}
+	}
+	.sales {
+		@apply mt-1 block text-sm opacity-50;
+	}
+	.delivery {
+		@apply mt-4 text-sm;
+		span {
+			@apply mr-1 opacity-50;
+		}
+	}
+	.transaction {
+		@apply mt-2 flex items-center text-sm opacity-40;
+	}
+	.favorite {
+		@apply absolute right-6 top-6;
+	}
+}
+
+.inlineBtn {
+	@apply mt-5;
+}
+
+.item-enter {
+	display: none;
+	opacity: 0;
+	transform: scale(0.9);
+}
+
+.item-enter-active {
+	opacity: 1;
+	transform: translateX(0);
+	transition: opacity 300ms, transform 300ms;
+}
+
+.item-exit {
+	opacity: 1;
+}
+
+.item-exit-active {
+	opacity: 0;
+	transform: scale(0.9);
+	transition: opacity 300ms, transform 300ms;
+}
+
+@keyframes slide {
+	from {
+		transform: translateX(-100px);
+		opacity: 0;
+	}
+
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}

@@ -15,7 +15,7 @@ class ProductService{
  }
  
  async getProductByFeature(type: ByFeature, data: string) {
-  return instance<IProduct[]>({
+  return instance<IProduct, any>({
    url: `${products.all}${type}/${data}`,
    method:"GET"
   })
