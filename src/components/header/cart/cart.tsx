@@ -20,22 +20,11 @@ const Cart: FC = () => {
 	const { push } = useRouter();
 	const { isShow, setIsShow, ref } = useOutside(false);
 	const { items, total } = useCart();
-	const{reset}=useActions()
 
-	const { mutate } = useMutation(['create_payment'], () =>
-		Order.createPayment({
-			items: items.map(el => ({
-				price: el.price,
-				quantity: el.quantity,
-				productId: el.product.id
-			}))
-		}),
-		{onSuccess({data}){
-			push(data.confirmation.confirmation_url)
-			reset()
-		}}
-	);
-
+	const onOrder = ()=>{
+		push("/checkout")
+		setIsShow(false)
+	}
 	const list = useMemo(() => {
 		return items.map(el => {
 			return <CartItem key={el.product.id} item={el} />;
@@ -58,9 +47,9 @@ const Cart: FC = () => {
 						{!!items.length && <Button
 							variant='dark'
 							className={cn(classes.btn)}
-							onClick={() => mutate()}
+							onClick={() => onOrder()}
 						>
-							Place Order
+							Checkout
 						</Button>}
 					</div>
 				</div>

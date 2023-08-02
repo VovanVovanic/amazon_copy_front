@@ -1,0 +1,6 @@
+.item{
+    @apply bg-white rounded-lg shadow-md p-6;
+    .content{
+        @apply flex items-center mb-2
+    }
+}

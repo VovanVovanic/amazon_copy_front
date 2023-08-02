@@ -1,6 +1,6 @@
 import { reviews } from "@/api/api.endpoints"
 import { instance } from "@/api/api.interceptor"
-import { IReview } from "@/store/reviews/types"
+import { IReview, IReviewField } from "@/store/reviews/types"
 
 class ReviewsService {
 
@@ -12,7 +12,7 @@ class ReviewsService {
   
  }
 
- async create(data: { name: string }, productId: string) {
+ async create(data: IReviewField, productId: string) {
   return instance<IReview>({
    url: `${reviews.create}${productId}`,
    method: "POST",

@@ -11,7 +11,6 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
    <main className={classes.main}>
     {children}
    </main>
-
   </div>
  )
 }

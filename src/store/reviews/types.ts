@@ -7,3 +7,8 @@ export interface IReview{
  rating: string,
  product:{name:string}
 }
+
+export interface IReviewField{
+    rating:number
+    text:string
+}

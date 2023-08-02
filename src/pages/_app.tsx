@@ -25,6 +25,7 @@ export default function App({ Component, pageProps }: AppProps & TypeComponentAu
             isAdmin: Component.isAdmin
           }}>
             <Component {...pageProps} />
+            <div id="modal"></div>
           </AuthProvider>
 
 
