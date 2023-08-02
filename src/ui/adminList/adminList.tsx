@@ -2,12 +2,13 @@ import { FC } from 'react'
 import classes from './adminList.module.scss'
 import { IAdminList } from './types'
 import ListItem from './listItem'
+import Spinner from '../spinner/spinner'
 
 const AdminList: FC<IAdminList> = ({ listItems, isLoading, removeHandler }) => {
    return (
       <div className={classes.wrapper}>
          {isLoading ? (
-            <div>loading...</div>
+            <Spinner />
          ) : listItems?.length ? (
             <ul className={classes.list}>
 

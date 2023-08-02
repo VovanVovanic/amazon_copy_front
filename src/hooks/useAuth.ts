@@ -10,5 +10,5 @@ export const useAuthRedirect = () => {
  useEffect(() => {
   if (user) router.replace('/')
   
- },[user])
+ },[router, user])
 }

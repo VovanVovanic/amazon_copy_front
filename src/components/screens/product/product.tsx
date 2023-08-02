@@ -15,14 +15,14 @@ import { ByFeature } from '@/store/category/types';
 import ProductReviews from './productReviews';
 
 const Product: FC<IProductPage> = ({ product, similar, slug }) => {
-	const { data, isFetching } = useQuery(
-		['get product'],
-		() => Products.getProductByFeature(ByFeature.Slug, slug || ''),
-		{
-			initialData: product,
-			enabled: !!slug
-		}
-	);
+	// const { data, isFetching } = useQuery(
+	// 	['get product'],
+	// 	() => Products.getProductByFeature(ByFeature.Slug, slug || ''),
+	// 	{
+	// 		initialData: product,
+	// 		enabled: !!slug
+	// 	}
+	// );
 	return (
 		<>
 			<Heading className='mb-1'>{product.name}</Heading>

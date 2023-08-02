@@ -1,0 +1,6 @@
+.spinner{
+    @apply flex items-center justify-center;
+    svg{
+        @apply bg-transparent
+    }
+}

@@ -8,6 +8,7 @@ import cn from 'classnames'
 import Button from "@/ui/buttons/button"
 import { IExplorer } from "./types"
 import Filters from "@/components/filters/filters";
+import Spinner from "@/ui/spinner/spinner";
 
 
 const Explorer: FC<IExplorer> = ({ initialProducts }) => {
@@ -35,8 +36,13 @@ const Explorer: FC<IExplorer> = ({ initialProducts }) => {
     })}
    >
     <Filters className={classes.explorersFilters} />
-    <Catalog
-         title={`Found ${data.length} products`} products={data.products}  paginationLength={data.length}/>
+    {isFetching ? (
+      <Spinner /> 
+    ) : (
+      <Catalog
+      title={`Found ${data.length} products`} products={data.products}  paginationLength={data.length}/>
+    )}
+
    </div>
   </>
  )

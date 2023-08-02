@@ -10,6 +10,7 @@ import Button from '@/ui/buttons/button';
 import Heading from '@/ui/heading/heading';
 
 import { IReview, IReviewField } from '@/store/reviews/types';
+import Spinner from '@/ui/spinner/spinner';
 
 const ProductReviewsForm: FC<{ productId: number }> = ({ productId }) => {
 	const {
@@ -42,7 +43,7 @@ const ProductReviewsForm: FC<{ productId: number }> = ({ productId }) => {
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<Heading className='text-center mb-4'>Leave a review</Heading>
 				{isLoading ? (
-					<div>sasfsdfsdf</div>
+					<Spinner />
 				) : (
 					<div>
 						<Controller
