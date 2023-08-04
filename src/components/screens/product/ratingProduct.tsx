@@ -11,21 +11,19 @@ const RatingProduct:FC<IProductPageRating>=({product})=>{
     if(!length) return null
 
     return(
-        <div>
+        <>
             <Ratings product={product}/>
-            <div>
                 <Link 
                 to='reviews'
                 className='opacity-50 font-semibold text-sm cursor-pointer'
+                spy={true}
                 smooth={true}
                 offset={-50}
                 duration={1000}
                 >
                     {length} Reviews <FiChevronDown className="inline"/>
                 </Link>
-            </div>
-
-        </div>
+        </>
     )
 }
 export default RatingProduct

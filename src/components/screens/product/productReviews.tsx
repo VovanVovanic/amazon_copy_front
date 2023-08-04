@@ -1,15 +1,13 @@
 import classes from './product.module.scss';
 import cn from 'classnames';
 import { FC, useMemo, useState } from 'react';
-
 import Heading from '@/ui/heading/heading';
-
 import { IReview } from '@/store/reviews/types';
-
 import { useAuth } from '@/hooks/useAuth';
 import ReviewItem from './reviewItem/reviewItem';
 import Modal from '@/ui/modal/modal';
 import ReviewForm from './reviewForm';
+import{Element}from 'react-scroll'
 
 const ProductReviews: FC<{ reviews: IReview[]; productId: number }> = ({
 	reviews,
@@ -25,7 +23,8 @@ const ProductReviews: FC<{ reviews: IReview[]; productId: number }> = ({
 
 	if (!reviews.length) return null;
 	return (
-		<section id='reviews' className='mt-20'>
+		<Element name="reviews">
+		<section id='reviews'  className='mt-20'>
 			<div className='mb-9'>
 				<Heading className='mb-3'>Reviews:</Heading>
 				{!!reviews.length && <ul className='grid grid-colls-4 gap-10'>{list}</ul>}
@@ -46,6 +45,7 @@ const ProductReviews: FC<{ reviews: IReview[]; productId: number }> = ({
 
 			</div>
 		</section>
+		</Element>
 	);
 };
 export default ProductReviews;

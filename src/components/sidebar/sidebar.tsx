@@ -2,8 +2,6 @@ import { adminMenu } from './constants';
 import classes from './sidebar.module.scss';
 import { IAdminMenuItem } from './types';
 import { convertToMenuFormat } from './utils';
-import Category from '@/services/caterory/category.service';
-import { useQuery } from '@tanstack/react-query';
 import cn from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';

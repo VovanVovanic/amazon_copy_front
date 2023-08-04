@@ -3,10 +3,10 @@
 	animation-name: fadeIn;
 	animation-duration: 0.4s;
 	.window {
-		@apply relative w-3/4 max-w-[500px] rounded-lg bg-white p-5;
+		@apply relative w-3/4 max-w-[500px] rounded-lg bg-white p-5 pb-10;
 		animation: slideIn 0.5s;
 		button {
-			@apply absolute right-5 top-5 text-lg transition-colors duration-300 ease-in-out;
+			@apply absolute right-5 bottom-2 text-lg transition-colors duration-300 ease-in-out;
 			&:hover {
 				@apply text-aqua;
 			}

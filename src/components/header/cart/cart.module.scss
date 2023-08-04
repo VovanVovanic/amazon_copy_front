@@ -6,7 +6,7 @@
 	}
 
 	.wrapper {
-		@apply absolute right-0 top-[4.2rem] z-50 w-80 rounded-xl bg-secondary px-5 py-3 text-sm text-white; animation: 0.3s cartAnimation ease-in-out;
+		@apply absolute -right-7 top-[4.2rem] z-50 w-80 rounded-xl bg-secondary px-5 py-3 text-sm text-white; animation: 0.3s cartAnimation ease-in-out;
 
 		.title {
 			@apply mb-5 text-lg font-normal;

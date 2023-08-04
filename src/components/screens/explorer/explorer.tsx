@@ -20,7 +20,6 @@ const Explorer: FC<IExplorer> = ({ initialProducts }) => {
   initialData: initialProducts,
   enabled: isFilterUpdated
  })
-
  return (
   <>
    <Button

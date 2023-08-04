@@ -93,7 +93,7 @@ body {
 }
 
 body {
-@apply text-base text-black h-screen bg-gray;
+@apply text-base text-black bg-gray;
 }
 
 a {

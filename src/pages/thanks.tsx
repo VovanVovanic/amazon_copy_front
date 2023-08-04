@@ -1,21 +1,19 @@
-import { NextPageAuth } from "@/providers/authProviders/types"
-import Layout from "@/ui/layout/layout"
-import Meta from "@/ui/meta/meta"
+import Layout from '@/ui/layout/layout';
+import Meta from '@/ui/meta/meta';
+
+import { NextPageAuth } from '@/providers/authProviders/types';
+import ThankYou from '@/components/screens/thankYou/thank';
 
 const ThanksPage: NextPageAuth = () => {
+	return (
+		<Meta title='Thanks Page'>
+			<Layout>
+				<ThankYou />
+			</Layout>
+		</Meta>
+	);
+};
 
-    return (
-      <Meta title = "Thanks Page">
-        <Layout >
-          <div>
-            Thanks...
-          </div>
-        </Layout>
-        </Meta>
-   
-    )
-   }
-   
-   ThanksPage.isOnlyUser = true
-  
-   export default ThanksPage
+ThanksPage.isOnlyUser = true;
+
+export default ThanksPage;

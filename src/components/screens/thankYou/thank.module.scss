@@ -1,0 +1,7 @@
+.wrapper{
+    @apply w-full h-full flex mt-20 justify-center;
+    .thank{
+        @apply flex gap-5 p-5 flex-col  w-3/4 max-w-[500px] h-60 rounded-lg bg-white justify-center items-center;
+        
+    }
+}
