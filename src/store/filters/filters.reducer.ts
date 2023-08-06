@@ -4,6 +4,8 @@ import { IFilterState, IFiltersActionsPayload } from "./type"
 
 const initialState: IFilterState = {
  isFilterUpdated: false,
+ categoryProdictsFilter: EnumProductsSort.NEWEST,
+ categoryPath:"",
  queryParams: {
   sort: EnumProductsSort.NEWEST,
   searchTerm: "",
@@ -23,8 +25,15 @@ export const filtersSlice = createSlice({
    state.queryParams[key]=v
    state.isFilterUpdated=true
   },
+  setCategoryProductFilter: (state, action: PayloadAction<string>) => {
+   state.categoryProdictsFilter = action.payload
+   state.isFilterUpdated = true
+  },
   resetQueryParam: (state) => {
    state.isFilterUpdated = false
+  },
+  setCategoryPath: (state, action: PayloadAction<string>) => {
+   state.categoryPath = action.payload
   }
  }
 })

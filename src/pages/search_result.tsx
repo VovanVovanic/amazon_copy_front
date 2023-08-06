@@ -1,5 +1,4 @@
 import Explorer from "@/components/screens/explorer/explorer"
-import { useTypedSelector } from "@/hooks/useTypedSelector"
 import { NextPageAuth } from "@/providers/authProviders/types"
 import Products from "@/services/products/products.service"
 import { EnumProductsSort, TypePaginationProducts } from "@/store/product/types"

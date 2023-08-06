@@ -11,22 +11,22 @@ const Modal: FC<PropsWithChildren<IModal>> = ({
 }) => {
 	const modal = document.getElementById('modal')
 	const modalRef = useRef<HTMLElement | null>(null);
-	useEffect(()=>{
-		if(modal !==null){
+	useEffect(() => {
+		if (modal !== null) {
 			modalRef.current = modal
 		}
-	},[modal])
+	}, [modal])
 
 	if (!isOpen || !modalRef.current) return null;
 	return ReactDOM.createPortal(
 		<div className={classes.overlay}>
 			<div className={classes.window}>
-                <button onClick={onClose}>
-                    <RiCloseFill/>
-                </button>
-                {children}
+				<button className={classes.close} onClick={onClose}>
+					<RiCloseFill  size={25}/>
+				</button>
+				{children}
 
-            </div>
+			</div>
 		</div>,
 		modalRef.current
 	);

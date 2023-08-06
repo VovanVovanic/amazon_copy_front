@@ -2,9 +2,8 @@ import classes from './checkout.module.scss';
 import CheckoutItem from './checkoutItem';
 import Order from '@/services/orders/orders.service';
 import { useMutation } from '@tanstack/react-query';
-import cn from 'classnames';
 import { useRouter } from 'next/navigation';
-import { FC, useMemo } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
 
 import CatalogItem from '@/components/catatalog/catalogItem/catalogItem';
 
@@ -15,12 +14,15 @@ import { IProduct } from '@/store/product/types';
 
 import { useActions } from '@/hooks/useActions';
 import { useCart } from '@/hooks/useCart';
+import { StringDecoder } from 'string_decoder';
 
 const CheckoutPage: FC<{ products: IProduct[] }> = ({ products }) => {
 	const { items, total } = useCart();
 	const { reset } = useActions();
 	const { push } = useRouter();
-	const { mutate } = useMutation(
+	const [msg, setMsg] = useState<string>("Fill your cart first")
+	
+	const { mutate,isSuccess } = useMutation(
 		['create order and payment'],
 		() =>
 			Order.createPayment({
@@ -32,19 +34,23 @@ const CheckoutPage: FC<{ products: IProduct[] }> = ({ products }) => {
 			}),
 		{
 			onSuccess({ data }) {
-				reset();
-				push(data.confirmation.confirmation_url);
+				push(data.confirmation.confirmation_url)
+				reset()
 			}
 		}
 	);
-
+	useEffect(() => {
+		if (isSuccess) {
+			setMsg("")
+		}
+	},[isSuccess])
 	const list = useMemo(() => {
 		return items.map(el => {
-			return <CheckoutItem key={el.id} product={el.product} amount={el.quantity}/>;
+			return <CheckoutItem key={el.id} product={el.product} amount={el.quantity} />;
 		});
 	}, [items]);
 
-    const filteredCategory = products.filter((el)=>items.map(item=>item.product.category.name).includes(el.category.name))
+	const filteredCategory = products.filter((el) => items.map(item => item.product.category.name).includes(el.category.name))
 
 	return (
 		<>
@@ -70,23 +76,25 @@ const CheckoutPage: FC<{ products: IProduct[] }> = ({ products }) => {
 					<div>
 						<Heading className='mb-6 text-2xl'>Recommended Products</Heading>
 						<ul className={classes.recommended}>
-							{filteredCategory 
+							{filteredCategory
 								.filter(el => !items.map(i => i.product.id).includes(el.id))
 								.slice(0, 4)
 								.map(p => {
-									return <CatalogItem 
-                                    key={p.id} 
-                                    product={p} 
-                                    />;
+									return <CatalogItem
+										key={p.id}
+										product={p}
+									/>;
 								})}
 						</ul>
 					</div>
 				</section>
 			) : (
-				<div className='flex items-center mt-20 font-semibold text-2xl justify-center'>Fill your cart first</div>
+					<div className='flex items-center mt-20 font-semibold text-2xl justify-center'>{msg}</div>
 			)}
 		</>
 	);
 };
 
 export default CheckoutPage;
+
+

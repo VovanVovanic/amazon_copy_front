@@ -15,6 +15,7 @@ import { useCategory } from '@/hooks/querries/useCategory';
 import { useActions } from '@/hooks/useActions';
 import { useAuth } from '@/hooks/useAuth';
 import { useIsAdmin } from '@/hooks/useIsAdmin';
+import { EnumProductsSort } from '@/store/product/types';
 
 const Sidebar: FC = () => {
 	const { data, isLoading } = useCategory();
@@ -22,7 +23,7 @@ const Sidebar: FC = () => {
 	const router = useRouter();
 	const { user } = useAuth();
 	const { isAdminPanel, pathname } = useIsAdmin();
-	const { logout } = useActions();
+	const { logout, setCategoryPath, updateQueryParam, setCategoryProductFilter } = useActions();
 
 	const onAuth = () => {
 		user ? logout() : router.push('/auth');
@@ -41,13 +42,20 @@ const Sidebar: FC = () => {
 			) : (
 				<ul className='h-fit'>
 					{getMenu().map(el => {
+
 						return (
 							<li key={el.name}>
 								<Link
 									className={cn(classes.link, {
-										[classes.active]: asPath === el.route
+										[classes.active]: asPath.split("?")[0] === el.route
 									})}
 									href={el.route}
+									onClick={() => {
+										setCategoryPath(el.route)
+										updateQueryParam({ key: 'sort', value: EnumProductsSort.NEWEST })
+										setCategoryProductFilter(EnumProductsSort.NEWEST)
+
+									}}
 								>
 									{el.name}
 								</Link>

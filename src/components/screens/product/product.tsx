@@ -21,7 +21,7 @@ const Product: FC<IProductPage> = ({ product, similar, productId }) => {
 		() => Products.getProductByFeature(ByFeature.Id, productId || ''),
 		{
 			initialData: product,
-			enabled: true
+			enabled: !!productId
 		}
 	);
 	return (

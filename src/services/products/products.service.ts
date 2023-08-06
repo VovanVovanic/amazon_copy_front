@@ -21,9 +21,9 @@ class ProductService{
   })
   
  }
- async getProductByCategory(categorySlug:string) {
-  return instance<IProduct[]>({
-   url: `${products.category}${categorySlug}`,
+  async getProductByCategory(categorySlug: string, sort: string) {
+  return instance<IProduct[], any>({
+   url: `${products.category}${categorySlug}/${sort}`,
    method:"GET"
   })
   

@@ -3,7 +3,8 @@
  @apply  relative w-full
 }
 .catalog{
- @apply grid grid-cols-4 gap-10
+ @apply grid w-full gap-10 justify-between;
+ grid-template-columns: repeat(4, minmax(0, auto))
 }
 
 .header{

@@ -11,6 +11,9 @@
 				@apply text-aqua;
 			}
 		}
+		.close{
+			@apply absolute top-4 h-0 text-lg font-semibold right-4;
+		}
 	}
 }
 

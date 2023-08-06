@@ -7,39 +7,37 @@ import { FC, PropsWithChildren, useEffect } from "react";
 import { TypeComponentAuthFields } from "./types";
 
 
-const DynamicCheckRole = dynamic(()=>import('./checkRole'),{ssr:false})
+const DynamicCheckRole = dynamic(() => import('./checkRole'), { ssr: false })
 const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({ Component: {
- isOnlyUser
+  isOnlyUser
 }, children }) => {
 
- const { user } = useAuth()
- const {logout, refresh} = useActions()
- const { pathname } = useRouter()
- 
- useEffect(() => {
-   const accessToken = getAccessToken()
-   console.log(accessToken, "access")
-  if (!accessToken) {
-   refresh()
-  }
+  const { user } = useAuth()
+  const { logout, refresh } = useActions()
+  const { pathname } = useRouter()
 
- }, [])
- 
- useEffect(() => {
-   const refreshToken = getRefreshToken()
-   console.log(refreshToken, "refresh")
-  if (!refreshToken && user) {
-   logout()
-  }
- },[pathname])
- 
- return isOnlyUser ? (
-  <DynamicCheckRole Component={{isOnlyUser}}>
-    {children}
-   </DynamicCheckRole>
- ): (
-   <>{ children }</>
-   )
+  useEffect(() => {
+    const accessToken = getAccessToken()
+    if (!accessToken) {
+      refresh()
+    }
+
+  }, [])
+
+  useEffect(() => {
+    const refreshToken = getRefreshToken()
+    if (!refreshToken && user) {
+      logout()
+    }
+  }, [pathname])
+
+  return isOnlyUser ? (
+    <DynamicCheckRole Component={{ isOnlyUser }}>
+      {children}
+    </DynamicCheckRole>
+  ) : (
+    <>{children}</>
+  )
 }
 
 export default AuthProvider

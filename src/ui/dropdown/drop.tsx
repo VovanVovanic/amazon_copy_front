@@ -7,15 +7,22 @@ import { IDrop, ISortType } from './types';
 import { BsCaretDownFill } from 'react-icons/bs';
 import Button from '../buttons/button';
 import { useOutside } from '@/hooks/useOutside';
+import { useCategoryProductFilter } from '@/hooks/useCategoryProductFilter';
+import { EnumProductsSort } from '@/store/product/types';
 
-function DropDown<K>({ onSelect, items, value, title = "Sort:" }: IDrop<K>) {
-  //const [open, setIsOpen] = useState<boolean>(false)
+function DropDown<K extends EnumProductsSort>({ onSelect, items, value, title = "Sort:" }: IDrop<K>) {
   const { isShow, setIsShow, ref } = useOutside(false);
-  const[active, setActive]=useState<string>(value ? value.label: "")
+  const { updateFilter, isCategory} = useCategoryProductFilter()
+  const [active, setActive] = useState<ISortType<K> | undefined>(value)
+
+
   const onChange = (data: ISortType<K>) => {
+    if (isCategory) {
+      updateFilter(data.key)
+    }
     onSelect(data)
     setIsShow(false)
-    setActive(data.label)
+    setActive(data)
   }
 
   const list = useMemo(() => {
@@ -24,15 +31,17 @@ function DropDown<K>({ onSelect, items, value, title = "Sort:" }: IDrop<K>) {
         <li
           key={el.label.toString()}
           className={cn(classes.item, {
-            [classes.active]: el.label === active
+            [classes.active]: el.label === active?.label
 
           })}
         >
           <button
             className={classes.btnLink}
             onClick={() => onChange(el)}
-            disabled={el.key === value?.key}
-          >{el.label}</button>
+            disabled={el.label === active?.label}
+          >{el.label}
+
+          </button>
         </li>
       )
     })
@@ -46,7 +55,7 @@ function DropDown<K>({ onSelect, items, value, title = "Sort:" }: IDrop<K>) {
     >
       <b>
         {title}
-        <i>{value?.label}</i>
+        <i>{active?.label}</i>
       </b>
 
       <Button

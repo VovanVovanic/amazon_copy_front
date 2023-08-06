@@ -4,9 +4,10 @@ import { ByFeature, ICategory, ICreateCategory } from "@/store/category/types"
 
 class CategoryService{
 
- async getCategoryByFeature(type: ByFeature, data: string) {
+ async getCategoryByFeature(type: ByFeature, data: string, sort: string) {
+  console.log(data,"datadata")
   return instance<ICategory[]>({
-   url: `${category.all}${type}/${data}`,
+   url: `${category.all}${type}/${data}/${sort}`,
    method:"GET"
   })
   

@@ -38,7 +38,7 @@ const ProductReviewsForm: FC<{ productId: number }> = ({ productId }) => {
 		{
 			onError: () => {
 				console.error('err');
-				queryClient.invalidateQueries(['get product']); // not work
+				queryClient.invalidateQueries(['get product']); 
 			}
 		}
 	);

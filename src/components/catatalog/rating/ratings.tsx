@@ -21,7 +21,7 @@ const Ratings: FC<PropsWithChildren<IRatings>> = ({ product,isText=false, classN
  return (<div className={cn(className, classes.ratings)}  {...rest}>
   {rating !== 0 && (
    <>
-    <span>Rating:</span>
+    <span>Average rating:</span>
     <Rating
      readonly
      initialValue={rating}

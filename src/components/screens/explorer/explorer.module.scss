@@ -11,7 +11,7 @@
  &.filterOpened{
   @apply gap-5;
   .explorersFilters{
-   @apply w-2/6 opacity-100
+   @apply w-[20%] opacity-100
   }
  }
 }
