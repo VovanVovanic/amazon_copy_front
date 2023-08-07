@@ -8,7 +8,7 @@ const Spinner:FC = ()=>{
         height={100}
         width={100}
         alt="loading..."
-        src="spinner.svg"
+        src="/spinner.svg"
         />
 
     </div>)

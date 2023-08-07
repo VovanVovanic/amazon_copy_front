@@ -8,6 +8,6 @@ export interface IFilterState{
 }
 
 export interface IFiltersActionsPayload{
- value: string
+ value: string | number
  key: keyof IProductFilters
 }

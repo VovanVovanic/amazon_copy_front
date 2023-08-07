@@ -5,4 +5,5 @@ export interface ICatalog extends DetailedHTMLProps<HTMLAttributes<HTMLUListElem
  products: IProduct[]
  paginationLength?: number
  title?: string
+ refetch?:()=>void
 }

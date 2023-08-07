@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, useMemo } from "react";
+import { FC, PropsWithChildren, useEffect, useMemo, useState } from "react";
 import { ICatalog } from "./types";
 import classes from './catalog.module.scss'
 import cn from 'classnames'
@@ -12,19 +12,13 @@ import { useFilters } from "@/hooks/useFilters";
 import { ISortType } from "@/ui/dropdown/types";
 import { EnumProductsSort, IProduct } from "@/store/product/types";
 
-const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", products, paginationLength = 0, children, className, ...rest }) => {
-
-
+const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", products, paginationLength = 0, children,refetch, className, ...rest }) => {
   const { updateParams, queryParams, } = useFilters()
-
   const { sort } = queryParams
-
-  const handlePageClick = (event: { selected: number }) => {
-    updateParams("page", String(event.selected + 1))
-  }
 
   const setSort = (data: ISortType) => {
     updateParams("sort", data.key.toString())
+    refetch && refetch()
   }
   const list = useMemo(() => {
     return products.map((el: IProduct) => {
@@ -35,7 +29,7 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", prod
       )
     })
   }, [products])
- 
+
   return (
     <div className={cn(classes.wrapper)}>
       <div className={classes.header}>
@@ -44,7 +38,7 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", prod
           < DropDown<EnumProductsSort>
             value={dropItems.find((el) => el.key === sort)}
             onSelect={setSort} items={dropItems}
-          title={`Sorted By: `}
+            title={`Sorted By: `}
           />}
       </div>
 
@@ -55,29 +49,6 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", prod
         {list ? list : ""}
       </ul >
 
-
-      {
-        paginationLength &&
-        paginationLength > queryParams.perPage &&
-        <div className={classes.pagination}>
-          <ReactPaginate
-            className={classes.paginate}
-            pageCount={Math.ceil(paginationLength / queryParams.perPage)}
-            pageRangeDisplayed={2}
-            marginPagesDisplayed={1}
-            breakLabel="..."
-            pageClassName={classes.page}
-            nextClassName={classes.arrow}
-            previousClassName={classes.arrow}
-            activeClassName={classes.active}
-            onPageChange={handlePageClick}
-            previousLabel={
-              <HiArrowSmLeft />}
-            nextLabel={
-              <HiArrowSmRight />
-            }
-          />
-        </div>}
     </div>)
 }
 

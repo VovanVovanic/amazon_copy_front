@@ -1,7 +1,7 @@
 import { IHome } from './types';
 import Products from '@/services/products/products.service';
 import { useQuery } from '@tanstack/react-query';
-import { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, useEffect, useMemo } from 'react';
 
 import Catalog from '@/components/catatalog/catalog';
 
@@ -10,6 +10,7 @@ import { carouselItems } from '@/ui/carousel/constants';
 import Spinner from '@/ui/spinner/spinner';
 
 import { useFilters } from '@/hooks/useFilters';
+import Pagination from '@/ui/pagination/pagination';
 
 const HomePage: FC<PropsWithChildren<IHome>> = ({
 	initialData,
@@ -17,16 +18,23 @@ const HomePage: FC<PropsWithChildren<IHome>> = ({
 	children,
 	...rest
 }) => {
-	const { isFilterUpdated, queryParams } = useFilters();
+	const { isFilterUpdated, queryParams, updateParams, } = useFilters();
+	const { page, perPage } = queryParams
 
-	const { data, isFetching } = useQuery(
+	const { data, isFetching,refetch } = useQuery(
 		['search products', queryParams],
 		() => Products.getAll(queryParams),
 		{
 			initialData: initialData,
-			enabled: isFilterUpdated
+			enabled: isFilterUpdated,
+			staleTime:10
 		}
 	);
+
+	const handlePageClick = (page: number) => {
+		updateParams("page", page)
+	}
+	const isPagination = data.length && data.length > perPage
 	return (
 		<>
 			<Carousel items={carouselItems} />
@@ -36,9 +44,18 @@ const HomePage: FC<PropsWithChildren<IHome>> = ({
 				<section {...rest}>
 					<Catalog
 						products={data.products}
-						paginationLength={data.length}
-						title={'Popular Products'}
+							title={'Popular Products'}
+							refetch={refetch}
 					/>
+					{
+							isPagination &&
+							<Pagination
+							onChange={handlePageClick}
+							paginationLength={Math.ceil(data.length / perPage)}
+							page={page}
+						/>
+					}
+
 				</section>
 			)}
 		</>

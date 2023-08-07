@@ -22,7 +22,7 @@ const api = {
   delete: `/${Endpoints.Category}/delete/`,
  },
  orders: {
-  all: `/${Endpoints.Orders}`,
+  all: `/${Endpoints.Orders}/`,
   by_user: `/${Endpoints.Orders}/user/`,
  },
  users: {

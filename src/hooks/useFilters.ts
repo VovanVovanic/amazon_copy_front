@@ -20,7 +20,7 @@ export const useFilters = () => {
   })
  },[])
 
- const updateParams = (key: keyof IProductFilters, value: string) => {
+ const updateParams = (key: keyof IProductFilters, value: string | number) => {
   const newParams = new URLSearchParams(searchParams.toString())
   if (value) {
    newParams.set(key, String(value))
@@ -29,6 +29,7 @@ export const useFilters = () => {
    newParams.delete(key)
   }
   replace(pathname + `?${newParams.toString()}`)
+
   updateQueryParam({key,value})
  }
  return {

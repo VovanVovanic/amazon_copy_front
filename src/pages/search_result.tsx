@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps = async () => {
   sort: EnumProductsSort.NEWEST,
   searchTerm: "",
   page: 1,
-  perPage: 10,
+  perPage: 8,
   ratings: ""
   })
   return{

@@ -1,6 +1,6 @@
 .checkout{
     @apply grid gap-20;
-    grid-template-columns: 2fr 1.2fr;
+    grid-template-columns: 1.5fr 2fr;
     .list{
         .item{
             @apply mb-4 flex items-center rounded-lg bg-white px-6 py-3 pr-10;
@@ -18,7 +18,7 @@
                     }
                 }
                 .price{
-                    @apply text-lg
+                    @apply text-lg self-start
                 }
             }
         }
@@ -40,5 +40,6 @@
 }
 
 .recommended{
-    @apply grid grid-cols-2 gap-10;
+    @apply grid gap-20 justify-between;
+    grid-template-columns: repeat(2, minmax(0, auto))
 }

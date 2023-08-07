@@ -1,10 +1,9 @@
 import Catalog from "@/components/catatalog/catalog"
-import { useFilters } from "@/hooks/useFilters"
 import Products from "@/services/products/products.service"
 import { useQuery } from "@tanstack/react-query"
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import Spinner from "@/ui/spinner/spinner";
-import { IProduct, TypePaginationProducts } from "@/store/product/types";
+import { IProduct } from "@/store/product/types";
 import { useCategoryProductFilter } from "@/hooks/useCategoryProductFilter";
 import { useTypedSelector } from "@/hooks/useTypedSelector";
 
