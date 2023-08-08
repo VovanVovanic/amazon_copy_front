@@ -13,15 +13,14 @@ import Pagination from "@/ui/pagination/pagination";
 
 
 const Explorer: FC<IExplorer> = ({ initialProducts }) => {
-  const { isFilterUpdated, queryParams, updateParams } = useFilters()
+  const { isFilterUpdated, queryParams, updateParams, resetQueryParam } = useFilters()
   const [filtersOpen, setFiltersOpen] = useState<boolean>(false)
 
-  const { data, isFetching, refetch } = useQuery(['search products', queryParams],
+  const { data, isFetching } = useQuery(['search products', queryParams],
     () => Products.getAll(queryParams), {
     initialData: initialProducts,
     enabled: isFilterUpdated
   })
-
 
   const handlePageClick = (page: number) => {
     updateParams("page", page)

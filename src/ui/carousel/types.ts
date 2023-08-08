@@ -3,8 +3,9 @@ import { DetailedHTMLProps, HTMLAttributes } from "react";
 export interface ICarouselItem{
  title: string
  description: string
- image?: string
- link?:string
+ url?: string
+ link?: string
+ id:number
 }
 
 export interface ICarousel extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{

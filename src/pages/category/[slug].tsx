@@ -15,9 +15,9 @@ const CategoryPage: NextPage<{products:IProduct[],category:ICategory}> = ({produ
  return (
    <Meta title = {category.name}>
      <Layout >
-       {/* <CategorySortExplorer
+       <CategorySortExplorer
          initialProducts={products || []}
-         title={category.name} /> */}
+         title={category.name} />
      </Layout>
      </Meta>
 

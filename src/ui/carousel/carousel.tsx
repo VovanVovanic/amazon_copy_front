@@ -17,11 +17,16 @@ const Carousel: FC<ICarousel> = ({ items, className, ...rest }) => {
   return (
     <div
       {...rest}
-      className={cn(classes.carousel, className)}
+      className={cn(classes.carousel, className, {
+        [classes.delivery]: selectedItem.id === 1,
+        [classes.techs]: selectedItem.id === 2,
+        [classes.gift]: selectedItem.id === 3,
+        [classes.sale]: selectedItem.id === 4,
+      })}
     >
       <TransitionGroup className='relative h-56'>
         <CSSTransition
-          timeout={500}
+          timeout={300}
           key={selectedItem.title}
           classNames={{
             enter: classes['item-enter'],
@@ -34,11 +39,15 @@ const Carousel: FC<ICarousel> = ({ items, className, ...rest }) => {
         >
           <div
             className={classes.item}
+            style={{ backgroundImage: `url(${selectedItem.url})` }}
           >
             <div>
               <h2 className={classes.title}>{selectedItem.title}</h2>
               <p className={classes.desc}>{selectedItem.description}</p>
-              <Button variant="light">
+              <Button
+                variant="light"
+                className={classes.link}
+              >
                 {selectedItem.link ? (
                   <Link
                     href={selectedItem.link}
@@ -50,22 +59,6 @@ const Carousel: FC<ICarousel> = ({ items, className, ...rest }) => {
                 )
                 }
               </Button>
-            </div>
-            <div
-              className={classes.img}
-            >
-              <Image
-                height={90} alt="image"
-                className={classes.picture}
-                width={300}
-                src={selectedItem.image ? selectedItem.image : ''}
-              />
-              <Image
-                height={90} alt="image"
-                width={290}
-                className={classes.picture}
-                src={selectedItem.image ? selectedItem.image : ''}
-              />
             </div>
           </div>
         </CSSTransition>
