@@ -12,7 +12,7 @@ import { useFilters } from "@/hooks/useFilters";
 import { ISortType } from "@/ui/dropdown/types";
 import { EnumProductsSort, IProduct } from "@/store/product/types";
 
-const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", products, paginationLength = 0, children,refetch, className, ...rest }) => {
+const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", products, paginationLength = 0, children, refetch, className, ...rest }) => {
   const { updateParams, queryParams, } = useFilters()
   const { sort } = queryParams
 
@@ -37,7 +37,8 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", prod
         {products &&
           < DropDown<EnumProductsSort>
             value={dropItems.find((el) => el.key === sort)}
-            onSelect={setSort} items={dropItems}
+            onSelect={setSort}
+            items={dropItems}
             title={`Sorted By: `}
           />}
       </div>

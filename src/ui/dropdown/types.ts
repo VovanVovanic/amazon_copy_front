@@ -1,4 +1,3 @@
-import { EnumProductsSort } from "@/store/product/types"
 
 export interface IDrop<K=string>{
  onSelect: (data: ISortType<K>) => void

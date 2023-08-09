@@ -1,12 +1,7 @@
 import classes from './product.module.scss';
 import { Reviews } from '@/services/reviews/reviews.service';
-import {
-	QueryClient,
-	useMutation,
-	useQueryClient
-} from '@tanstack/react-query';
-import cn from 'classnames';
-import { FC, useCallback, useEffect, useState } from 'react';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { FC, useCallback, useEffect } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Rating } from 'react-simple-star-rating';
 
@@ -14,8 +9,7 @@ import Button from '@/ui/buttons/button';
 import Heading from '@/ui/heading/heading';
 import Spinner from '@/ui/spinner/spinner';
 
-import { ByFeature } from '@/store/category/types';
-import { IReview, IReviewField } from '@/store/reviews/types';
+import { IReviewField } from '@/store/reviews/types';
 
 const ProductReviewsForm: FC<{ productId: number }> = ({ productId }) => {
 	const {

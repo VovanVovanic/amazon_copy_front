@@ -10,8 +10,8 @@ export const useAdminCategories = () => {
    select: data => data.data.map((el): IListItem => {
     return {
      id: el.id,
-     viewUrl: `/category/${el.slug}`,
-     editUrl: `/category/edit/${el.id}`,
+     viewUrl: `/admin/category/${el.id}`,
+     editUrl: `/admin/category/edit/${el.id}`,
      items: [
        el.name,
        el.slug,

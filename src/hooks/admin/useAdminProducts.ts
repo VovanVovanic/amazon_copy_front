@@ -9,8 +9,8 @@ export const useAdminProducts = () => {
    select: data => data.products.map((el): IListItem => {
     return {
      id: el.id,
-     viewUrl: `/product/${el.slug}`,
-     editUrl: `/product/edit/${el.id}`,
+     viewUrl: `/admn/product/${el.slug}`,
+     editUrl: `/admin/product/edit/${el.id}`,
      items: [
       el.name,
       el.category.name,

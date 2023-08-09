@@ -9,8 +9,9 @@ import Button from '../buttons/button';
 import { useOutside } from '@/hooks/useOutside';
 import { useCategoryProductFilter } from '@/hooks/useCategoryProductFilter';
 import { EnumProductsSort } from '@/store/product/types';
+import { ICategorySelect } from '@/components/screens/editProduct/types';
 
-function DropDown<K extends EnumProductsSort>({ onSelect, items, value, title = "Sort:" }: IDrop<K>) {
+function DropDown<K>({ onSelect, items, value, title = "Sort:" }: IDrop<K>) {
   const { isShow, setIsShow, ref } = useOutside(false);
   const { updateFilter, isCategory} = useCategoryProductFilter()
   const [active, setActive] = useState<ISortType<K> | undefined>(value)
@@ -18,7 +19,8 @@ function DropDown<K extends EnumProductsSort>({ onSelect, items, value, title = 
 
   const onChange = (data: ISortType<K>) => {
     if (isCategory) {
-      updateFilter(data.key)
+      const key = data.key as EnumProductsSort
+      updateFilter(key)
     }
     onSelect(data)
     setIsShow(false)

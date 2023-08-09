@@ -1,0 +1,68 @@
+.title {
+ @apply text-center text-2xl mb-10
+}
+
+.form {
+ @apply rounded-lg bg-white shadow-sm p-8 m-auto w-1/2;
+
+ .textArea {
+  @apply rounded-md border-2 border-gray bg-white p-3 block mb-4 resize-none w-full text-sm min-h-[110px]
+ }
+
+ .select {
+  @apply w-full relative grid rounded-md border-2 border-gray bg-white text-black mb-4;
+  grid-template-columns: 1fr 40px;
+
+  .name {
+   @apply p-2
+  }
+
+  .arrowBtn {
+   @apply bg-gray flex items-center justify-center h-full
+  }
+
+  .list {
+   @apply absolute cursor-pointer w-[101%] top-[74px] -right-[3px] z-50 bg-white;
+
+   .option {
+    @apply block rounded-md border-2 box-border bg-white border-gray p-0.5 my-0.5 shadow-sm cursor-pointer transition-all duration-300 ease-linear;
+
+    &:hover {
+     @apply shadow-lg scale-x-105 text-aqua border-aqua;
+    }
+
+    transform: translateY(100%);
+    opacity:0;
+    animation: slide 0.1s forwards;
+
+    @for $i from 1 through 40 {
+     &:nth-child(#{$i}) {
+      animation-delay: 0.1s * $i;
+     }
+    }
+
+   }
+  }
+ }
+}
+.active{
+ @apply transition-all duration-300 rotate-180
+}
+.close{
+ @apply transition-all duration-300 rotate-0
+}
+.errors {
+	@apply text-red animate-opacity text-sm list-disc pl-4 mt-3
+}
+
+@keyframes slide {
+ from {
+  transform: translateY(0);
+  opacity: 0.2
+ }
+
+ to {
+  transform: translateY(-100%);
+  opacity: 1
+ }
+}
