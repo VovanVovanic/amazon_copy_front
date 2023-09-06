@@ -26,7 +26,7 @@ const CatalogItem: FC<PropsWithChildren<ICatalogItem>> = ({ product, children, c
         href={`/product/${product.slug}`} >
         <Image
           width={300} height={300} src={product.images[0]} alt={product.name}
-        className="block mx-auto rounded-lg"
+          className="block mx-auto rounded-lg hover:scale-105 transition-transform duration-300"
         />
       </Link>
     </div>

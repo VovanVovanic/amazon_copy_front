@@ -31,7 +31,9 @@ const CategoryGroup: FC = () => {
   <div>
     <h6>Select by product category:</h6>
     {isLoading ? (
-      <Spinner />
+       <Spinner
+        position="left"
+       />
     ) : (
       <ul className={classes.group}>
       {list}

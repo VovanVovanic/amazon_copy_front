@@ -44,22 +44,23 @@ const EditProductPage: FC<{ product: IProduct, categories: ICategorySelect[] }> 
  );
 
  const onSubmit: SubmitHandler<IProductData> = data => {
-  console.log(data, "data");
   mutate(data)
  };
  if (isSuccess) return <div>Product Successfully updated</div>
 
  return (
   <>
-   <Heading className={classes.title}>
+   
+   { product && <Heading className={classes.title}>
     Edit product: {product.name}
-   </Heading>
-   <form
+   </Heading> }
+
+   {isLoading ? (
+     <Spinner />
+    ) : ( <form
     onSubmit={handleSubmit(onSubmit)}
     className={classes.form}>
-    {isLoading ? (
-     <Spinner />
-    ) : (
+
      <div>
       {categories && (
        <Controller
@@ -114,8 +115,8 @@ const EditProductPage: FC<{ product: IProduct, categories: ICategorySelect[] }> 
 						)}
       <Button variant="dark">Update</Button>
      </div>
-    )}
-   </form>
+ 
+   </form> )}
   </>
  )
 }

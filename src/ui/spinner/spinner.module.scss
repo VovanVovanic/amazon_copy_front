@@ -1,6 +1,11 @@
-.spinner{
-    @apply flex items-center justify-center mt-[10%];
-    svg{
+.spinner {
+    @apply flex items-center justify-center mt-[10%] w-full;
+
+    svg {
         @apply bg-transparent
     }
+}
+
+.left {
+    @apply flex items-center justify-start
 }

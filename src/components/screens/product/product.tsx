@@ -26,22 +26,22 @@ const Product: FC<IProductPage> = ({ product, similar, productId }) => {
 	);
 	return (
 		<>
-			{isFetching ? (
+			{(isFetching || !data.data) ? (
 				<Spinner />
 			) : (
 				<>
-					<Heading className='mb-1'>{data.data.name}</Heading>
+					<Heading className='mb-1'>{data.data?.name}</Heading>
 					<RatingProduct product={data.data} />
 					<div className={classes.blck}>
-						<ProductGallery images={data.data.images} />
+						<ProductGallery images={data.data?.images} />
 						<div className={classes.description}>
 							<div>Description:</div>
-							{data.data.description}
+							{data.data?.description}
 						</div>
-						<ProductInfo product={data.data} />
+						<ProductInfo product={data?.data} />
 					</div>
 					<SimilarProducts similar={similar} />
-					<ProductReviews reviews={data.data.reviews} productId={product.id} />
+					<ProductReviews reviews={data.data?.reviews} productId={product.id} />
 				</>
 			)}
 		</>

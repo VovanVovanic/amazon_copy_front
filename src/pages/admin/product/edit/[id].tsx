@@ -27,7 +27,7 @@ const EditProduct: NextPageAuth<{product:IProduct, categories:ICategorySelect[]}
 export const getStaticPaths: GetStaticPaths = async () => {
 	const products = await Products.getAll();
 	const paths = products.products.map(el => {
-		return { params: { id: String(el.name)} };
+		return { params: { id: String(el.id)} };
 	});
 	return { paths, fallback: 'blocking' };
 };

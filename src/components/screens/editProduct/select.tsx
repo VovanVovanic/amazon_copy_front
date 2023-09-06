@@ -10,6 +10,7 @@ const SelectCategory: FC<ISelect> = ({ title, current, options, onChange }) => {
   return options.map(({ id, name }) => (
 
    <li
+    key={id}
     className={classes.option}
     onClick={() => onChange(id)}
    >
@@ -19,7 +20,7 @@ const SelectCategory: FC<ISelect> = ({ title, current, options, onChange }) => {
 
   ))
 
- }, [options])
+ }, [onChange, options])
  return (
   <>
    <h6>{title}</h6>

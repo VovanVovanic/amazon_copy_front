@@ -56,11 +56,12 @@ const ProductReviewsForm: FC<{ productId: number }> = ({ productId }) => {
 	if (isSuccess) return <div>Review successfully published</div>;
 	return (
 		<div>
-			<form onSubmit={handleSubmit(onSubmit)} >
-				<Heading className='text-center mb-4'>Leave a review</Heading>
 				{isLoading ? (
 					<Spinner />
 				) : (
+			<form onSubmit={handleSubmit(onSubmit)} >
+				<Heading className='text-center mb-4'>Leave a review</Heading>
+
 					<div>
 						<Controller
 							control={control}
@@ -102,8 +103,8 @@ const ProductReviewsForm: FC<{ productId: number }> = ({ productId }) => {
 							</Button>
 						</div>
 					</div>
-				)}
-			</form>
+
+			</form>)}
 		</div>
 	);
 };
