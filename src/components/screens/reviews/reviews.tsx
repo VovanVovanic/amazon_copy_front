@@ -5,6 +5,7 @@ import { FC } from "react"
 
 const Reviews: FC = () => {
  const { isFetching, data } = useAdminReviews()
+ console.log(data, "ddddd")
  return (
   <>
    <Heading className="mb-7">Reviews</Heading>
