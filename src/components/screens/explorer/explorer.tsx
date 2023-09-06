@@ -45,8 +45,12 @@ const Explorer: FC<IExplorer> = ({ initialProducts }) => {
           <Spinner />
         ) : (
           <div>
-            <Catalog
-              title={`Found ${data.length} products`} products={data.products} paginationLength={data.length} />
+              <Catalog
+                isFilter={true}
+                title={`Found ${data.length} products`}
+                products={data.products}
+                paginationLength={data.length}
+              />
             {isPagination && <Pagination
               page={queryParams.page}
               onChange={handlePageClick}

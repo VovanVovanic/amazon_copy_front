@@ -21,8 +21,11 @@ const CategorySortExplorer: FC<{ initialProducts: IProduct[], title: string }> =
       {isFetching ? (
         <Spinner />
       ) : (
-        <Catalog
-          title={title} products={data.data ? data.data : data} />
+          <Catalog
+            isFilter={true}
+            title={title}
+            products={data.data ? data.data : data}
+          />
       )}
     </>
   )

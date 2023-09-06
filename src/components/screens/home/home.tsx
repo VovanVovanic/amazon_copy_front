@@ -42,7 +42,8 @@ const HomePage: FC<PropsWithChildren<IHome>> = ({
 				<Spinner />
 			) : (
 				<section {...rest}>
-					<Catalog
+						<Catalog
+							isFilter={true}
 						products={data.products}
 							title={'Popular Products'}
 							refetch={refetch}
