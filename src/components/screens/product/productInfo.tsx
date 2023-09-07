@@ -15,7 +15,7 @@ const ProductInfo: FC<{ product: IProduct }> = ({ product }) => {
 			<h6 className={classes.title}>${product.price}</h6>
 			<div className={classes.link}>
 				$6.55 Shipping
-				<Link href={'/'}>Details</Link>
+				<Link href={'/delivery_details'}>Details</Link>
 			</div>
             <span className={classes.sales}>
                 Sales taxes may apply at checkout

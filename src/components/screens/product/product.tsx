@@ -7,8 +7,7 @@ import SimilarProducts from './similarProducts';
 import { IProductPage } from './types';
 import Products from '@/services/products/products.service';
 import { useQuery } from '@tanstack/react-query';
-import cn from 'classnames';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
 import Heading from '@/ui/heading/heading';
 import Spinner from '@/ui/spinner/spinner';
@@ -16,7 +15,8 @@ import Spinner from '@/ui/spinner/spinner';
 import { ByFeature } from '@/store/category/types';
 
 const Product: FC<IProductPage> = ({ product, similar, productId }) => {
-	const { data, isFetching } = useQuery(
+
+	const { data, isFetching, refetch } = useQuery(
 		['get product'],
 		() => Products.getProductByFeature(ByFeature.Id, productId || ''),
 		{
@@ -24,6 +24,12 @@ const Product: FC<IProductPage> = ({ product, similar, productId }) => {
 			enabled: !!productId
 		}
 	);
+
+	useEffect(() => {
+		refetch()
+
+	},[productId, refetch])
+
 	return (
 		<>
 			{(isFetching || !data.data) ? (
