@@ -14,7 +14,7 @@ import Spinner from '@/ui/spinner/spinner';
 
 import { ByFeature } from '@/store/category/types';
 
-const Product: FC<IProductPage> = ({ product, similar, productId }) => {
+const Product: FC<IProductPage> = ({ product, similar, isInfo, isSimilar, productId }) => {
 
 	const { data, isFetching, refetch } = useQuery(
 		['get product'],
@@ -44,10 +44,14 @@ const Product: FC<IProductPage> = ({ product, similar, productId }) => {
 							<div>Description:</div>
 							{data.data?.description}
 						</div>
-						<ProductInfo product={data?.data} />
+						{isInfo && <ProductInfo product={data?.data} />}
 					</div>
-					<SimilarProducts similar={similar} />
-					<ProductReviews reviews={data.data?.reviews} productId={product.id} />
+					{isSimilar && <SimilarProducts similar={similar} /> }
+						<ProductReviews
+							reviews={data.data?.reviews}
+							productId={product.id}
+							isAdmin={isInfo}
+						/>
 				</>
 			)}
 		</>

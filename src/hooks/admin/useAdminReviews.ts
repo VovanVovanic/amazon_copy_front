@@ -1,8 +1,6 @@
-import Category from '@/services/caterory/category.service';
 import { IListItem } from '../../ui/adminList/types';
-import Products from "@/services/products/products.service"
 import { formatDate } from '@/utils/formateDate';
-import { useMutation, useQuery } from "@tanstack/react-query"
+import { useQuery } from "@tanstack/react-query";
 import { Reviews } from '@/services/reviews/reviews.service';
 
 export const useAdminReviews = () => {
@@ -12,11 +10,12 @@ export const useAdminReviews = () => {
       select: data => data?.data.map((el): IListItem => {
         return {
           id: +el.id,
-          viewUrl: `/product/${el.id}`,
+          viewUrl: `/admin/product/${el?.product?.id}`,
           items: [
             el.user.name,
             el?.product?.name,
             Array.from({ length: +el.rating }).map((e) => "* ").join(" "),
+            el.text,
             formatDate(el.createdAt)
           ]
 
@@ -24,6 +23,5 @@ export const useAdminReviews = () => {
       })
     }
   )
-  console.log(data, "fffff")
   return { data, isFetching }
 }
