@@ -5,27 +5,27 @@ import { formatDate } from '@/utils/formateDate';
 import { useMutation, useQuery } from "@tanstack/react-query"
 
 export const useAdminCategories = () => {
- const { data, isFetching, refetch } = useQuery(['get admin products'],
-  () => Category.getAllCategories(), {
-   select: data => data.data.map((el): IListItem => {
-    return {
-     id: el.id,
-     viewUrl: `/admin/category/${el.id}`,
-     editUrl: `/admin/category/edit/${el.id}`,
-     items: [
-       el.name,
-       el.slug,
-      formatDate(el.createdAt)
-     ]
-   }
+  const { data, isFetching, refetch } = useQuery(['get admin products'],
+    () => Category.getAllCategories(), {
+    select: data => data.data.map((el): IListItem => {
+      return {
+        id: el.id,
+        viewUrl: `/admin/category/${el.id}`,
+        editUrl: `/admin/category/edit/${el.id}`,
+        items: [
+          el.name,
+          el.slug,
+          formatDate(el.createdAt)
+        ]
+      }
+    })
   })
-  })
- const { mutate } = useMutation(['delete category'],
-  (id: number) => Products.delete(id.toString()),
-  {
-   onSuccess() {
-    refetch()
-  }
- })
-  return { data, isFetching, mutate } 
+  const { mutate } = useMutation(['delete category'],
+    (id: number) => Category.delete(id.toString()),
+    {
+      onSuccess() {
+        refetch()
+      }
+    })
+  return { data, isFetching, mutate }
 }

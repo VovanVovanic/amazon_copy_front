@@ -16,7 +16,7 @@ const AdminList: FC<IAdminList> = ({ listItems, isLoading, removeHandler }) => {
                   return (
                      <ListItem
                         key={el.id}
-                        removeHandler={removeHandler ? () => removeHandler(el.id) : undefined}
+                        removeHandler={removeHandler ? () => removeHandler(el) : undefined}
                         listItem={el}
                      />
                   )

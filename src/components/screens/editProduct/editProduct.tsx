@@ -10,11 +10,13 @@ import Field from "@/ui/input/input";
 import Button from "@/ui/buttons/button";
 import SelectCategory from "./select";
 import Heading from "@/ui/heading/heading";
+import { useRouter } from "next/router";
+import Confirm from "@/ui/editConfirm/confirm";
 
 
 const EditProductPage: FC<{ product: IProduct, categories: ICategorySelect[] }> = ({ product, categories }) => {
  const { id, price, description, category, name } = product
-
+ const router = useRouter()
  const {
   register: FormRegister,
   handleSubmit,
@@ -46,7 +48,10 @@ const EditProductPage: FC<{ product: IProduct, categories: ICategorySelect[] }> 
  const onSubmit: SubmitHandler<IProductData> = data => {
   mutate(data)
  };
- if (isSuccess) return <div>Product Successfully updated</div>
+  if (isSuccess) return <Confirm
+    title={`Product ${product.name}`}
+    onClick={()=>router.back()}
+  />
 
  return (
   <>
