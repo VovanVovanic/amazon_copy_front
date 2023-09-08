@@ -1,4 +1,4 @@
-enum Endpoints{
+enum Endpoints {
  Auth = 'auth',
  Category = 'category',
  Orders = 'orders',
@@ -28,6 +28,7 @@ const api = {
  users: {
   profile: `/${Endpoints.Users}/profile`,
   update: `/${Endpoints.Users}/profile/update`,
+  delete: `/${Endpoints.Users}/profile/delete`,
   favorites: `/${Endpoints.Users}/profile/favorites/`
  },
  statistic: {
@@ -49,4 +50,4 @@ const api = {
  }
 }
 
-export const{auth, category, products, orders, users, reviews, statistic}= api
+export const { auth, category, products, orders, users, reviews, statistic } = api

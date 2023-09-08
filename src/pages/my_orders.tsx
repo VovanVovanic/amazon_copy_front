@@ -1,5 +1,7 @@
+import { useProfile } from "@/hooks/querries/useProfile"
 import { NextPageAuth } from "@/providers/authProviders/types"
 import Order from "@/services/orders/orders.service"
+import { IFullUser } from "@/store/user/types"
 import Heading from "@/ui/heading/heading"
 import Layout from "@/ui/layout/layout"
 import Meta from "@/ui/meta/meta"
@@ -9,7 +11,7 @@ import { useMemo } from "react"
 const MyOrdersPage: NextPageAuth = () => {
 
     const {data:orders }=useQuery(['my orders'], 
-    ()=>Order.getAllOrders(),{select:({data})=>data})
+    ()=>Order.getOrdersByUser(),{select:({data})=>data})
 
     const list = useMemo(()=>{
         return orders?.map((el)=>{
