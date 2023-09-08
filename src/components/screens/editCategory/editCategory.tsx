@@ -44,7 +44,7 @@ const router = useRouter()
   mutate(data)
  };
  if (isSuccess) return <Confirm
-  title={`Category ${category.name}`}
+  title={`Category ${category.name} updated`}
  onClick={()=>router.back()}
  />
 

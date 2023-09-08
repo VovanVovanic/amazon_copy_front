@@ -17,8 +17,7 @@ const Categories: FC = () => {
  const onRemoveConfirm = (data: IListItem) => {
   setOpen(true)
   setItem(data)
- }
-
+ } 
  const onClose = () => {
   setOpen(false)
   setItem(null)

@@ -7,7 +7,7 @@ import { ByFeature, ICategory } from '@/store/category/types';
 import { IProduct } from "@/store/product/types"
 import EditProductPage from "@/components/screens/editProduct/editProduct"
 import Category from "@/services/caterory/category.service"
-import { ICategorySelect } from "@/components/screens/editProduct/types"
+import { ICategorySelect, IProductAction } from "@/components/screens/editProduct/types"
 
 const EditProduct: NextPageAuth<{product:IProduct, categories:ICategorySelect[]}> = ({product, categories}) => {
 
@@ -17,6 +17,7 @@ const EditProduct: NextPageAuth<{product:IProduct, categories:ICategorySelect[]}
 					<EditProductPage
 						product={product}
 						categories={categories}
+						variant={IProductAction.Edit}
 					/>
       </Layout>
     </Meta>

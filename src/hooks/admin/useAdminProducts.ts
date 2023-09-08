@@ -26,5 +26,6 @@ export const useAdminProducts = () => {
         refetch()
       }
     })
+
   return { data, isFetching, mutate }
 }

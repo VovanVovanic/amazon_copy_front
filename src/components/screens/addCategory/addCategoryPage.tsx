@@ -40,7 +40,8 @@ const router = useRouter()
 
  const onSubmit: SubmitHandler<{name:string}> = data => {
   mutate(data)
- };
+  };
+  
  if (isSuccess) return <Confirm
   title={`Category created`}
   onClick={()=>router.back()}
@@ -69,12 +70,12 @@ const router = useRouter()
        type="text"
       />
        {Object.entries(errors) && (
-							<ul className={classes.errors}>
-								{Object.entries(errors).map(([_, error]) => (
-									<li key={error.message}>{error.message}</li>
-								))}
-							</ul>
-						)}
+				<ul className={classes.errors}>
+						{Object.entries(errors).map(([_, error]) => (
+							<li key={error.message}>{error.message}</li>
+							))}
+				</ul>
+				)}
       <Button variant="dark">Add</Button>
      </div>
  

@@ -6,7 +6,7 @@ const Confirm: FC<{ title: string, onClick: () => void }> = ({ title, onClick })
  return (
   <div className={classes.confirm}>
    <div>
-   {title} Successfuly Updated
+   {title}
    </div>
    <div>
    <Button
