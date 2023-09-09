@@ -40,7 +40,7 @@ const Sidebar: FC = () => {
 			{isLoading ? (
 				<Spinner />
 			) : (
-				<ul className='h-fit'>
+				<ul className='h-fit fixed'>
 					{getMenu().map(el => {
 
 						return (

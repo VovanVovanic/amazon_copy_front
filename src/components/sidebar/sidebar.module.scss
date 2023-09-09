@@ -1,20 +1,27 @@
-.sidebar{
- @apply bg-secondary min-h-screen relative grid gap-10 z-50;
- grid-template-rows: (auto 1fr);
- grid-area: sidebar;
- .link{
-    @apply block text-lg my-3 px-10 text-white;
-    &:hover{
-        @apply text-primary transition-colors duration-300
-    }
- }
- .active{
-    @apply text-primary
- }
- .btn{
-    @apply text-primary flex items-center py-1 px-2 bg-[#4e4e4e]  border-none w-28 justify-center self-start justify-self-end mr-10;
-    svg{
-      @apply ml-4 text-xl
-    }
- }
+.sidebar {
+   @apply bg-secondary min-h-screen relative grid gap-10 z-20 mt-20;
+   grid-template-rows: (auto 1fr);
+   grid-area: sidebar;
+
+   .link {
+      @apply block text-lg my-3 px-10 text-white;
+
+      &:hover {
+         @apply text-primary transition-colors duration-300
+      }
+   }
+
+   .active {
+      @apply text-primary
+   }
+
+   .btn {
+      @apply text-primary fixed bottom-40 flex items-center py-1 px-2 bg-[#4e4e4e] border-none w-28 justify-center self-start justify-self-end mr-10;
+
+      svg {
+         @apply ml-4 text-xl
+      }
+   }
+
+
 }

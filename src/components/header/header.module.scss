@@ -1,36 +1,46 @@
-.header{
- @apply w-full bg-secondary py-3  grid items-center;
+.header {
+ @apply fixed z-40 w-full bg-secondary py-3 grid items-center;
  grid-template-columns: 256px 4fr 0.60fr;
- grid-area:header;
- .adminHeader{
+ grid-area: header;
+
+
+ .adminHeader {
   @apply text-2xl text-white font-semibold pl-10 py-3
  }
- .logo{
-  @apply  rounded-lg overflow-hidden px-2 h-14 w-32;
-  &:hover{
+
+ .logo {
+  @apply rounded-lg overflow-hidden px-2 h-14 w-32;
+
+  &:hover {
    @apply transition-all scale-105
   }
  }
- .headerBtns{
+
+ .headerBtns {
   @apply grid items-center justify-end pr-10;
   grid-template-columns: 0.5fr 0.5fr 0.5fr 1fr;
-  .adminBtn{
+
+  .adminBtn {
    @apply text-primary
   }
-  .btn{
+
+  .btn {
    @apply text-primary text-3xl bg-secondary border-none
   }
-  .shopCart{
+
+  .shopCart {
    @apply text-secondary font-semibold text-lg flex justify-center rounded-md;
 
   }
-  .pandaLogo{
-  img{
-   @apply w-8 ml-4;
-   &:hover{
-    @apply transition-all scale-105
+
+  .pandaLogo {
+   img {
+    @apply w-8 ml-4;
+
+    &:hover {
+     @apply transition-all scale-105
+    }
    }
-  }
   }
  }
 }

@@ -1,37 +1,47 @@
-.catalogItem{
+.catalogItem {
  @apply animate-scaleIn relative w-72;
 
- .name{
+ .name {
   @apply mt-4 font-semibold;
-  &:hover{
+
+  &:hover {
    @apply transition-all duration-300 underline text-primary
-  } 
- }
- .category{
-  @apply text-aqua text-xs mb-2;
-  &:hover{
-   @apply transition-all underline text-primary
-  } 
- }
- .links{
-  @apply  rounded-xl overflow-hidden max-h-[300px];
-  .link{
-   @apply flex justify-center w-full
   }
-  .btns{
-   @apply absolute top-2 right-2 z-10 grid grid-cols-1 gap-2 p-1  h-fit;
-   button{
+ }
+
+ .category {
+  @apply text-aqua text-xs mb-2;
+
+  &:hover {
+   @apply transition-all underline text-primary
+  }
+ }
+
+ .links {
+  @apply rounded-xl overflow-hidden max-h-[300px];
+
+  .link {
+   @apply flex justify-center w-full aspect-[4.5/2.8]
+  }
+
+  .btns {
+   @apply absolute top-2 right-2 z-10 grid grid-cols-1 gap-2 p-1 h-fit;
+
+   button {
     @apply text-2xl font-bold;
-    &:hover{
+
+    &:hover {
      @apply transition-all scale-110
-    } 
+    }
    }
   }
 
  }
- .price{
+
+ .price {
   @apply text-xl font-semibold;
-  .priceName{
+
+  .priceName {
    @apply text-base font-normal
   }
  }
