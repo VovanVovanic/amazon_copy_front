@@ -3,7 +3,7 @@ import cn from 'classnames';
 import Image from 'next/image';
 import { FC, useMemo, useState } from 'react';
 import { TransitionGroup } from "react-transition-group"
-import CSSTransition from "../../../ui/carousel/cssTransition"
+import CSSTransition from "../../../ui/carousel/cssTransition";
 
 const ProductGallery: FC<{ images: string[] }> = ({ images }) => {
 	const [activeImage, setActiveImage] = useState<number>(0);

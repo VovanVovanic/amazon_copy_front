@@ -2,6 +2,7 @@ import { FC } from 'react'
 import classes from './adminList.module.scss'
 import { IAdminList, IAdminListItem } from './types'
 import AdminActions from './adminActions/adminActions'
+import { capitalize } from '@/utils/capitalize'
 
 const AdminListItem: FC<IAdminListItem> = ({ removeHandler, listItem }) => {
  
@@ -9,7 +10,7 @@ const AdminListItem: FC<IAdminListItem> = ({ removeHandler, listItem }) => {
   <li className={classes.item}>
    {listItem.items.map((el) => <div
    className={classes.info}
-    key={el}>{el}</div>)}
+    key={el}>{capitalize(el)}</div>)}
 
    <AdminActions
     viewUrl={listItem.viewUrl}

@@ -8,6 +8,7 @@ import FavoritesButton from "@/ui/buttons/FavoriteButton/favoriteButton";
 import AddToCartButton from "@/ui/buttons/addToCartButton/addToCartButton";
 import Link from "next/link";
 import { useAuth } from "@/hooks/useAuth";
+import { capitalize } from "@/utils/capitalize";
 
 
 const CatalogItem: FC<PropsWithChildren<ICatalogItem>> = ({ product, children, className, ...rest }) => {
@@ -32,7 +33,7 @@ const CatalogItem: FC<PropsWithChildren<ICatalogItem>> = ({ product, children, c
       </Link>
     </div>
     <Link href={`/product/${product.slug}`} >
-      <h3 className={cn(classes.name)}>{product.name}</h3>
+      <h3 className={cn(classes.name)}>{capitalize(product.name)}</h3>
     </Link>
 
     <Link href={`/category/${product.category.slug}`} className={cn(classes.category)}>{product.category.name}</Link>
