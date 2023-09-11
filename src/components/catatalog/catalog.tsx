@@ -32,7 +32,7 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", prod
   }, [products])
 
   return (
-    <div className={cn(classes.wrapper)}>
+    <div className={cn(classes.wrapper,className)}>
       <div className={classes.header}>
         <Heading>{title}</Heading>
         {products && isFilter &&
@@ -46,7 +46,7 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", prod
 
       <ul
         {...rest}
-        className={cn(classes.catalog, className)}
+        className={cn(classes.catalog)}
       >
         {list ? list : ""}
       </ul >

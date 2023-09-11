@@ -41,7 +41,7 @@ const Carousel: FC<ICarousel> = ({ items, className, ...rest }) => {
             className={classes.item}
             style={{ backgroundImage: `url(${selectedItem.url})` }}
           >
-            <div>
+            <div className={classes.info}>
               <h2 className={classes.title}>{selectedItem.title}</h2>
               <p className={classes.desc}>{selectedItem.description}</p>
               <Button

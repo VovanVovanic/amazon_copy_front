@@ -47,6 +47,7 @@ const HomePage: FC<PropsWithChildren<IHome>> = ({
 						products={data.products}
 							title={'Popular Products'}
 							refetch={refetch}
+							className='sm-custom:mt-48'
 					/>
 					{
 							isPagination &&

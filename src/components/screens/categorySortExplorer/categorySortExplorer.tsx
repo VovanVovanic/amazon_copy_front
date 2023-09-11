@@ -25,6 +25,7 @@ const CategorySortExplorer: FC<{ initialProducts: IProduct[], title: string }> =
             isFilter={true}
             title={title}
             products={data.data ? data.data : data}
+            className="sm-custom:mt-10"
           />
       )}
     </>
