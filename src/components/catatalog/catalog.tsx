@@ -23,7 +23,8 @@ const Catalog: FC<PropsWithChildren<ICatalog>> = ({ title = "product List", prod
   const list = useMemo(() => {
     return products.map((el: IProduct) => {
       return (
-        <li key={el.id}>
+        <li
+          key={el.id}>
           <CatalogItem product={el} />
         </li>
       )

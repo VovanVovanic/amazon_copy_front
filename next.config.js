@@ -8,7 +8,7 @@ const nextConfig = {
     domains: ["loremflickr.com", "picsum.photos", "avatars.githubusercontent.com",]
   },
   async rewrites() {
-    console.log("rewrites called")
+
     return [
       {
         source: '/uploads/:path*',

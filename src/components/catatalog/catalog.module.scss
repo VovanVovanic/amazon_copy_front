@@ -4,10 +4,25 @@
 
 .catalog {
  @apply grid w-full gap-10 justify-between;
- grid-template-columns: repeat(4, minmax(0, auto))
+ grid-template-columns: repeat(4, minmax(0, auto));
+ @media only screen and (max-width:1580px) {
+  @apply gap-6 flex flex-wrap justify-between;
+  // grid-template-columns: 1fr 1fr 1fr;
+}
+ @media only screen and (max-width:1300px) {
+  @apply gap-2;
+  grid-template-columns: 1fr 1fr;
+}
+@media only screen and (min-width:768px) and (max-width:870px) {
+ @apply flex items-center justify-center gap-6;
+}
+@media only screen and (max-width:640px) {
+ @apply gap-6 justify-center;
+ grid-template-columns: 1fr;
+}
 }
 
 .header {
- @apply grid grid-cols-2 mb-6 items-end
+ @apply grid grid-cols-2 mb-6 items-end lg-custom:flex lg-custom:flex-col lg-custom:items-center lg-custom:gap-8
 }
 

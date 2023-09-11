@@ -22,7 +22,7 @@ instance.interceptors.response.use(
   config => config,
   async error => {
     const originalRequest = error.config
-    console.log(error,"error")
+
     if ((error?.response?.status === 401 ||
       errorCatch(error) === 'jwt expired' ||
       errorCatch(error) === 'jwt must be provided') &&
@@ -35,7 +35,6 @@ instance.interceptors.response.use(
         await Auth.getNewTokens()
         return instance.request(originalRequest)
       } catch (e) {
-        console.log(errorCatch(e),"errorerror")
         if (errorCatch(e) === 'jwt expired') {
           removeFromStorage()
           throw new Error()
