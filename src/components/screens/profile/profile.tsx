@@ -25,20 +25,20 @@ const Profile: FC<{ profile: UserUpdate }> = ({ profile }) => {
      onClick={()=>router.push("/edit_profile")}
      variant="light"
      size="sm"
-     className="w-24">
+     className="w-24 sm-custom:w-16 sm-custom:p-0 sm-custom:text-xs">
      Edit
     </Button>
     <Button
      onClick={()=>router.push("/my_orders")}
      variant="light"
     size="sm"
-    className="w-24"
+    className="w-24 sm-custom:w-16 sm-custom:p-0 sm-custom:text-xs"
     >
      My Orders
     </Button>
     <Button
      size="sm"
-     className="w-24"
+     className="w-24 sm-custom:w-16 sm-custom:p-0 sm-custom:text-xs"
      onClick={()=>router.push("/delete_profile")}
      variant="dark">
      Delete

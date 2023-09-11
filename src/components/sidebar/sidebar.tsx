@@ -16,6 +16,7 @@ import { useActions } from '@/hooks/useActions';
 import { useAuth } from '@/hooks/useAuth';
 import { useIsAdmin } from '@/hooks/useIsAdmin';
 import { EnumProductsSort } from '@/store/product/types';
+import { capitalize } from '@/utils/capitalize';
 
 const Sidebar: FC = () => {
 	const { data, isLoading } = useCategory();
@@ -57,7 +58,7 @@ const Sidebar: FC = () => {
 
 									}}
 								>
-									{el.name}
+									{capitalize(el.name)}
 								</Link>
 							</li>
 						);

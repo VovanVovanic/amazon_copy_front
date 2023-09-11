@@ -1,5 +1,5 @@
 .carousel {
- @apply relative bg-primary w-full mb-12 h-60  lg-custom:h-52 md-custom:h-40 rounded-xl sm-custom:absolute sm-custom:left-0 sm-custom:right-0 sm-custom:rounded-none;
+ @apply relative bg-primary w-full mb-12 h-60  lg-custom:h-52 md-custom:h-40 rounded-xl md-custom:absolute md-custom:left-0 md-custom:right-0 md-custom:rounded-none;
 
  &.delivery {
   @apply bg-[#FDB852]
