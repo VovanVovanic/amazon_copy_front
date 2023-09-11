@@ -1,5 +1,5 @@
 .sidebar {
-   @apply bg-secondary min-h-screen relative grid md-custom:hidden gap-10 z-20 mt-20;
+   @apply bg-secondary min-h-[calc(100vh-160px)] relative grid md-custom:hidden gap-10 z-20 mt-40;
    grid-template-rows: (auto 1fr);
    grid-area: sidebar;
 

@@ -18,7 +18,7 @@
  }
 
  .item {
-  @apply absolute left-0 right-0 top-0 h-full overflow-hidden rounded-xl bg-no-repeat px-10 py-6 pb-8 shadow-sm grid gap-3 lg-custom:px-5  lg-custom:py-3 lg-custom:pb-4 sm-custom:px-10;
+  @apply absolute left-0 right-0 top-0 h-full overflow-hidden rounded-xl bg-no-repeat px-10 py-6 pb-8 shadow-sm grid gap-3 lg-custom:px-5  lg-custom:py-3 lg-custom:pb-4 md-custom:px-4;
   background-position: top 46% right -3%;
   background-size: 57%;
   grid-template-columns: 1fr 2fr;
@@ -59,7 +59,7 @@
 
 
  .nav {
-  @apply absolute right-2 bottom-2 flex items-center z-10 sm-custom:right-10 sm-custom:bottom-4;
+  @apply absolute right-2 bottom-2 flex items-center z-10 md-custom:right-4 md-custom:bottom-4;
 
   .btn {
    @apply text-lg text-primary text-center flex shadow-sm transition-colors duration-300 ease-in-out justify-center;

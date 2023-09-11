@@ -1,8 +1,8 @@
 .auth {
- @apply flex h-screen;
+ @apply flex h-screen px-10;
 
  .form {
-  @apply rounded-lg bg-white shadow-sm p-8 m-auto w-1/4
+  @apply rounded-lg bg-white shadow-sm p-8 m-auto w-[35%] 2xl-custom:w-[70%] md-custom:w-full
  }
 }
 
@@ -11,6 +11,9 @@
 }
 
 .btn{
- @apply flex justify-between
+ @apply flex justify-between xs-custom:flex-col xs-custom:gap-6;
+ button{
+  @apply xs-custom:p-2 
+ }
 
 }

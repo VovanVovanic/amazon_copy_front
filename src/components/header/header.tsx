@@ -23,7 +23,7 @@ const Header: FC<PropsWithChildren> = ({ children }) => {
 					<h6 className={classes.adminHeader}>Admin Panel</h6> :
 					<Image
 						priority
-						width={70}
+						width={60}
 						height={10}
 						src={'/logo.svg'}
 						alt={'amazon_logo'}
