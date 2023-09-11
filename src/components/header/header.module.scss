@@ -1,15 +1,30 @@
 .header {
- @apply fixed z-40 w-full bg-secondary py-3 grid items-center;
+ @apply fixed z-40 w-full bg-secondary py-8 pr-12  grid items-center;
  grid-template-columns: 256px 4fr 0.60fr;
  grid-area: header;
 
+ @media only screen and (max-width:1020px) {
+  @apply pr-4;
+}
+ @media only screen and (max-width:769px) {
+  @apply h-40 pl-0 pr-4 py-4;
+  grid-template-columns: 1fr 1fr;
+}
+@media only screen and (max-width:641px) {
+ @apply h-40 px-4;
+ grid-template-columns: 1fr 1fr;
+}
+@media only screen and (max-width:500px) {
+ @apply h-40 px-4;
+ grid-template-columns: 0.5fr 1.5fr;
+}
 
  .adminHeader {
-  @apply text-2xl text-white font-semibold pl-10 py-3
+  @apply text-2xl text-white font-semibold pl-10 py-3 sm-custom:row-span-1
  }
 
  .logo {
-  @apply rounded-lg overflow-hidden px-2 h-14 w-32;
+  @apply rounded-lg overflow-hidden h-14 w-32;
 
   &:hover {
    @apply transition-all scale-105
@@ -17,8 +32,11 @@
  }
 
  .headerBtns {
-  @apply grid items-center justify-end pr-10;
-  grid-template-columns: 0.5fr 0.5fr 0.5fr 1fr;
+  @apply flex items-center justify-between; 
+  @media only screen and (max-width:769px) {
+    @apply flex items-center justify-between pr-4;
+   grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  }
 
   .adminBtn {
    @apply text-primary
@@ -34,8 +52,9 @@
   }
 
   .pandaLogo {
+   @apply w-8 justify-self-end;
    img {
-    @apply w-8 ml-4;
+    @apply w-8 ml-4 sm-custom:w-8 h-8 xl-custom:ml-0;
 
     &:hover {
      @apply transition-all scale-105
@@ -43,4 +62,7 @@
    }
   }
  }
+}
+.mobileBtn{
+ @apply md:hidden bg-transparent flex border-0 text-lg text-primary justify-end 
 }

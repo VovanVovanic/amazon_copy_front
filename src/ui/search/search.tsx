@@ -6,7 +6,7 @@ import { ImSearch } from 'react-icons/im';
 import { useRouter } from 'next/router';
 import { useFilters } from '@/hooks/useFilters';
 
-const Search: FC<ISearch> = () => {
+const Search: FC<ISearch> = ({variant, className, ...rest}) => {
  const [term, setTerm] = useState<string>("")
  const router = useRouter()
  const { queryParams, updateParams } = useFilters()
@@ -29,7 +29,11 @@ const Search: FC<ISearch> = () => {
   }
  }
  return (
-  <div className={cn(classes.search)}>
+  <div
+   className={cn(classes.search, {
+    [classes.hide]: variant==='hidden'
+   })}
+  >
    <input
     type="search"
     onKeyDown={(e) => onKeyHandler(e)}

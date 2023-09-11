@@ -1,5 +1,6 @@
 .search{
- @apply w-1/2 h-10 justify-self-start relative;
+ @apply w-1/2 h-10 justify-self-start relative lg-custom:w-full xl-custom:w-full lg-custom:pr-4 2xl-custom:w-[80%];
+
  input{
   @apply bg-[#4e4e4e] shadow rounded-md w-full h-full p-4 text-white overflow-hidden;
   &:focus{
@@ -12,4 +13,7 @@
    @apply transition-all scale-105 shadow
   }
  }
+}
+.hide{
+ @apply md:hidden w-full col-span-2 
 }

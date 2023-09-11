@@ -13,6 +13,7 @@
 }
 
 .main {
- @apply p-12 rounded-s-md rounded-b-none lg-custom:px-4 md-custom:px-10 md-custom:rounded-none bg-gray mt-20 sm-custom:pt-0;
+ @apply p-12 rounded-s-md rounded-b-none lg-custom:px-4 md-custom:px-10 md-custom:rounded-none bg-gray mt-20 md-custom:mt-40 sm-custom:pt-[0.3px];
  grid-area: content;
 }
+

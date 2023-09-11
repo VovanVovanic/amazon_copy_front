@@ -50,7 +50,7 @@
    }
  
    .link {
-    @apply lg-custom:px-4 lg-custom:w-40;
+    @apply lg-custom:px-4 lg-custom:w-40 md-custom:px-4 md-custom:py-2 md-custom:text-sm;
     animation: slide 0.6s linear 
    }
   }
