@@ -32,11 +32,12 @@ const Categories: FC = () => {
  
  return (
   <>
-   <div className="mb-7 flex justify-between">
-    <Heading >Categories</Heading>
+   <div className="mb-7 flex justify-between md-custom:pt-10">
+    <Heading  className="md-custom:text-sm">Categories</Heading>
     <Button
      onClick={()=>router.push('/admin/category/add')}
-     variant='light'
+             variant='light'
+             size="bt"
     >
      Add
     </Button>

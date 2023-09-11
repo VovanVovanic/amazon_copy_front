@@ -3,9 +3,12 @@
 }
 
 .btns {
- @apply relative flex w-full justify-between;
+ @apply relative flex w-full justify-between xs-custom:flex-col xs-custom:gap-4;
 
  button {
   @apply static
  }
+}
+.text{
+ @apply text-xl
 }

@@ -1,12 +1,12 @@
 .title {
- @apply text-center text-2xl mb-10
+ @apply text-center text-2xl mb-10 md-custom:mt-10
 }
 
 .form {
- @apply rounded-lg bg-white shadow-sm p-8 m-auto w-1/2;
+ @apply rounded-lg bg-white shadow-sm p-8 m-auto w-1/2 xl-custom:w-[80%] md-custom:w-full md-custom:p-2 md-custom:mt-20;
 
  .textArea {
-  @apply rounded-md border-2 border-gray bg-white p-3 block mb-4 resize-none w-full text-sm min-h-[110px]
+  @apply rounded-md border-2 border-gray bg-white p-3 block mb-4 resize-none w-full text-sm min-h-[110px] 
  }
 
  .select {
@@ -22,7 +22,7 @@
   }
 
   .list {
-   @apply absolute cursor-pointer w-[101%] top-[74px] -right-[3px] z-50 bg-white;
+   @apply absolute cursor-pointer w-[101%] top-[74px] -right-[2px] z-50 bg-white;
 
    .option {
     @apply block rounded-md border-2 box-border bg-white border-gray p-0.5 my-0.5 shadow-sm cursor-pointer transition-all duration-300 ease-linear;

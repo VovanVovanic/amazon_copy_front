@@ -2,6 +2,7 @@ export interface IAdminList {
  listItems?: IListItem[]
  isLoading: boolean
  removeHandler?: (el: IListItem) => void
+ data?: string
 }
 
 export interface IListItem {
@@ -13,5 +14,6 @@ export interface IListItem {
 
 export interface IAdminListItem {
  listItem: IListItem
+ data?: string
  removeHandler?: () => void
 }

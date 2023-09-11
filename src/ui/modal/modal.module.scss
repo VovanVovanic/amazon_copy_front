@@ -16,7 +16,7 @@
 		}
 
 		.close {
-			@apply absolute top-4 h-0 text-lg font-semibold right-4;
+			@apply absolute top-4 h-0 text-lg font-semibold right-4 md-custom:top-2 md-custom:right-2;
 		}
 	}
 }

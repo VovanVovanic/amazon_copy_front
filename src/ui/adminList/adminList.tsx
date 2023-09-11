@@ -4,7 +4,7 @@ import { IAdminList } from './types'
 import ListItem from './listItem'
 import Spinner from '../spinner/spinner'
 
-const AdminList: FC<IAdminList> = ({ listItems, isLoading, removeHandler }) => {
+const AdminList: FC<IAdminList> = ({ listItems, isLoading, removeHandler, data="" }) => {
    return (
       <div className={classes.wrapper}>
          {isLoading ? (
@@ -15,6 +15,7 @@ const AdminList: FC<IAdminList> = ({ listItems, isLoading, removeHandler }) => {
                {listItems.map((el) => {
                   return (
                      <ListItem
+                        data={data}
                         key={el.id}
                         removeHandler={removeHandler ? () => removeHandler(el) : undefined}
                         listItem={el}

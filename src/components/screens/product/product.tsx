@@ -13,6 +13,7 @@ import Heading from '@/ui/heading/heading';
 import Spinner from '@/ui/spinner/spinner';
 
 import { ByFeature } from '@/store/category/types';
+import { capitalize } from '@/utils/capitalize';
 
 const Product: FC<IProductPage> = ({ product, similar, isInfo, isSimilar, productId }) => {
 
@@ -36,7 +37,7 @@ const Product: FC<IProductPage> = ({ product, similar, isInfo, isSimilar, produc
 				<Spinner />
 			) : (
 				<>
-					<Heading className='mb-1'>{data.data?.name}</Heading>
+					<Heading className='mb-1'>{capitalize(data.data?.name)}</Heading>
 					<RatingProduct product={data.data} />
 					<div className={classes.blck}>
 						<ProductGallery images={data.data?.images} />

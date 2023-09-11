@@ -20,7 +20,14 @@ const Header: FC<PropsWithChildren> = ({ children }) => {
 		<header className={classes.header}>
 			<Link href='/'>
 				{isAdminPanel ?
-					<h6 className={classes.adminHeader}>Admin Panel</h6> :
+				 		<Image
+							priority
+							width={52}
+							height={52}
+							src={'/home.svg'}
+							alt={'home_logo'}
+							className={classes.home}
+						/>:
 					<Image
 						priority
 						width={60}
@@ -69,7 +76,7 @@ const Header: FC<PropsWithChildren> = ({ children }) => {
 						height={25}
 						width={25}
 						alt="menu"
-							src={'./close.svg'}
+							src={'/close.svg'}
 							className='m-0'
 						/>
 					) : (
@@ -77,7 +84,7 @@ const Header: FC<PropsWithChildren> = ({ children }) => {
 							height={32}
 							width={32}
 							alt="menu"
-								src={'./burger.svg'}
+								src={'/burger.svg'}
 							/>
 						)}
 					</button>

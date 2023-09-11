@@ -1,15 +1,20 @@
 import { FC } from 'react'
 import classes from './adminList.module.scss'
+import cn from 'classnames'
 import { IAdminList, IAdminListItem } from './types'
 import AdminActions from './adminActions/adminActions'
 import { capitalize } from '@/utils/capitalize'
 
-const AdminListItem: FC<IAdminListItem> = ({ removeHandler, listItem }) => {
+const AdminListItem: FC<IAdminListItem> = ({ removeHandler, listItem,data}) => {
  
  return (
-  <li className={classes.item}>
+  <li className={cn(classes.item, {
+   [classes.review]: data && data === 'review'
+  })}>
    {listItem.items.map((el) => <div
-   className={classes.info}
+    className={cn(classes.info, {
+     [classes.reviewInfo]: data && data === 'review'
+   })}
     key={el}>{capitalize(el)}</div>)}
 
    <AdminActions

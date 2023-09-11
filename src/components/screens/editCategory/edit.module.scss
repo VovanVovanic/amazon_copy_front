@@ -1,7 +1,7 @@
 .title {
- @apply text-center text-2xl mb-10
+ @apply text-center text-2xl mb-10 md-custom:mt-10
 }
 
 .form {
- @apply rounded-lg bg-white shadow-sm p-8 m-auto w-1/2;
+ @apply rounded-lg bg-white shadow-sm p-8 m-auto w-1/2 xl-custom:w-[80%] md-custom:w-full;
 }

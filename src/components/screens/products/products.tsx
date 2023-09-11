@@ -31,11 +31,12 @@ const Products: FC = () => {
 
  return (
   <>
-     <div className="mb-7 flex justify-between">
-    <Heading >Products</Heading>
+     <div className="mb-7 flex justify-between md-custom:pt-10">
+    <Heading className="md-custom:text-sm">Products</Heading>
     <Button
      onClick={()=>router.push('/admin/product/add')}
-     variant='light'
+       variant='light'
+       size="bt"
     >
      Add
     </Button>

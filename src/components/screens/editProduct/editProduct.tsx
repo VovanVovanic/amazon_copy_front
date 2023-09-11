@@ -12,6 +12,7 @@ import SelectCategory from "./select";
 import Heading from "@/ui/heading/heading";
 import { useRouter } from "next/router";
 import Confirm from "@/ui/editConfirm/confirm";
+import { capitalize } from "@/utils/capitalize";
 
 
 const EditProductPage: FC<{ product?: IProduct, categories: ICategorySelect[], variant:IProductAction}> = ({ product, categories, variant }) => {
@@ -83,7 +84,7 @@ const EditProductPage: FC<{ product?: IProduct, categories: ICategorySelect[], v
   <>
    
    { product && <Heading className={classes.title}>
-       {IProductAction.Edit ? `Edit product: ${product.name}` : "Add Product"}
+       {IProductAction.Edit ? `Edit product: ${capitalize(product.name)}` : "Add Product"}
    </Heading> }
 
    {isAddLoading || IsEditLoading ? (

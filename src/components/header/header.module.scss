@@ -20,7 +20,7 @@
 }
 
  .adminHeader {
-  @apply text-2xl text-white font-semibold pl-10 py-3 sm-custom:row-span-1
+  @apply text-2xl text-white font-semibold pl-10 py-3 md-custom:pl-2 md-custom:text-base
  }
 
  .logo {
@@ -33,6 +33,9 @@
   }
  }
 
+.home{
+  @apply pl-6 md-custom:pl-0 md-custom:w-8
+}
  .headerBtns {
   @apply flex items-center justify-between; 
   @media only screen and (max-width:769px) {

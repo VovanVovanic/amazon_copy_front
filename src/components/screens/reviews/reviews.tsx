@@ -7,10 +7,11 @@ const Reviews: FC = () => {
  const { isFetching, data } = useAdminReviews()
  return (
   <>
-   <Heading className="mb-7">Reviews</Heading>
+   <Heading className="mb-7 md-custom:pt-10 md-custom:text-sm">Reviews</Heading>
    <AdminList
     isLoading={isFetching}
     listItems={data}
+    data='review'
    /> 
 
   </>

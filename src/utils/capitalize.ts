@@ -1,6 +1,6 @@
 export const capitalize = (str: string): string => {
-
- const arr = str.split(" ")
+ console.log(str, "str")
+ const arr = str ? str.split(" ") : []
  const result = arr.map((el) => {
   const res = el ? el[0].toUpperCase() + el.substring(1) : ''
   return res
