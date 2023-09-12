@@ -4,7 +4,7 @@
 	animation-duration: 0.4s;
 
 	.window {
-		@apply relative w-3/4 max-w-[500px] rounded-lg bg-white p-5 pb-10;
+		@apply relative w-3/4 max-w-[500px] rounded-lg bg-white p-5 pb-10 md-custom:mt-40 z-[999] md-custom:w-[80%];
 		animation: slideIn 0.5s;
 
 		button {

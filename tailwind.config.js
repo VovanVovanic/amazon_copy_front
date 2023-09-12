@@ -55,6 +55,7 @@ module.exports = {
       'md-custom': { 'max': '768px' },
       // => @media (max-width: 768px) { ... }
       'sm-custom': { 'max': '640px' },
+      '500-custom': { 'max': '500px' },
       // => @media (max-width: 640px) { ... }
       'xs-custom': { 'max': '420px' }
     },

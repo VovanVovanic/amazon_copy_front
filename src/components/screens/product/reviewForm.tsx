@@ -55,7 +55,7 @@ const ProductReviewsForm: FC<{ productId: number }> = ({ productId }) => {
 	};
 	if (isSuccess) return <div>Review successfully published</div>;
 	return (
-		<div>
+		<div className='md-custom:mt-10'>
 				{isLoading ? (
 					<Spinner />
 				) : (

@@ -37,7 +37,7 @@ const Product: FC<IProductPage> = ({ product, similar, isInfo, isSimilar, produc
 				<Spinner />
 			) : (
 				<>
-					<Heading className='mb-1'>{capitalize(data.data?.name)}</Heading>
+					<Heading className='mb-1 md-custom:pt-10'>{capitalize(data.data?.name)}</Heading>
 					<RatingProduct product={data.data} />
 					<div className={classes.blck}>
 						<ProductGallery images={data.data?.images} />

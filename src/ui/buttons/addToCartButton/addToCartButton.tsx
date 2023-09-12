@@ -27,7 +27,7 @@ const AddToCartButton: FC<ICartButton> = ({ product, className, ...rest }) => {
   <button
    onClick={()=>onCartHanlder()}
    className={cn(className)} {...rest}>
-    {currentElement ? <RiShoppingCartFill /> : <RiShoppingCartLine/> }
+    {currentElement ? <RiShoppingCartFill  className=""/> : <RiShoppingCartLine className=""/> }
   </button>
  )
 }

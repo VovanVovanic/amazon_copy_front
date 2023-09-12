@@ -25,7 +25,7 @@
   }
 
   .btns {
-   @apply absolute top-2 right-2 z-10 grid grid-cols-1 gap-2 p-1 h-fit;
+   @apply absolute top-2 right-2 bg-[gray]/80 rounded-md shadow-md grid grid-cols-1 gap-2 p-1 h-fit;
 
    button {
     @apply text-2xl font-bold;

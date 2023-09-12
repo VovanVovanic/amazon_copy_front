@@ -31,6 +31,7 @@ const Explorer: FC<IExplorer> = ({ initialProducts }) => {
       <Button
         variant="light"
         size="sm"
+        className="md-custom:mt-10"
         onClick={() => setFiltersOpen(!filtersOpen)}
       >
         {filtersOpen ? "Close" : "Open"} filters
@@ -50,6 +51,7 @@ const Explorer: FC<IExplorer> = ({ initialProducts }) => {
                 title={`Found ${data.length} products`}
                 products={data.products}
                 paginationLength={data.length}
+                className={classes.explorerCatalog}
               />
             {isPagination && <Pagination
               page={queryParams.page}

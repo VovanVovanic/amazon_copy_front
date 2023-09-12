@@ -33,6 +33,7 @@ const ProductReviews: FC<{ reviews: IReview[]; productId: number, isAdmin:boolea
 						<button className={classes.reviewBtn} onClick={() => {
 							setIsModalOpen(true)
 						}}>Leave a review</button>
+		
 						<Modal
 							isOpen={isModalOpen}
 							onClose={() => setIsModalOpen(false)}
@@ -40,7 +41,8 @@ const ProductReviews: FC<{ reviews: IReview[]; productId: number, isAdmin:boolea
 							<ReviewForm
 								productId={productId}
 							/>
-						</Modal>
+							</Modal>
+							
 					</>
 					}
 

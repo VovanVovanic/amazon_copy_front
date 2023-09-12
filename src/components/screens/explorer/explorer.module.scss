@@ -1,17 +1,23 @@
 .explorer{
- @apply flex pt-10;
+ @apply flex pt-10 xs-custom:-ml-12;
  .explorersFilters{
   @apply w-0 whitespace-nowrap opacity-0;
   transition: width 600ms ease-in, opacity 600ms ease-in;
  }
  .catalog{
-  @apply w-full bg-red;
-  transition: width 600ms ease-in;
+  @apply w-full;
+  transition: all 600ms ease-in;
  }
  &.filterOpened{
-  @apply gap-5;
+  @apply gap-5 xl-custom:flex-col xs-custom:ml-0;
   .explorersFilters{
-   @apply w-[20%] opacity-100
+   @apply w-[20%] opacity-100 1.5-custom:w-[30%] xl-custom:w-full xl-custom:flex xl-custom:justify-between xl-custom:flex-wrap 500-custom:justify-center 
   }
+ }
+}
+
+.explorerCatalog{
+ h1{
+  @apply xl-custom:text-2xl lg-custom:justify-end
  }
 }
