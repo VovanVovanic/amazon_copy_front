@@ -2,6 +2,7 @@ import Sidebar from '@/components/sidebar/sidebar'
 import { FC, PropsWithChildren } from 'react'
 import classes from './layout.module.scss'
 import Header from '@/components/header/header'
+import Search from '../search/search'
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
  return (

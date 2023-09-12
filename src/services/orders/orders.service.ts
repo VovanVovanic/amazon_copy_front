@@ -11,9 +11,9 @@ class OrderService {
 
    }
 
-   async getOrdersByUser(id: number) {
+   async getOrdersByUser() {
       return instance<IOrder[]>({
-         url: `${orders.by_user}${id}`,
+         url: `${orders.by_user}`,
          method: "GET"
       })
 

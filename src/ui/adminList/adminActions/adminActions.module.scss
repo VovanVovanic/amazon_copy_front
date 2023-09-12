@@ -1,7 +1,10 @@
 .wrapper{
- @apply flex items-center gap-4;
+ @apply flex items-center gap-4 sm-custom:ml-auto;
  .btn{
   @apply border-none bg-transparent text-xl text-primary opacity-80 outline-none transition-opacity;
+  svg{
+   @apply sm-custom:h-6 sm-custom:w-6
+  }
   &:hover{
    @apply opacity-100
   }

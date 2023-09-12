@@ -1,9 +1,33 @@
 .carousel {
- @apply relative bg-primary w-full mb-12 h-60 rounded-xl;
+ @apply relative bg-primary w-full mb-12 h-60  lg-custom:h-52 md-custom:h-40 rounded-xl md-custom:absolute md-custom:left-0 md-custom:right-0 md-custom:rounded-none;
+
+ &.delivery {
+  @apply bg-[#FDB852]
+ }
+
+ &.gift {
+  @apply bg-[#FDAA31]
+ }
+
+ &.sale {
+  @apply bg-[#FFC96E]
+ }
+
+ &.techs {
+  @apply bg-[#FE9B01]
+ }
 
  .item {
-  @apply absolute left-0 right-0 top-0 h-full overflow-hidden rounded-xl bg-primary bg-no-repeat px-10 py-6 pb-8 shadow-sm grid gap-3;
+  @apply absolute left-0 right-0 top-0 h-full overflow-hidden rounded-xl bg-no-repeat px-10 py-6 pb-8 shadow-sm grid gap-3 lg-custom:px-5  lg-custom:py-3 lg-custom:pb-4 md-custom:px-4;
+  background-position: top 46% right -3%;
+  background-size: 57%;
   grid-template-columns: 1fr 2fr;
+  @media only screen and (min-width:768px) {
+   grid-template-columns: 1fr;
+  }
+  @media only screen and (min-width:320px) {
+   grid-template-columns: 1fr;
+  }
 
   .img {
    @apply w-full h-full grid;
@@ -13,24 +37,29 @@
     @apply justify-self-end rounded-md self-center
    }
   }
-
-  .title {
-   @apply mb-2 text-2xl font-semibold text-white drop-shadow;
-   animation: slide 0.5s linear;
+  .info{
+   @apply lg-custom:flex lg-custom:flex-col justify-between lg-custom:w-[60%] md-custom:w-[80%];
+   .title {
+    @apply mb-2 text-2xl font-semibold text-white drop-shadow;
+    animation: slide 0.4s linear;
+   }
+ 
+   .desc {
+    @apply mb-6 text-white w-full md-custom:hidden;
+    animation: slide 0.5s linear
+   }
+ 
+   .link {
+    @apply lg-custom:px-4 lg-custom:w-40 md-custom:px-4 md-custom:py-2 md-custom:text-sm;
+    animation: slide 0.6s linear 
+   }
+  }
   }
 
-  .desc {
-   @apply mb-6 text-white w-full;
-   animation: slide 0.6s linear
-  }
 
-  .link {
-   animation: slide 0.7s linear
-  }
- }
 
  .nav {
-  @apply absolute right-2 bottom-2 flex items-center z-10;
+  @apply absolute right-2 bottom-2 flex items-center z-10 md-custom:right-4 md-custom:bottom-4;
 
   .btn {
    @apply text-lg text-primary text-center flex shadow-sm transition-colors duration-300 ease-in-out justify-center;
@@ -55,7 +84,7 @@
 .item-enter-active {
  opacity: 1;
  transform: translateX(0);
- transition: opacity 300ms, transform 300ms
+ transition: opacity 1000ms, transform 1000ms
 }
 
 .item-exit {
@@ -65,7 +94,7 @@
 .item-exit-active {
  opacity: 0;
  transform: scale(0.9);
- transition: opacity 300ms, transform 300ms
+ transition: opacity 0, transform 300
 }
 
 @keyframes slide {

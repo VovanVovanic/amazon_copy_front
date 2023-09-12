@@ -1,0 +1,11 @@
+.profile {
+ @apply w-1/2 flex flex-col gap-8 p-4 bg-white rounded-md shadow-md xl-custom:w-full;
+}
+
+.content {
+ @apply flex justify-between border-b border-[black]/70;
+
+ &:last-child {
+  @apply border-0
+ }
+}

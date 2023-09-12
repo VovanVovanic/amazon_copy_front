@@ -7,16 +7,17 @@ import SimilarProducts from './similarProducts';
 import { IProductPage } from './types';
 import Products from '@/services/products/products.service';
 import { useQuery } from '@tanstack/react-query';
-import cn from 'classnames';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 
 import Heading from '@/ui/heading/heading';
 import Spinner from '@/ui/spinner/spinner';
 
 import { ByFeature } from '@/store/category/types';
+import { capitalize } from '@/utils/capitalize';
 
-const Product: FC<IProductPage> = ({ product, similar, productId }) => {
-	const { data, isFetching } = useQuery(
+const Product: FC<IProductPage> = ({ product, similar, isInfo, isSimilar, productId }) => {
+
+	const { data, isFetching, refetch } = useQuery(
 		['get product'],
 		() => Products.getProductByFeature(ByFeature.Id, productId || ''),
 		{
@@ -24,24 +25,34 @@ const Product: FC<IProductPage> = ({ product, similar, productId }) => {
 			enabled: !!productId
 		}
 	);
+
+	useEffect(() => {
+		refetch()
+
+	},[productId, refetch])
+
 	return (
 		<>
-			{isFetching ? (
+			{(isFetching || !data.data) ? (
 				<Spinner />
 			) : (
 				<>
-					<Heading className='mb-1'>{data.data.name}</Heading>
+					<Heading className='mb-1 md-custom:pt-10'>{capitalize(data.data?.name)}</Heading>
 					<RatingProduct product={data.data} />
 					<div className={classes.blck}>
-						<ProductGallery images={data.data.images} />
+						<ProductGallery images={data.data?.images} />
 						<div className={classes.description}>
 							<div>Description:</div>
-							{data.data.description}
+							{data.data?.description}
 						</div>
-						<ProductInfo product={data.data} />
+						{isInfo && <ProductInfo product={data?.data} />}
 					</div>
-					<SimilarProducts similar={similar} />
-					<ProductReviews reviews={data.data.reviews} productId={product.id} />
+					{isSimilar && <SimilarProducts similar={similar} /> }
+						<ProductReviews
+							reviews={data.data?.reviews}
+							productId={product.id}
+							isAdmin={isInfo}
+						/>
 				</>
 			)}
 		</>

@@ -10,17 +10,17 @@ export enum EnumProductsSort{
 }
 export interface IProductData{
  name: string
- description: string
- price: string
- images: string[]
+ description?: string
+ price: number
  categoryId: number
- category:ICategory
 }
 export interface IProduct extends IProductData{
  id: number
  slug: string
  reviews: IReview[]
  createdAt: string
+ images: string[]
+ category:ICategory
 }
 
 export interface IProductFilters extends IPagination{

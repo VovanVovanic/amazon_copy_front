@@ -1,36 +1,73 @@
-.header{
- @apply w-full bg-secondary py-3  grid items-center;
- grid-template-columns: 256px 4fr 0.60fr;
- grid-area:header;
- .adminHeader{
-  @apply text-2xl text-white font-semibold pl-10 py-3
+.header {
+ @apply fixed z-40 w-full bg-secondary py-4 pr-16 pl-4  grid items-center;
+ grid-template-columns: 240px 4fr 0.60fr;
+ grid-area: header;
+
+ @media only screen and (max-width:1020px) {
+  @apply pr-4;
+}
+ @media only screen and (max-width:769px) {
+  @apply h-40 pl-4 pr-4 py-4;
+  grid-template-columns: 1fr 1fr;
+}
+@media only screen and (max-width:641px) {
+ @apply h-40 px-4;
+ grid-template-columns: 1fr 1fr;
+}
+@media only screen and (max-width:500px) {
+ @apply h-40 px-4;
+ grid-template-columns: 0.5fr 1.5fr;
+}
+
+ .adminHeader {
+  @apply text-2xl text-white font-semibold pl-10 py-3 md-custom:pl-2 md-custom:text-base
  }
- .logo{
-  @apply  rounded-lg overflow-hidden px-2 h-14 w-32;
-  &:hover{
-   @apply transition-all scale-105
+
+ .logo {
+  @apply rounded-lg overflow-hidden h-20 w-28 md-custom:-translate-x-4 md-custom:h-20;
+  @media only screen and (max-width:500px) {
+    @apply px-6 h-20;
+   }
+  &:hover {
+   @apply transition-all scale-105 cursor-pointer
   }
  }
- .headerBtns{
-  @apply grid items-center justify-end pr-10;
-  grid-template-columns: 0.5fr 0.5fr 0.5fr 1fr;
-  .adminBtn{
+
+.home{
+  @apply pl-6 md-custom:pl-0 md-custom:w-8
+}
+ .headerBtns {
+  @apply flex items-center justify-between; 
+  @media only screen and (max-width:769px) {
+    @apply flex items-center justify-between;
+   grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  }
+
+  .adminBtn {
    @apply text-primary
   }
-  .btn{
+
+  .btn {
    @apply text-primary text-3xl bg-secondary border-none
   }
-  .shopCart{
+
+  .shopCart {
    @apply text-secondary font-semibold text-lg flex justify-center rounded-md;
 
   }
-  .pandaLogo{
-  img{
-   @apply w-8 ml-4;
-   &:hover{
-    @apply transition-all scale-105
+
+  .pandaLogo {
+   @apply w-8 justify-self-end;
+   img {
+    @apply w-8 ml-4 sm-custom:w-8 h-8 xl-custom:ml-0;
+
+    &:hover {
+     @apply transition-all scale-105
+    }
    }
   }
-  }
  }
+}
+.mobileBtn{
+ @apply md:hidden bg-transparent flex border-0 text-lg text-primary justify-end 
 }

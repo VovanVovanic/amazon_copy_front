@@ -6,8 +6,7 @@ const CSSTransition = (props:PropsWithChildren<CSSTransitionProps>) => {
  const ref = useRef(null)
  return (
   <_CSSTransition
-   {...props}
-
+   {...props} 
    nodeRef={ref}>
    <>
     {Children.map(props.children, child => {

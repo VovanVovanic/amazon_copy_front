@@ -28,7 +28,7 @@ const Dashboard: FC<IDashboard> = () => {
 	}, [data]);
 	return (
 		<>
-			<Heading className='mb-8'>Dashboard</Heading>
+			<Heading className='mb-8 mt-10 md-custom:text-sm'>Dashboard</Heading>
 			{isFetching ? (
 				<Spinner />
 			) : (

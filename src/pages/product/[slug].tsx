@@ -20,7 +20,13 @@ const ProductPage: NextPage<{ product: IProduct; similar: IProduct[] }> = ({
 			image={product.images[0] || ''}
 		>
 			<Layout>
-				<Product product={product} similar={similar} productId={product.id.toString()} />
+				<Product 
+				product={product}
+				 similar={similar}
+					 productId={product.id.toString()}
+					isInfo={true}
+					isSimilar={true}
+						 />
 			</Layout>
 		</Meta>
 	);

@@ -20,7 +20,6 @@ export const filtersSlice = createSlice({
  initialState,
  reducers: {
   updateQueryParam: (state, action: PayloadAction<IFiltersActionsPayload,string>) => {
-   console.log("update reducer",action.payload)
    const { key, value } = action.payload
    const v = value as never
    state.queryParams[key]=v

@@ -13,15 +13,14 @@ import Pagination from "@/ui/pagination/pagination";
 
 
 const Explorer: FC<IExplorer> = ({ initialProducts }) => {
-  const { isFilterUpdated, queryParams, updateParams } = useFilters()
+  const { isFilterUpdated, queryParams, updateParams, resetQueryParam } = useFilters()
   const [filtersOpen, setFiltersOpen] = useState<boolean>(false)
 
-  const { data, isFetching, refetch } = useQuery(['search products', queryParams],
+  const { data, isFetching } = useQuery(['search products', queryParams],
     () => Products.getAll(queryParams), {
     initialData: initialProducts,
     enabled: isFilterUpdated
   })
-
 
   const handlePageClick = (page: number) => {
     updateParams("page", page)
@@ -32,6 +31,7 @@ const Explorer: FC<IExplorer> = ({ initialProducts }) => {
       <Button
         variant="light"
         size="sm"
+        className="md-custom:mt-10"
         onClick={() => setFiltersOpen(!filtersOpen)}
       >
         {filtersOpen ? "Close" : "Open"} filters
@@ -41,13 +41,20 @@ const Explorer: FC<IExplorer> = ({ initialProducts }) => {
           [classes.filterOpened]: filtersOpen
         })}
       >
-        <Filters className={classes.explorersFilters} />
+        <Filters className={cn(classes.explorersFilters, {
+          [classes.closed]: !filtersOpen
+        })} />
         {isFetching ? (
           <Spinner />
         ) : (
           <div>
-            <Catalog
-              title={`Found ${data.length} products`} products={data.products} paginationLength={data.length} />
+              <Catalog
+                isFilter={true}
+                title={`Found ${data.length} products`}
+                products={data.products}
+                paginationLength={data.length}
+                className={classes.explorerCatalog}
+              />
             {isPagination && <Pagination
               page={queryParams.page}
               onChange={handlePageClick}

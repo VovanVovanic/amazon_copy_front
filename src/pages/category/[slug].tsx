@@ -10,14 +10,15 @@ import Layout from "@/ui/layout/layout"
 import Meta from "@/ui/meta/meta"
 import { NextPage } from "next"
 import CategorySortExplorer from "@/components/screens/categorySortExplorer/categorySortExplorer"
+import { capitalize } from "@/utils/capitalize"
 
 const CategoryPage: NextPage<{products:IProduct[],category:ICategory}> = ({products,category}) => {
  return (
    <Meta title = {category.name}>
      <Layout >
-       {/* <CategorySortExplorer
+       <CategorySortExplorer
          initialProducts={products || []}
-         title={category.name} /> */}
+         title={capitalize(category.name)} />
      </Layout>
      </Meta>
 

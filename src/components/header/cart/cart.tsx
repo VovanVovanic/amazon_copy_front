@@ -41,7 +41,9 @@ const Cart: FC = () => {
 			{isShow && (
 				<div className={cn(classes.wrapper)}>
 					<div className={cn(classes.title)}>MyCart</div>
-					<ul>{items.length ? list : 'Cart is Empty'}</ul>
+					<ul className={classes.list}>
+						{items.length ? list : 'Cart is Empty'}
+					</ul>
 					<div className={cn(classes.placeOrder)}>
 						<div className={cn(classes.total)}>{`Total: $${total}`}</div>
 						{!!items.length && <Button

@@ -9,7 +9,11 @@ const FavoritesPage: NextPageAuth = () => {
   return (
     <Meta title="Favorites Page">
       <Layout >
-        <Catalog title="Favorites" products={profile?.favorites || []} />
+        <Catalog
+          title="Favorites"
+          products={profile?.favorites || []}
+          isFilter={false}
+        />
       </Layout>
     </Meta>
 

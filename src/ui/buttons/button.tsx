@@ -8,7 +8,8 @@ const Button: FC<PropsWithChildren<IButton>> = ({ size = "md",variant, children,
   <button {...rest} className={cn(className, classes.button, {
    [classes.primary]: variant === 'dark',
    [classes.sm]: size === 'sm',
-   [classes.lg]: size === 'lg'
+   [classes.lg]: size === 'lg',
+   [classes.bt]: size === 'bt'
   })} >
    {children}
   </button>

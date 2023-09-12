@@ -19,10 +19,10 @@ instance.interceptors.request.use(async config => {
 })
 
 instance.interceptors.response.use(
-
   config => config,
   async error => {
     const originalRequest = error.config
+
     if ((error?.response?.status === 401 ||
       errorCatch(error) === 'jwt expired' ||
       errorCatch(error) === 'jwt must be provided') &&

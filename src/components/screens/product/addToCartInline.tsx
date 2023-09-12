@@ -17,6 +17,24 @@ const AddToCartInline: FC<{ product: IProduct }> = ({ product }) => {
 	return (
 		<div className={classes.inlineBtn}>
 			<Button
+				className='sm-custom:hidden'
+				onClick={()=>
+					currentProduct
+						? removeFromCart({ id: currentProduct.id })
+						: addToCart({
+								product,
+								quantity: 1,
+								price: +product.price
+						  })
+				}
+				variant='dark'
+			>
+				{currentProduct ? 'Remove From Cart' : 'Add To Cart'}
+			</Button>
+
+			<Button
+				className='sm:hidden'
+				size='bt'
 				onClick={()=>
 					currentProduct
 						? removeFromCart({ id: currentProduct.id })

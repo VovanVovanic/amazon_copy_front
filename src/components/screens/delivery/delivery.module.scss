@@ -1,0 +1,23 @@
+.delivery {
+ @apply flex flex-col gap-4 items-center justify-center
+}
+
+.list {
+ @apply mt-6;
+
+ >li {
+  @apply py-4;
+
+  >h4 {
+   @apply pb-2 font-semibold
+  }
+
+  >div {
+   @apply flex flex-col gap-2
+  }
+ }
+}
+
+.questions {
+ @apply w-full flex justify-start
+}

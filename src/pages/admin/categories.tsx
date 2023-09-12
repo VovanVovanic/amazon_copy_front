@@ -6,7 +6,7 @@ import { NextPage } from "next"
 const CategoriesPage: NextPage = () => {
 
   return (
-    <Meta title="Catwegories Admin Page">
+    <Meta title="Categories Admin Page">
       <Layout >
         <Categories />
       </Layout>

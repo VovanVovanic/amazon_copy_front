@@ -1,17 +1,19 @@
-export interface IAdminList{
+export interface IAdminList {
  listItems?: IListItem[]
  isLoading: boolean
- removeHandler?:(id:number)=>void
+ removeHandler?: (el: IListItem) => void
+ data?: string
 }
 
-export interface IListItem{
+export interface IListItem {
  id: number
  editUrl?: string
  viewUrl?: string
  items: string[]
 }
 
-export interface IAdminListItem{
+export interface IAdminListItem {
  listItem: IListItem
- removeHandler?:()=> void
+ data?: string
+ removeHandler?: () => void
 }

@@ -5,12 +5,12 @@ import { IFullUser, IUser, UserUpdate } from "@/store/user/types"
 class UsersService {
 
  async getProfile() {
-  const p =  await instance<IFullUser>({
+  const p = await instance<IFullUser>({
    url: `${users.profile}`,
    method: "GET"
   })
   return p
-  
+
  }
 
  async updateProfile(data: UserUpdate) {
@@ -18,6 +18,14 @@ class UsersService {
    url: `${users.update}`,
    method: "PUT",
    data
+  })
+
+ }
+
+ async deleteProfile(id: number) {
+  return instance<IUser>({
+   url: `${users.delete}`,
+   method: "DELETE",
   })
 
  }

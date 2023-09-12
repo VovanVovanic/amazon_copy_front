@@ -1,0 +1,14 @@
+.delete {
+ @apply flex flex-col gap-8
+}
+
+.btns {
+ @apply relative flex w-full justify-between xs-custom:flex-col xs-custom:gap-4;
+
+ button {
+  @apply static
+ }
+}
+.text{
+ @apply text-xl
+}

@@ -12,7 +12,7 @@
   }
   div{
    &:first-child{
-    @apply text-2xl font-semibold
+    @apply text-2xl font-semibold md-custom:text-lg sm-custom:text-base
    }
    &:last-child{
     
