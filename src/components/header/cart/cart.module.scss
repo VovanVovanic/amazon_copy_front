@@ -6,7 +6,8 @@
 	}
 
 	.wrapper {
-		@apply absolute -right-7 top-[4.2rem] z-50 w-80 rounded-xl bg-secondary px-5 py-3 text-sm text-white; animation: 0.3s cartAnimation ease-in-out;
+		@apply absolute -right-7 top-[4.2rem] z-50 w-80 rounded-xl bg-secondary px-5 py-3 text-sm text-white xs-custom:-right-[180%] xs-custom:top-[3.5rem]; 
+		animation: 0.3s cartAnimation ease-in-out;
 
 		.title {
 			@apply mb-5 text-lg font-normal;
@@ -23,7 +24,9 @@
 		}
 	}
 }
-
+.list{
+	@apply max-h-[332px] overflow-auto
+}
 @keyframes cartAnimation{
 from{
 	transform: translateX(110%);

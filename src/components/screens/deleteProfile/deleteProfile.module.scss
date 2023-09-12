@@ -3,5 +3,5 @@
 }
 
 .content {
- @apply bg-white rounded-md p-4 shadow-md w-1/2 gap-8
+ @apply bg-white rounded-md p-4 shadow-md w-1/2 gap-8 xl-custom:w-[80%] md-custom:w-full text-center
 }

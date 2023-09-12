@@ -1,16 +1,22 @@
 .checkout{
-    @apply grid gap-20;
+    @apply grid gap-20 xl-custom:gap-10;
     grid-template-columns: 1.5fr 2fr;
+    @media only screen and (max-width:1440px) {
+        grid-template-columns: auto auto;
+      }
+      @media only screen and (max-width:1020px) {
+        grid-template-columns: auto;
+      }
     .list{
         .item{
-            @apply mb-4 flex items-center rounded-lg bg-white px-6 py-3 pr-10;
+            @apply mb-4 flex items-center rounded-lg bg-white px-6 py-3 pr-10 sm-custom:px-4;
             .row{
                 @apply flex w-full items-center justify-between;
                 .info{
-                    @apply ml-6;
+                    @apply ml-6 xs-custom:ml-0;
                     div{
                         &:first-child{
-                            @apply text-lg font-semibold
+                            @apply text-lg font-semibold sm-custom:text-base
                         }
                         &:last-child{
                             @apply text-sm opacity-40
@@ -18,7 +24,7 @@
                     }
                 }
                 .price{
-                    @apply text-lg self-start
+                    @apply text-lg self-start sm-custom:text-base
                 }
             }
         }
@@ -40,6 +46,28 @@
 }
 
 .recommended{
-    @apply grid gap-20 justify-between;
-    grid-template-columns: repeat(2, minmax(0, auto))
+    @apply grid gap-20 justify-between 2xl-custom:gap-10;
+    grid-template-columns: repeat(4, minmax(0, auto));
+    @media only screen and (max-width:2500px) {
+        @apply justify-between;
+        grid-template-columns: repeat(3, minmax(0, auto));
+      }
+
+    @media only screen and (max-width:1980px) {
+        @apply justify-between;
+        grid-template-columns: repeat(2, minmax(0, auto));
+      }
+    @media only screen and (max-width:1440px) {
+        @apply justify-end;
+        grid-template-columns: repeat(1, minmax(0, auto));
+      }
+      @media only screen and (max-width:1020px) {
+        @apply justify-between;
+        grid-template-columns: auto auto;
+      }
+      @media only screen and (max-width:900px) {
+        @apply justify-center;
+        grid-template-columns: auto;
+      }
+
 }

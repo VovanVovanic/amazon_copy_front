@@ -16,7 +16,7 @@ const MyOrdersPage: NextPageAuth = () => {
     const list = useMemo(()=>{
         return orders?.map((el)=>{
             return(
-                <li key={el.id} className='bg-white shadow-md flex gap-10 p-7 my-7 rounded-lg'>
+                <li key={el.id} className='bg-white shadow-md flex gap-10 p-7 my-7 rounded-lg sm-custom:gap-4 sm-custom:text-base xs-custom:gap-3 xs-custom:text-sm xs-custom:p-4'>
                     <span>{el.id}</span>
                     <span>{el.status}</span>
                     <span>{new Date(el.createdAt).toLocaleDateString() }</span>
@@ -29,7 +29,7 @@ const MyOrdersPage: NextPageAuth = () => {
     return (
       <Meta title = "My Orders Page">
         <Layout >
-            <Heading>My Orders</Heading>
+            <Heading className="md-custom:pt-10">My Orders</Heading>
             <ul>
                 {orders?.length ? list : (<li>Orders Not Found</li>)}
             </ul>

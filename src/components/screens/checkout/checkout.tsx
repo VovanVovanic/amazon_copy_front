@@ -57,7 +57,7 @@ const CheckoutPage: FC<{ products: IProduct[] }> = ({ products }) => {
 			{items.length ? (
 				<section className={classes.checkout}>
 					<div>
-						<Heading className='mb-6'>Checkout</Heading>
+						<Heading className='mb-6 md-custom:pt-10 xl-custom:text-lg'>Checkout</Heading>
 						<ul className={classes.list}>{list}</ul>
 						<div className={classes.footer}>
 							<div className={classes.total}>
@@ -66,7 +66,15 @@ const CheckoutPage: FC<{ products: IProduct[] }> = ({ products }) => {
 							<Button
 								variant='dark'
 								size='lg'
-								className='mt-5 mb-2'
+								className='mt-5 mb-2 sm-custom:hidden'
+								onClick={() => mutate()}
+							>
+								Place Order
+							</Button>
+							<Button
+								variant='dark'
+								size='sm'
+								className='mt-5 mb-2 sm:hidden'
 								onClick={() => mutate()}
 							>
 								Place Order
@@ -74,7 +82,7 @@ const CheckoutPage: FC<{ products: IProduct[] }> = ({ products }) => {
 						</div>
 					</div>
 					<div>
-						<Heading className='mb-6 text-2xl'>Recommended Products</Heading>
+						<Heading className='mb-6 text-2xl xl-custom:text-lg'>Recommended</Heading>
 						<ul className={classes.recommended}>
 							{filteredCategory
 								.filter(el => !items.map(i => i.product.id).includes(el.id))

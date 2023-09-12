@@ -50,7 +50,7 @@ const EditProfileForm: FC<{profile:UserUpdate}> = ({ profile}) => {
   />
 
  return (
-  <div className="flex flex-col gap-8 items-center">
+  <div className="flex flex-col gap-8 items-center md-custom:pt-10">
    
    { profile && <Heading className={classes.title}>
        {`Edit Profile ${profile.name}`}
