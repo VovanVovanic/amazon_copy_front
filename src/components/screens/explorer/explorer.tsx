@@ -41,7 +41,9 @@ const Explorer: FC<IExplorer> = ({ initialProducts }) => {
           [classes.filterOpened]: filtersOpen
         })}
       >
-        <Filters className={classes.explorersFilters} />
+        <Filters className={cn(classes.explorersFilters, {
+          [classes.closed]: !filtersOpen
+        })} />
         {isFetching ? (
           <Spinner />
         ) : (

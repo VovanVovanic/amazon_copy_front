@@ -10,13 +10,16 @@ import { useIsAdmin } from '@/hooks/useIsAdmin';
 import { useAuth } from '@/hooks/useAuth';
 import Button from '@/ui/buttons/button';
 import Search from '@/ui/search/search';
+import MobileMenu from '../sidebar/mobileMenu';
+import Menu from '../sidebar/menu';
 
 const Header: FC<PropsWithChildren> = ({ children }) => {
 	const { isAdminPanel } = useIsAdmin()
 	const { user } = useAuth()
 	const[open, setOpen]=useState<boolean>(false)
-
+console.log(open,"open")
 	return (
+		<>
 		<header className={classes.header}>
 			<Link href='/'>
 				{isAdminPanel ?
@@ -91,6 +94,15 @@ const Header: FC<PropsWithChildren> = ({ children }) => {
 			</div>
 			<Search variant='hidden'/> 
 		</header>
+			<MobileMenu
+				open={open}
+				onClose={()=>setOpen(false)}
+			>
+				<Menu
+					variant='mobile'
+				/>
+			</MobileMenu>
+		</>
 	);
 };
 

@@ -1,22 +1,22 @@
 .explorer{
- @apply flex pt-10 xs-custom:-ml-12;
+ @apply flex  pt-10 gap-5 500-custom:flex-col;
  .explorersFilters{
-  @apply w-0 whitespace-nowrap opacity-0;
+  @apply w-0 500-custom:hidden whitespace-nowrap opacity-0;
   transition: width 600ms ease-in, opacity 600ms ease-in;
  }
- .catalog{
-  @apply w-full;
-  transition: all 600ms ease-in;
- }
+
  &.filterOpened{
-  @apply gap-5 xl-custom:flex-col xs-custom:ml-0;
+  @apply gap-5 xl-custom:flex-col xs-custom:ml-0 xl-custom:flex-1;
   .explorersFilters{
-   @apply w-[20%] opacity-100 1.5-custom:w-[30%] xl-custom:w-full xl-custom:flex xl-custom:justify-between xl-custom:flex-wrap 500-custom:justify-center 
+   @apply w-[20%] opacity-100 1.5-custom:w-[30%] xl-custom:w-full xl-custom:flex xl-custom:justify-between xl-custom:flex-wrap  xs-custom:flex-col
   }
+
  }
+
 }
 
 .explorerCatalog{
+ @apply md-custom:pt-0;
  h1{
   @apply xl-custom:text-2xl lg-custom:justify-end
  }

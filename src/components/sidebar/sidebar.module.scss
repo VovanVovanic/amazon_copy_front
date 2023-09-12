@@ -21,7 +21,38 @@
       svg {
          @apply ml-4 text-xl
       }
+      @media (orientation: landscape) and (max-width:1050px) {
+         @apply bottom-[5%] mr-2
+       }
    }
 
+
+}
+.menuList{
+   @apply h-fit fixed ;
+   @media (orientation: landscape) and (max-width:950px) {
+      @apply top-28 max-h-60 overflow-y-auto
+    }
+
+}
+
+.mobileMenu{
+   @apply -translate-x-full md:hidden fixed right-0 left-0 bottom-0 top-40 transition-all duration-300 bg-secondary border border-t-2 border-t-primary  flex items-start justify-start z-20 
+}
+.open{
+   @apply -translate-x-0;
+   ul{
+      @apply fixed flex flex-col left-2 right-2  top-0 gap-2  items-center  h-[500px] overflow-y-auto  mt-0 py-5 pb-10 pt-20;
+      li{
+         @apply py-4 mx-6 w-1/2 cursor-pointer text-2xl text-white transition-all duration-300
+         text-center;
+         &:hover{
+            @apply text-primary bg-[white]/30 rounded-md shadow-lg
+         }
+         &:last-child{
+            @apply text-red
+         }
+      }
+   }
 
 }
