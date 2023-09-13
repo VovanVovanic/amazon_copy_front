@@ -20,22 +20,6 @@
  .links {
   @apply rounded-xl overflow-hidden max-h-[300px];
 
-  .link {
-   @apply flex justify-center w-full aspect-[4/3]
-  }
-
-  .btns {
-   @apply absolute top-2 right-2 bg-[gray]/80 rounded-md shadow-md grid grid-cols-1 gap-2 p-1 h-fit;
-
-   button {
-    @apply text-2xl font-bold;
-
-    &:hover {
-     @apply transition-all scale-110
-    }
-   }
-  }
-
  }
 
  .price {
@@ -45,4 +29,40 @@
    @apply text-base font-normal
   }
  }
+}
+
+.link {
+ @apply relative w-full;
+
+ .img{
+  @apply flex relative justify-center w-full aspect-[4/3];
+  &:before {
+   @apply content-[""] absolute top-0 left-[-75%] block w-1/2 h-full;
+   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+   transform: skewX(-25deg);
+  }
+ 
+  &:hover {
+   &:before {
+    animation: shine .75s;
+   }
+  }
+ }
+ .btns {
+  @apply absolute top-2 right-2 bg-[gray]/80 rounded-md shadow-md grid grid-cols-1 gap-2 p-1 h-fit z-10;
+
+  button {
+   @apply text-2xl font-bold;
+
+   &:hover {
+    @apply transition-all scale-110
+   }
+  }
+ }
+}
+
+@keyframes shine {
+	100% {
+		left: 125%;
+	}
 }

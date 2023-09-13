@@ -1,11 +1,15 @@
 {
- "trailingComma": "none",
+ "trailingComma": "es5",
  "tabWidth": 2,
- "useTabs": true,
- "singleQuote": true,
- "jsxSingleQuote": true,
- "arrowParens": "avoid",
- "importOrder":[
+ "singleQuote": false,
+ "semi": true,
+ "printWidth": 80,
+ "useTabs": false,
+ "bracketSpacing": true,
+ "arrowParens": "always",
+ "parser": "typescript",
+ "endOfLine": "auto",
+ "importOrder": [
   "<THIRD_PARTY_MODULES>",
   "^@/components/(.*)$",
   "^@/layout/(.*)$",
@@ -22,6 +26,6 @@
   "^@../(.*)$",
   "^@./(.*)$"
  ],
- "importOrderSeparation":true,
- "importOrderSortSpecifier":true
+ "importOrderSeparation": true,
+ "importOrderSortSpecifier": true
 }

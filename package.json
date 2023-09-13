@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "npx prettier --write ."
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -45,6 +46,7 @@
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/js-cookie": "^3.0.3",
     "@types/react-transition-group": "^4.4.6",
-    "prettier-plugin-tailwindcss": "^0.3.0"
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "prettier": "^3.0.2"
   }
 }

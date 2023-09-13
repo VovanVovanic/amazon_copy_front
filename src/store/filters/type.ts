@@ -1,13 +1,13 @@
-import { IProductFilters } from "../product/types"
+import { IProductFilters } from "../product/types";
 
-export interface IFilterState{
- isFilterUpdated: boolean
- categoryPath:string
- categoryProdictsFilter:string
- queryParams: IProductFilters
+export interface IFilterState {
+  isFilterUpdated: boolean;
+  categoryPath: string;
+  categoryProdictsFilter: string;
+  queryParams: IProductFilters;
 }
 
-export interface IFiltersActionsPayload{
- value: string | number
- key: keyof IProductFilters
+export interface IFiltersActionsPayload {
+  value: string | number;
+  key: keyof IProductFilters;
 }

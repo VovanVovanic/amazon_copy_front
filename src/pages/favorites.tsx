@@ -1,14 +1,14 @@
-import Catalog from "@/components/catatalog/catalog"
-import { useProfile } from "@/hooks/querries/useProfile"
-import { NextPageAuth } from "@/providers/authProviders/types"
-import Layout from "@/ui/layout/layout"
-import Meta from "@/ui/meta/meta"
+import Catalog from "@/components/catatalog/catalog";
+import { useProfile } from "@/hooks/querries/useProfile";
+import { NextPageAuth } from "@/providers/authProviders/types";
+import Layout from "@/ui/layout/layout";
+import Meta from "@/ui/meta/meta";
 
 const FavoritesPage: NextPageAuth = () => {
-  const { profile } = useProfile()
+  const { profile } = useProfile();
   return (
     <Meta title="Favorites Page">
-      <Layout >
+      <Layout>
         <Catalog
           title="Favorites"
           products={profile?.favorites || []}
@@ -16,10 +16,9 @@ const FavoritesPage: NextPageAuth = () => {
         />
       </Layout>
     </Meta>
+  );
+};
 
-  )
-}
+FavoritesPage.isOnlyUser = true;
 
-FavoritesPage.isOnlyUser = true
-
-export default FavoritesPage
+export default FavoritesPage;

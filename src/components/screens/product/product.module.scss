@@ -26,7 +26,7 @@
 
 
 .galery {
-	@apply mt-5 w-full overflow-x-auto whitespace-nowrap;
+	@apply mt-5 flex w-full overflow-x-auto whitespace-nowrap;
 }
 
 .info {
@@ -86,7 +86,7 @@
 }
 
 .button {
-	@apply mr-5 relative inline-block overflow-hidden rounded-lg transition-all duration-300 aspect-video;
+	@apply mr-5 relative flex items-end overflow-hidden rounded-lg transition-all duration-300 aspect-video;
 
 	&:before {
 		@apply content-[""] absolute top-0 left-[-75%] block w-1/2 h-full;

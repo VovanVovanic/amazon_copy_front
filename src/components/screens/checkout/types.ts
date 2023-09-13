@@ -1,3 +1,1 @@
-export interface ICheckout{
-    
-}
+export interface ICheckout {}

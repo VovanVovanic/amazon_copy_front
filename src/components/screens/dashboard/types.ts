@@ -1,3 +1,1 @@
-export interface IDashboard{
- 
-}
+export interface IDashboard {}

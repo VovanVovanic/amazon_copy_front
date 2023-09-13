@@ -1,3 +1,3 @@
-export interface ICarouselInitialState{
- selectedItemIndex:number
+export interface ICarouselInitialState {
+  selectedItemIndex: number;
 }

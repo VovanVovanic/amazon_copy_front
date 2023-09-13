@@ -1,3 +1,1 @@
-export interface ICategoryGroup{
- 
-}
+export interface ICategoryGroup {}

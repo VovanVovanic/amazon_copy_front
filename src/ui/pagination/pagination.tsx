@@ -1,23 +1,21 @@
-import ReactPaginate from 'react-paginate'
-import classes from './pagiation.module.scss'
-import { HiArrowSmLeft, HiArrowSmRight } from 'react-icons/hi'
-import { FC, useEffect, useState } from 'react';
-import { IPaginate } from './types'
-
+import ReactPaginate from "react-paginate";
+import classes from "./pagiation.module.scss";
+import { HiArrowSmLeft, HiArrowSmRight } from "react-icons/hi";
+import { FC } from "react";
+import { IPaginate } from "./types";
 
 const Pagination: FC<IPaginate> = ({ onChange, paginationLength, page }) => {
   const getPage = (p: number) => {
     if (p === 1 || p === paginationLength) {
-      return p
+      return p;
+    } else {
+      return p - 1;
     }
-    else {
-      return p - 1
-    }
-  }
+  };
 
-  const onPageChange = (selectedItem: { selected: number; }) => {
-    onChange(selectedItem.selected + 1)
-  }
+  const onPageChange = (selectedItem: { selected: number }) => {
+    onChange(selectedItem.selected + 1);
+  };
 
   return (
     <div className={classes.pagination}>
@@ -32,15 +30,11 @@ const Pagination: FC<IPaginate> = ({ onChange, paginationLength, page }) => {
         previousClassName={classes.arrow}
         activeClassName={classes.active}
         onPageChange={onPageChange}
-        forcePage={page-1}
-        previousLabel={
-          <HiArrowSmLeft />}
-        nextLabel={
-          <HiArrowSmRight
-          />
-        }
+        forcePage={page - 1}
+        previousLabel={<HiArrowSmLeft />}
+        nextLabel={<HiArrowSmRight />}
       />
     </div>
-  )
-}
-export default Pagination
+  );
+};
+export default Pagination;

@@ -5,9 +5,9 @@
 .catalog {
  @apply grid w-full gap-10 justify-between;
  grid-template-columns: repeat(4, minmax(0, auto));
- @media only screen and (max-width:1580px) {
+ @media only screen and (max-width:1620px) {
   @apply gap-6 flex flex-wrap justify-between;
-  // grid-template-columns: 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr;
 }
  @media only screen and (max-width:1300px) {
   @apply gap-2;

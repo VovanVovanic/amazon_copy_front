@@ -1,4 +1,4 @@
-export interface IStatistic{
- name:string
-value:string
+export interface IStatistic {
+  name: string;
+  value: string;
 }

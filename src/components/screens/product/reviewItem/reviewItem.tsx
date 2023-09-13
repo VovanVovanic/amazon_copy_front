@@ -1,35 +1,35 @@
-import classes from './reviewItem.module.scss';
-import { FC } from 'react';
-import Image from 'next/image'
-import { IReview } from '@/store/reviews/types';
-import { Rating } from 'react-simple-star-rating';
+import classes from "./reviewItem.module.scss";
+import { FC } from "react";
+import Image from "next/image";
+import { IReview } from "@/store/reviews/types";
+import { Rating } from "react-simple-star-rating";
 
 const ReviewItem: FC<{ review: IReview }> = ({ review }) => {
-	return <li 
-    className={classes.item}
-    >
-     <div className={classes.content}>
-        <Image 
-        alt={review.user.name}
-        src={review.user.avatarPath}
-        width={40}
-        height={40}
-        className='mr-3 block rounded-full'
+  return (
+    <li className={classes.item}>
+      <div className={classes.content}>
+        <Image
+          alt={review.user.name}
+          src={review.user.avatarPath}
+          width={40}
+          height={40}
+          className="mr-3 block rounded-full"
         />
         <span>{review.user.name}</span>
-        </div>  
-        <Rating 
+      </div>
+      <Rating
         readonly
         initialValue={+review.rating}
         SVGstyle={{
-            display:'inline-block'
+          display: "inline-block",
         }}
         size={20}
         allowFraction
         transition
-        /> 
-        <div className='text-sm mt-4 leading-relaxed'>{review.text}</div>
-    </li>;
+      />
+      <div className="text-sm mt-4 leading-relaxed">{review.text}</div>
+    </li>
+  );
 };
 
 export default ReviewItem;

@@ -1,15 +1,15 @@
-import { ReactNode } from "react"
+import { ReactNode } from "react";
 
 export interface IAdminMenuItem {
- name: string
- route: string
+  name: string;
+  route: string;
 }
 export interface IMenuMobile {
- open: boolean
- children: ReactNode
- onClose: () => void
+  open: boolean;
+  children: ReactNode;
+  onClose: () => void;
 }
 
 export interface IMenu {
- variant: "mobile" | "desk"
+  variant: "mobile" | "desk";
 }
