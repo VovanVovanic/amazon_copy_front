@@ -12,7 +12,7 @@ const nextConfig = {
     return [
       {
         source: '/uploads/:path*',
-        destination: 'https://demo-shop-oat9.onrender.com/uploads/:path*'
+        destination: 'https://demo-shop-5jip.onrender.com/uploads/:path*'
       }
     ]
   }

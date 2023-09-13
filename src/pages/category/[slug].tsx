@@ -43,7 +43,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { data: category } = await Category.getCategoryByFeature(
     ByFeature.Slug,
     params?.slug as string,
-    "newest"
   );
 
   return {

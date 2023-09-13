@@ -31,7 +31,7 @@ const Meta: FC<PropsWithChildren<ISeo>> = ({
               content={description}
             />
             <link href="../../output.css" rel="stylesheet" />
-            <link rel="canonical" href={currentUrl} />
+            <link rel="canonical" href={currentUrl || ""} />
             <meta property="og:url" content={currentUrl} />
             <meta property="og:locale" content="en" />
             <meta property="og:title" content={titleMerge(title)} />

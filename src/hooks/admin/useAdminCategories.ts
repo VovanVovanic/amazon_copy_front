@@ -12,7 +12,7 @@ export const useAdminCategories = () => {
         data.data.map((el): IListItem => {
           return {
             id: el.id,
-            editUrl: `/admin/category/edit/${el.id}`,
+            editUrl: `/admin/category/edit/${el.slug}`,
             items: [el.name, String(el.id), formatDate(el.createdAt)],
           };
         }),
