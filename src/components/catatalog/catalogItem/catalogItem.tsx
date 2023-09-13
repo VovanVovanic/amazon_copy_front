@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from "react";
 import { ICatalogItem } from "./types";
-import classes from "./item.module.scss";
+import classes from "./Item.module.scss";
 import cn from "classnames";
 import Image from "next/image";
 import Ratings from "../rating/ratings";
