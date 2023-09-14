@@ -13,6 +13,7 @@ const nextConfig = {
       {
         source: '/uploads/:path*',
         destination: 'https://demo-shop-5jip.onrender.com/uploads/:path*'
+        //destination: 'http://localhost:4200/uploads/:path*'
       }
     ]
   }

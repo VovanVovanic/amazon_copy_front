@@ -46,6 +46,26 @@ const Auth = () => {
         className={cn(classes.form)}
       >
         <Heading className={cn(classes.heading)}>{authType}</Heading>
+
+        {
+          type === IAuthVariants.REGISTER && (
+            <>
+            <Field
+            {...onRegister("name", {
+              required: "Required"
+            })}
+            placeholder="Enter name"
+            error={errors.name}
+            />
+            
+            <Field
+            {...onRegister("phone")}
+            placeholder="Phone (optional)"
+            />
+            </>
+          ) 
+          
+        }
         <Field
           {...onRegister("email", {
             required: "Required",

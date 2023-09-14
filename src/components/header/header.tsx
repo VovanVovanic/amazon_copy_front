@@ -11,6 +11,9 @@ import Button from "@/ui/buttons/button";
 import Search from "@/ui/search/search";
 import MobileMenu from "../sidebar/mobileMenu";
 import Menu from "../sidebar/menu";
+import { useFilters } from "@/hooks/useFilters";
+import { useRouter } from "next/navigation";
+
 
 const Header: FC<PropsWithChildren> = ({ children }) => {
   const { isAdminPanel } = useIsAdmin();
@@ -20,7 +23,9 @@ const Header: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
       <header className={classes.header}>
-        <Link href="/">
+        <Link
+          href="/"
+        >
           {isAdminPanel ? (
             <Image
               priority
