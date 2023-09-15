@@ -12,6 +12,7 @@ import { GetStaticProps } from "next";
 const SearchResultPage: NextPageAuth<{ data: TypePaginationProducts }> = ({
   data,
 }) => {
+  
   return (
     <Meta title="Search Result">
       <Layout>
@@ -22,6 +23,7 @@ const SearchResultPage: NextPageAuth<{ data: TypePaginationProducts }> = ({
 };
 
 export const getStaticProps: GetStaticProps = async () => {
+
   const data = await Products.getAll({
     sort: EnumProductsSort.NEWEST,
     searchTerm: "",

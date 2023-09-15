@@ -10,15 +10,16 @@ import { IExplorer } from "./types";
 import Filters from "@/components/filters/filters";
 import Spinner from "@/ui/spinner/spinner";
 import Pagination from "@/ui/pagination/pagination";
-import { usePathname } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 const Explorer: FC<IExplorer> = ({ initialProducts }) => {
-  const { isFilterUpdated, queryParams, updateParams, resetQueryParam } =
+  const { isFilterUpdated, queryParams, updateParams } =
     useFilters();
+  const searchParam = useSearchParams().get("searchTerm")
 
   const [filtersOpen, setFiltersOpen] = useState<boolean>(false);
 
-  const { data, isFetching } = useQuery(
+  const { data, isFetching,refetch} = useQuery(
     ["search products", queryParams],
     () => Products.getAll(queryParams),
     {
@@ -27,6 +28,10 @@ const Explorer: FC<IExplorer> = ({ initialProducts }) => {
     }
   );
 
+  useEffect(() => {
+    if(searchParam) updateParams("searchTerm",searchParam)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
 
   const handlePageClick = (page: number) => {
     updateParams("page", page);

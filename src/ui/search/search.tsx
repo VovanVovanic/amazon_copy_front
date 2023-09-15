@@ -10,9 +10,8 @@ import { useActions } from "@/hooks/useActions";
 const Search: FC<ISearch> = ({ variant, className, ...rest }) => {
   const [term, setTerm] = useState<string>("");
   const router = useRouter();
-  const { queryParams, updateParams } = useFilters();
-  const { removeParams } = useActions();
-  
+  const { updateParams } = useFilters();
+
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setTerm(e.currentTarget.value);
   };
