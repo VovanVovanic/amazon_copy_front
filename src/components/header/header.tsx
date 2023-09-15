@@ -1,7 +1,7 @@
 import classes from "./header.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import { FC, PropsWithChildren, useState } from "react";
+import { FC, PropsWithChildren, useEffect, useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import Cart from "./cart/cart";
@@ -11,20 +11,24 @@ import Button from "@/ui/buttons/button";
 import Search from "@/ui/search/search";
 import MobileMenu from "../sidebar/mobileMenu";
 import Menu from "../sidebar/menu";
-import { useFilters } from "@/hooks/useFilters";
-import { useRouter } from "next/navigation";
+
+import { useQueryClient } from '@tanstack/react-query'
+import { useActions } from "@/hooks/useActions";
 
 
 const Header: FC<PropsWithChildren> = ({ children }) => {
   const { isAdminPanel } = useIsAdmin();
   const { user } = useAuth();
   const [open, setOpen] = useState<boolean>(false);
+  const {removeParams } = useActions();
 
+  
   return (
     <>
       <header className={classes.header}>
         <Link
           href="/"
+          onClick={()=>removeParams()}
         >
           {isAdminPanel ? (
             <Image
@@ -72,7 +76,6 @@ const Header: FC<PropsWithChildren> = ({ children }) => {
               height={50}
               src={"/panda.svg"}
               alt={"panda_logo"}
-              // className='sm-custom:w-32 sm-custom:h-32'
             />
           </Link>
           <button onClick={() => setOpen(!open)} className={classes.mobileBtn}>

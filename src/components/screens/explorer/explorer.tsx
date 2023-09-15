@@ -10,6 +10,7 @@ import { IExplorer } from "./types";
 import Filters from "@/components/filters/filters";
 import Spinner from "@/ui/spinner/spinner";
 import Pagination from "@/ui/pagination/pagination";
+import { usePathname } from "next/navigation";
 
 const Explorer: FC<IExplorer> = ({ initialProducts }) => {
   const { isFilterUpdated, queryParams, updateParams, resetQueryParam } =
@@ -26,9 +27,11 @@ const Explorer: FC<IExplorer> = ({ initialProducts }) => {
     }
   );
 
+
   const handlePageClick = (page: number) => {
     updateParams("page", page);
   };
+  
   const isPagination = data.length && data.length > queryParams.perPage;
   return (
     <>

@@ -7,9 +7,9 @@ import { IProductFilters } from "@/store/product/types";
 export const useFilters = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const { updateQueryParam, resetQueryParam } = useActions();
+  const { updateQueryParam, resetQueryParam, removeParams } = useActions();
   const { replace } = useRouter();
-  const { queryParams, isFilterUpdated } = useTypedSelector(
+  const { queryParams, isFilterUpdated} = useTypedSelector(
     (state) => state.filters
   );
   const [trigger, setTrigger] = useState<boolean>(false);
@@ -36,5 +36,6 @@ export const useFilters = () => {
     queryParams,
     resetQueryParam,
     isFilterUpdated,
+    removeParams
   };
 };

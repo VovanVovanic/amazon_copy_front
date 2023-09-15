@@ -38,5 +38,14 @@ export const filtersSlice = createSlice({
     setCategoryPath: (state, action: PayloadAction<string>) => {
       state.categoryPath = action.payload;
     },
+    removeParams: (state) => {
+      state.queryParams = {
+        sort: EnumProductsSort.NEWEST,
+        searchTerm: "",
+        page: 1,
+        perPage: 8,
+        ratings: "",
+      }
+    }
   },
 });

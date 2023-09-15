@@ -18,8 +18,9 @@ const HomePage: FC<PropsWithChildren<IHome>> = ({
   children,
   ...rest
 }) => {
-  const { isFilterUpdated, queryParams, updateParams } = useFilters();
+  const { isFilterUpdated, queryParams, updateParams} = useFilters();
   const { page, perPage } = queryParams;
+
   const { data, isFetching, refetch } = useQuery(
     ["search products", queryParams],
     () => Products.getAll(queryParams),
