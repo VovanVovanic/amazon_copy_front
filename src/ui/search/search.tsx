@@ -5,11 +5,14 @@ import { ISearch } from "./types";
 import { ImSearch } from "react-icons/im";
 import { useRouter } from "next/router";
 import { useFilters } from "@/hooks/useFilters";
+import { useActions } from "@/hooks/useActions";
 
 const Search: FC<ISearch> = ({ variant, className, ...rest }) => {
   const [term, setTerm] = useState<string>("");
   const router = useRouter();
   const { queryParams, updateParams } = useFilters();
+  const { removeParams } = useActions();
+  
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setTerm(e.currentTarget.value);
   };
@@ -21,8 +24,7 @@ const Search: FC<ISearch> = ({ variant, className, ...rest }) => {
 
   const onKeyHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.code === "Enter") {
-      onPath();
-      setTerm("");
+      onPath()
     }
     if (e.code === "Escape") {
       setTerm("");
